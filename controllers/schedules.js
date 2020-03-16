@@ -1,15 +1,20 @@
 const debug = require("debug")("ctt:api:schedule");
 
 class SchedulesController {
+  constructor({ apiAdapter }) {
+    if (!apiAdapter) throw Error("apiAdapter is null");
 
-  async getSchedules() {
-    const departure = {
-      nextDeparture: {
-        time: '2020-03-09T18:43:52+00:00'
-      }
-    };
-    debug('controller', departure);
-    return departure;
+    this.apiAdapter = apiAdapter;
+  }
+
+  async getSchedules({ station, to }) {
+    const allSchedules = await this.apiAdapter.getAllSchedulesRATP();
+
+    const route = allSchedules.routes.find(
+      route => route.station.code === "SGL"
+    );
+
+    return { route };
   }
 }
 
