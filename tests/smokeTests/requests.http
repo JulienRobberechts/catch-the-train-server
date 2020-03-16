@@ -1,3 +1,20 @@
 
+@rootUrl=http://localhost:3034
 
-http://localhost:3034/schedules
+### all stations
+
+GET {{rootUrl}}/schedules
+
+### Station only
+
+GET {{rootUrl}}/schedules/ml
+
+
+### Station + direction
+GET {{rootUrl}}/schedules/sgl/le-vesinet-centre
+
+### Station + direction
+GET {{rootUrl}}/schedules/ml/cergy-le-haut
+
+### Station + direction
+GET {{rootUrl}}/schedules/ml/marne-la-vallee-chessy

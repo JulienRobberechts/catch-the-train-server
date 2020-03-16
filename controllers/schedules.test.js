@@ -1,32 +1,18 @@
-const controller = require("./controller");
-const apiAdapter = require("../adapters/openEventApi.mock");
-const eventsController = new controller({ apiAdapter });
+const SchedulesController = require("./schedules");
+const apiAdapter = require("../adapters/ratp-api-adapter.mock");
+const controller = new SchedulesController({ apiAdapter });
 
-describe("events controller", () => {
-  it("should return all events", async () => {
-    const result = await eventsController.getEvents({});
+describe("schedules controller", () => {
+  it("should return all schedules", async () => {
+    const result = await controller.getSchedules({});
     expect(result).toMatchSnapshot();
   });
-  it("should return events of type Music", async () => {
-    const result = await eventsController.getEvents({ type: "Music" });
+  it("should return schedules for a station", async () => {
+    const result = await controller.getSchedules({ station: "sgl" });
     expect(result).toMatchSnapshot();
   });
-  it("should return events of type Experience", async () => {
-    const result = await eventsController.getEvents({
-      type: "Experience"
-    });
-    expect(result).toMatchSnapshot();
-  });
-  it("should return no events of type unknown", async () => {
-    const result = await eventsController.getEvents({
-      type: "UnknownType"
-    });
-    expect(result).toEqual([]);
-  });
-  it("should return events in the US", async () => {
-    const result = await eventsController.getEvents({
-      countryCode: "USA"
-    });
+  it("should return schedules for a station/to", async () => {
+    const result = await controller.getSchedules({ station: "sgl", to: "" });
     expect(result).toMatchSnapshot();
   });
 });

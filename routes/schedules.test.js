@@ -3,11 +3,25 @@ const debug = require("debug")("ctt:test");
 
 const app = require("../app");
 const api = request(app);
+const { mockRatpApi } = require("../tests/mock/ratp-api");
 
 describe("GET /schedules", () => {
-  it("should return the static schedules", async () => {
+  beforeEach(() => {
+    mockRatpApi();
+  });
+  it("should return the all schedules", async () => {
     const response = await api.get("/schedules").expect(200);
-    debug('/schedules body2', response.body);
-    expect(response.body.nextDeparture.time).toEqual('2020-03-09T18:43:52+00:00');
+    debug("/schedules body", response.body);
+    expect(response.body).toMatchSnapshot();
+  });
+  it("should return the SGL schedules", async () => {
+    const response = await api.get("/schedules/SGL").expect(200);
+    debug("/schedules body", response.body);
+    expect(response.body).toMatchSnapshot();
+  });
+  it("should return the SGL schedules", async () => {
+    const response = await api.get("/schedules/SGL/Paris").expect(200);
+    debug("/schedules body", response.body);
+    expect(response.body).toMatchSnapshot();
   });
 });

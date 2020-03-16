@@ -1,4 +1,9 @@
 const debug = require("debug")("ctt:api:schedule");
+const {
+  routesByDepartureStation,
+  routesByDestination
+} = require("../domains/timeTable/filters");
+const { normalizeString } = require("../domains/timeTable/normalizeString");
 
 class SchedulesController {
   constructor({ apiAdapter }) {
@@ -10,11 +15,11 @@ class SchedulesController {
   async getSchedules({ station, to }) {
     const allSchedules = await this.apiAdapter.getAllSchedulesRATP();
 
-    const route = allSchedules.routes.find(
-      route => route.station.code === "SGL"
-    );
+    const routes = allSchedules.routes
+      .filter(routesByDepartureStation(normalizeString(station)))
+      .filter(routesByDestination(normalizeString(to)));
 
-    return { route };
+    return { routes };
   }
 }
 
