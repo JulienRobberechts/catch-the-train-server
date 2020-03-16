@@ -66,8 +66,8 @@ const mockedFullTimeTable = {
       destinations: [
         "achères-ville",
         "conflans-fin-d-oise",
-        "neuville-université",
-        "cergy-préfecture",
+        "neuville-universite",
+        "cergy-prefecture",
         "cergy-saint-christophe",
         "cergy-le-haut"
       ],
