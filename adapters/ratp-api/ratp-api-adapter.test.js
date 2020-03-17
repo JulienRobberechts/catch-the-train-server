@@ -37,7 +37,7 @@ describe("ratp-api adapter error management", () => {
       expect(e.message).toEqual("Connectivity Error with the Api 'ratp'");
       done();
     });
-  }, 200);
+  }, 400);
   it("should fail with connectivity error after the timeout (500ms) with invalid address (non http)", done => {
     const apiAdapter = new RatpApiAdapter({
       ratpApiRootUrl: "invalid-api.ratp.fr"
