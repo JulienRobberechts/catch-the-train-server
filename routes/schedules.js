@@ -4,14 +4,12 @@ const debug = require("debug")("ctt:api:schedule");
 const { wrapAsync } = require("../utils/errors");
 
 // to put in a factory:
-const RatpApiAdapter =
-  process.env.SAMPLE_MODE === "true"
-    ? require("../adapters/ratp-api-adapter.mock")
-    : require("../adapters/ratp-api-adapter");
-const apiAdapter = new RatpApiAdapter();
+const { getRatpApiAdapter } = require("../adapters/ratp-api/factory");
+const apiAdapter = getRatpApiAdapter();
 
 const SchedulesController = require("../controllers/schedules");
 const schedulesController = new SchedulesController({ apiAdapter });
+
 // end
 
 router.get(

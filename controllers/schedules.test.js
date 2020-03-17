@@ -1,5 +1,5 @@
 const SchedulesController = require("./schedules");
-const RatpApiAdapter = require("../adapters/ratp-api-adapter.mock");
+const RatpApiAdapter = require("../adapters/ratp-api/ratp-api-adapter.mock");
 
 describe("schedules controller", () => {
   let controller;

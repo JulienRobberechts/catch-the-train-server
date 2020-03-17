@@ -1,7 +1,7 @@
 const axios = require("axios");
-const config = require("../config");
+const config = require("../../config");
 var debug = require("debug")("ctt:api:schedule");
-const { ConnectivityError } = require("../utils/errors");
+const { ConnectivityError } = require("../../utils/errors");
 
 const apiName = "ratp";
 
