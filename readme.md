@@ -16,9 +16,12 @@ Open a browser at ['http://localhost:3034/schedules'](http://localhost:3034/sche
 
 ```json
 {
-    "nextDeparture":
-    {
-        "time": "2020-03-09T18:43:52+00:00"
-    }
+  "nextDeparture": {
+    "time": "2020-03-09T18:43:52+00:00"
+  }
 }
 ```
+
+### Code coverage
+
+open the generated file: [coverage report](./coverage/lcov-report/index.html)
