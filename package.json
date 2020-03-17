@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "cross-env SAMPLE_MODE=true DEBUG=ctt:* PORT=3034 nodemon ./bin/www",
+    "start": "cross-env SAMPLE_MODE=false DEBUG=ctt:* PORT=3034 nodemon ./bin/www",
     "test": "cross-env DEBUG=ctt:* jest --collectCoverage",
     "test-update": "jest -u"
   },

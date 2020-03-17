@@ -11,8 +11,9 @@ const {
 
 class SchedulesController {
   constructor({ apiAdapter }) {
-    if (!apiAdapter) throw Error("apiAdapter is null");
-
+    if (!apiAdapter) {
+      throw Error("apiAdapter is null");
+    }
     this.apiAdapter = apiAdapter;
   }
 

@@ -1,8 +1,14 @@
 const SchedulesController = require("./schedules");
-const apiAdapter = require("../adapters/ratp-api-adapter.mock");
-const controller = new SchedulesController({ apiAdapter });
+const RatpApiAdapter = require("../adapters/ratp-api-adapter.mock");
 
 describe("schedules controller", () => {
+  let controller;
+  beforeAll(() => {
+    controller = new SchedulesController({
+      apiAdapter: new RatpApiAdapter()
+    });
+  });
+
   it("should not accept null api adapter part 1", async () => {
     const invalidControllerInit = () => new SchedulesController();
     expect(invalidControllerInit).toThrow();
