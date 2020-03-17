@@ -1,5 +1,6 @@
 
 @rootUrl=http://localhost:3034
+@rootUrlNoConnectivity=http://localhost:3035
 
 ### all stations
 
@@ -23,4 +24,4 @@ GET {{rootUrl}}/schedules/maisons-laffitte/marne-la-vallee-chessy
 GET {{rootUrl}}/schedules/invalid-station
 
 ### Connectivity error .. TODO
-GET {{rootUrl}}/schedules/maisons-laffitte
+GET {{rootUrlNoConnectivity}}/schedules/maisons-laffitte
