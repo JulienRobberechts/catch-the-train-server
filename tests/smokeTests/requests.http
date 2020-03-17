@@ -7,14 +7,20 @@ GET {{rootUrl}}/schedules
 
 ### Station only
 
-GET {{rootUrl}}/schedules/ml
+GET {{rootUrl}}/schedules/maisons-laffitte
 
 
 ### Station + direction
-GET {{rootUrl}}/schedules/sgl/le-vesinet-centre
+GET {{rootUrl}}/schedules/saint-germain-en-laye/le-vesinet-centre
 
 ### Station + direction
-GET {{rootUrl}}/schedules/ml/cergy-le-haut
+GET {{rootUrl}}/schedules/maisons-laffitte/cergy-le-haut
 
 ### Station + direction
-GET {{rootUrl}}/schedules/ml/marne-la-vallee-chessy
+GET {{rootUrl}}/schedules/maisons-laffitte/marne-la-vallee-chessy
+
+### Validation error
+GET {{rootUrl}}/schedules/invalid-station
+
+### Connectivity error .. TODO
+GET {{rootUrl}}/schedules/maisons-laffitte

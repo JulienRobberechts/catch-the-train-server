@@ -13,7 +13,7 @@ Object {
         "nanterre-universite",
         "nanterre-prefecture",
         "la-defense",
-        "charles-de-gaulle–etoile",
+        "charles-de-gaulle-etoile",
         "gare-d-auber",
         "châtelet–les-halles",
         "gare-de-lyon",
@@ -33,7 +33,7 @@ Object {
       ],
       "direction": "Marne-la-Vallée – Chessy",
       "station": Object {
-        "code": "sgl",
+        "code": "saint-germain-en-laye",
         "name": "Saint-Germain-en-Laye",
       },
       "trains": Array [
@@ -70,7 +70,7 @@ Object {
       ],
       "direction": "Cergy le Haut",
       "station": Object {
-        "code": "ml",
+        "code": "maisons-laffitte",
         "name": "Maisons-Laffitte ",
       },
       "trains": Array [
@@ -99,7 +99,7 @@ Object {
         "houilles-carrieres-sur-seine",
         "nanterre-prefecture",
         "la-defense",
-        "charles-de-gaulle–etoile",
+        "charles-de-gaulle-etoile",
         "gare-d-auber",
         "châtelet–les-halles",
         "gare-de-lyon",
@@ -119,7 +119,7 @@ Object {
       ],
       "direction": "Marne-la-Vallée – Chessy",
       "station": Object {
-        "code": "ml",
+        "code": "maisons-laffitte",
         "name": "Maisons-Laffitte ",
       },
       "trains": Array [
@@ -158,7 +158,7 @@ Object {
         "nanterre-universite",
         "nanterre-prefecture",
         "la-defense",
-        "charles-de-gaulle–etoile",
+        "charles-de-gaulle-etoile",
         "gare-d-auber",
         "châtelet–les-halles",
         "gare-de-lyon",
@@ -178,7 +178,7 @@ Object {
       ],
       "direction": "Marne-la-Vallée – Chessy",
       "station": Object {
-        "code": "sgl",
+        "code": "saint-germain-en-laye",
         "name": "Saint-Germain-en-Laye",
       },
       "trains": Array [
@@ -221,7 +221,7 @@ Object {
         "nanterre-universite",
         "nanterre-prefecture",
         "la-defense",
-        "charles-de-gaulle–etoile",
+        "charles-de-gaulle-etoile",
         "gare-d-auber",
         "châtelet–les-halles",
         "gare-de-lyon",
@@ -241,7 +241,7 @@ Object {
       ],
       "direction": "Marne-la-Vallée – Chessy",
       "station": Object {
-        "code": "sgl",
+        "code": "saint-germain-en-laye",
         "name": "Saint-Germain-en-Laye",
       },
       "trains": Array [

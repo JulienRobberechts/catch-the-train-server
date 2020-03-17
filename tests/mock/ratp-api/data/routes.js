@@ -1,9 +1,8 @@
-// change every 3 mins - Server Data
-const mockedFullTimeTable = {
+const timeTable = {
   routes: [
     {
       station: {
-        code: "sgl",
+        code: "saint-germain-en-laye",
         name: "Saint-Germain-en-Laye"
       },
       direction: "Marne-la-Vallée – Chessy",
@@ -16,7 +15,7 @@ const mockedFullTimeTable = {
         "nanterre-universite",
         "nanterre-prefecture",
         "la-defense",
-        "charles-de-gaulle–etoile",
+        "charles-de-gaulle-etoile",
         "gare-d-auber",
         "châtelet–les-halles",
         "gare-de-lyon",
@@ -59,7 +58,7 @@ const mockedFullTimeTable = {
     },
     {
       station: {
-        code: "ml",
+        code: "maisons-laffitte",
         name: "Maisons-Laffitte "
       },
       direction: "Cergy le Haut",
@@ -92,7 +91,7 @@ const mockedFullTimeTable = {
     },
     {
       station: {
-        code: "ml",
+        code: "maisons-laffitte",
         name: "Maisons-Laffitte "
       },
       direction: "Marne-la-Vallée – Chessy",
@@ -102,7 +101,7 @@ const mockedFullTimeTable = {
         "houilles-carrieres-sur-seine",
         "nanterre-prefecture",
         "la-defense",
-        "charles-de-gaulle–etoile",
+        "charles-de-gaulle-etoile",
         "gare-d-auber",
         "châtelet–les-halles",
         "gare-de-lyon",
@@ -142,4 +141,4 @@ const mockedFullTimeTable = {
   ]
 };
 
-module.exports = mockedFullTimeTable;
+module.exports = timeTable;

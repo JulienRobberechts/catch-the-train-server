@@ -4,15 +4,18 @@ const controller = new SchedulesController({ apiAdapter });
 
 describe("schedules controller", () => {
   it("should return all schedules", async () => {
-    const result = await controller.getSchedules({});
+    const result = await controller.getAllSchedules();
     expect(result).toMatchSnapshot();
   });
   it("should return schedules for a station", async () => {
-    const result = await controller.getSchedules({ station: "sgl" });
+    const station = "saint-germain-en-laye";
+    const result = await controller.getSchedulesForStation(station);
     expect(result).toMatchSnapshot();
   });
   it("should return schedules for a station/to", async () => {
-    const result = await controller.getSchedules({ station: "sgl", to: "" });
+    const station = "saint-germain-en-laye";
+    const to = "nation";
+    const result = await controller.getSchedulesForJourney(station, to);
     expect(result).toMatchSnapshot();
   });
 });

@@ -1,4 +1,4 @@
-var debug = require("debug")("server");
+var debug = require("debug")("ctt");
 
 class ValidationError extends Error {
   constructor(message) {
@@ -10,12 +10,13 @@ class ValidationError extends Error {
 function handleValidationError(error, req, res, next) {
   debug("API Error: ", error);
   if (error instanceof ValidationError) {
-    res.status(400).json({
+    res.status(400).send({
       errorMessage: error.message,
       errorType: error.name
     });
+  } else {
+    next(error);
   }
-  next(error);
 }
 
 module.exports = { ValidationError, handleValidationError };
