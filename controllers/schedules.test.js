@@ -1,11 +1,11 @@
 const SchedulesController = require("./schedules");
-const RatpApiAdapter = require("../adapters/ratp-api/ratp-api-adapter.mock");
+const RatpApiAdapterTestDouble = require("../adapters/ratp-api/ratp-api-adapter.mock");
 
 describe("schedules controller", () => {
   let controller;
   beforeAll(() => {
     controller = new SchedulesController({
-      apiAdapter: new RatpApiAdapter()
+      apiAdapter: new RatpApiAdapterTestDouble()
     });
   });
 

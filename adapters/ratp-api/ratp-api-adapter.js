@@ -1,15 +1,22 @@
 const axios = require("axios");
-const config = require("../../config");
+axios.defaults.timeout = 500;
+
 var debug = require("debug")("ctt:api:schedule");
 const { ConnectivityError } = require("../../utils/errors");
 
 const apiName = "ratp";
 
 class RatpApiAdapter {
+  constructor({ ratpApiRootUrl }) {
+    if (!ratpApiRootUrl) {
+      throw new Error("ratpApiRootUrl parameter is not valid");
+    }
+    this.ratpApiRootUrl = ratpApiRootUrl;
+  }
   async getAllSchedulesRATP() {
     try {
-      const response = await axios.get(config.RatpApiRootUrl + "/all");
-      // debug(`response from API '${apiName}':`, JSON.stringify(response));
+      const url = this.ratpApiRootUrl + "/all";
+      const response = await axios.get(url);
       return response.data;
     } catch (error) {
       throw new ConnectivityError(
