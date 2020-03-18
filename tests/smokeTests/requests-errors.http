@@ -1,0 +1,17 @@
+
+@rootUrl=http://localhost:3034
+
+### ping
+GET {{rootUrl}}/health-check/
+
+### error-async
+GET {{rootUrl}}/health-check/error-async
+
+### error-sync
+GET {{rootUrl}}/health-check/error-sync
+
+### error-validation
+GET {{rootUrl}}/health-check/error-validation
+
+### error-connectivity
+GET {{rootUrl}}/health-check/error-connectivity

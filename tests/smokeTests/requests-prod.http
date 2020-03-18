@@ -1,0 +1,5 @@
+
+@rootUrlNoConnectivity=http://localhost:3035
+
+### Connectivity error
+GET {{rootUrlNoConnectivity}}/schedules/maisons-laffitte

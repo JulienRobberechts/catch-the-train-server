@@ -2,9 +2,14 @@ var express = require("express");
 var cors = require("cors");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-const { handleAllError, handleValidationError } = require("./utils/errors");
+const {
+  handleAllError,
+  handleValidationError,
+  handleConnectivityError
+} = require("./utils/errors");
 
-var schedulesRouter = require("./routes/schedules");
+var schedulesRoutes = require("./routes/schedules");
+var healthChecksRoutes = require("./routes/healthCheck");
 
 var app = express();
 
@@ -14,9 +19,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use("/schedules", schedulesRouter);
+app.use("/schedules", schedulesRoutes);
+app.use("/health-check", healthChecksRoutes);
 
 app.use(handleValidationError);
+app.use(handleConnectivityError);
 app.use(handleAllError);
 
 module.exports = app;
