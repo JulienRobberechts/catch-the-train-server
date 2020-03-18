@@ -1,16 +1,10 @@
 var express = require("express");
 var router = express.Router();
-const debug = require("debug")("ctt:api:schedule");
 const { wrapAsync } = require("../utils/errors");
+const getSchedulesController = require("../controllers/factory");
+const debug = require("debug")("ctt:api:schedule");
 
-// to put in a factory:
-const { getRatpApiAdapter } = require("../adapters/ratp-api/factory");
-const apiAdapter = getRatpApiAdapter();
-
-const SchedulesController = require("../controllers/schedules");
-const schedulesController = new SchedulesController({ apiAdapter });
-
-// end
+const schedulesController = getSchedulesController();
 
 router.get(
   "/",
