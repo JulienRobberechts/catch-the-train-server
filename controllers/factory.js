@@ -1,9 +1,9 @@
 const { getRatpApiAdapter } = require("../adapters/ratp-api/factory");
 const SchedulesController = require("../controllers/schedules");
+var config = require("../config");
 
-const apiAdapter = getRatpApiAdapter();
 const _schedulesController = new SchedulesController({
-  apiAdapter: apiAdapter
+  apiAdapter: getRatpApiAdapter(config)
 });
 
 exports.getSchedulesController = () => _schedulesController;

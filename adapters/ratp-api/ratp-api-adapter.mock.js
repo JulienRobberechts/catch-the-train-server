@@ -1,8 +1,8 @@
 const routes = require("../../tests/mock/ratp-api/data/routes");
-class RatpApiAdapter {
+class RatpApiAdapterMock {
   async getAllSchedulesRATP() {
     return routes;
   }
 }
 
-module.exports = RatpApiAdapter;
+module.exports = RatpApiAdapterMock;

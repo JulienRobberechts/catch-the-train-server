@@ -1,9 +1,17 @@
-const RatpApiAdapter =
-  process.env.SAMPLE_MODE === "true"
-    ? require("./ratp-api-adapter.mock")
-    : require("./ratp-api-adapter");
-const { ratpApiRootUrl } = require("../../config");
+const RatpApiAdapter = require("./ratp-api-adapter");
+const RatpApiAdapterMock = require("./ratp-api-adapter.mock");
+let _apiAdapter, _apiAdapterMock;
 
-const _apiAdapter = new RatpApiAdapter({ ratpApiRootUrl });
+exports.getRatpApiAdapter = ({ ratp_api_adapter_mock, ratpApiRootUrl }) => {
+  if (ratp_api_adapter_mock) {
+    if (!_apiAdapterMock) {
+      _apiAdapterMock = new RatpApiAdapterMock();
+    }
+    return _apiAdapterMock;
+  }
 
-exports.getRatpApiAdapter = () => _apiAdapter;
+  if (!_apiAdapter) {
+    _apiAdapter = new RatpApiAdapter({ ratpApiRootUrl });
+  }
+  return _apiAdapter;
+};

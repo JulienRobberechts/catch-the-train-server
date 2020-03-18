@@ -1,6 +1,6 @@
 const nock = require("nock");
 const routesTestDouble = require("./data/routes");
-const config = require("../../../config");
+var config = require("../../../config");
 
 const mockApiCalls = () => {
   nock(config.ratpApiRootUrl)
