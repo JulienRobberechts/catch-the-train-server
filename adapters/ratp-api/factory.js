@@ -2,8 +2,8 @@ const RatpApiAdapter = require("./ratp-api-adapter");
 const RatpApiAdapterMock = require("./ratp-api-adapter.mock");
 let _apiAdapter, _apiAdapterMock;
 
-exports.getRatpApiAdapter = ({ ratp_api_adapter_mock, ratpApiRootUrl }) => {
-  if (ratp_api_adapter_mock) {
+exports.getRatpApiAdapter = ({ RATP_API_MOCK_DATA, RATP_API_ROOT_URL }) => {
+  if (RATP_API_MOCK_DATA) {
     if (!_apiAdapterMock) {
       _apiAdapterMock = new RatpApiAdapterMock();
     }
@@ -11,7 +11,7 @@ exports.getRatpApiAdapter = ({ ratp_api_adapter_mock, ratpApiRootUrl }) => {
   }
 
   if (!_apiAdapter) {
-    _apiAdapter = new RatpApiAdapter({ ratpApiRootUrl });
+    _apiAdapter = new RatpApiAdapter({ RATP_API_ROOT_URL });
   }
   return _apiAdapter;
 };

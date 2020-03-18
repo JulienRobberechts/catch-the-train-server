@@ -7,15 +7,15 @@ const { ConnectivityError } = require("../../utils/errors");
 const apiName = "ratp";
 
 class RatpApiAdapter {
-  constructor({ ratpApiRootUrl }) {
-    if (!ratpApiRootUrl) {
-      throw new Error("ratpApiRootUrl parameter is not valid");
+  constructor({ RATP_API_ROOT_URL }) {
+    if (!RATP_API_ROOT_URL) {
+      throw new Error("RATP_API_ROOT_URL parameter is not valid");
     }
-    this.ratpApiRootUrl = ratpApiRootUrl;
+    this.RATP_API_ROOT_URL = RATP_API_ROOT_URL;
   }
   async getAllSchedulesRATP() {
     try {
-      const url = this.ratpApiRootUrl + "/all";
+      const url = this.RATP_API_ROOT_URL + "/all";
       const response = await axios.get(url);
       return response.data;
     } catch (error) {
