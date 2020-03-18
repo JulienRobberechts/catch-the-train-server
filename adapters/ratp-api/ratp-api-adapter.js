@@ -6,25 +6,20 @@ const { ConnectivityError } = require("../../utils/errors");
 
 const apiName = "ratp";
 
-class RatpApiAdapter {
-  constructor({ RATP_API_ROOT_URL }) {
-    if (!RATP_API_ROOT_URL) {
-      throw new Error("RATP_API_ROOT_URL parameter is not valid");
-    }
-    this.RATP_API_ROOT_URL = RATP_API_ROOT_URL;
+async function getAllSchedulesRATP({ RATP_API_ROOT_URL }) {
+  if (!RATP_API_ROOT_URL) {
+    throw new Error("RATP_API_ROOT_URL parameter is not valid");
   }
-  async getAllSchedulesRATP() {
-    try {
-      const url = this.RATP_API_ROOT_URL + "/all";
-      const response = await axios.get(url);
-      return response.data;
-    } catch (error) {
-      throw new ConnectivityError(
-        `Connectivity Error with the Api '${apiName}'`,
-        error
-      );
-    }
+  try {
+    const url = RATP_API_ROOT_URL + "/all";
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    throw new ConnectivityError(
+      `Connectivity Error with the Api '${apiName}'`,
+      error
+    );
   }
 }
 
-module.exports = RatpApiAdapter;
+module.exports = { getAllSchedulesRATP };

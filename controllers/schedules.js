@@ -8,6 +8,7 @@ const {
   checkParameterStation,
   checkParameterDestination
 } = require("../domains/timeTable/checkParameter");
+const config = require("../config");
 
 class SchedulesController {
   constructor({ apiAdapter }) {
@@ -18,7 +19,7 @@ class SchedulesController {
   }
 
   async getAllSchedules() {
-    const allSchedules = await this.apiAdapter.getAllSchedulesRATP();
+    const allSchedules = await this.apiAdapter.getAllSchedulesRATP(config);
     const routes = allSchedules.routes;
     return { routes };
   }
@@ -27,7 +28,7 @@ class SchedulesController {
     const pStation = normalizeString(station);
     checkParameterStation(station);
 
-    const allSchedules = await this.apiAdapter.getAllSchedulesRATP();
+    const allSchedules = await this.apiAdapter.getAllSchedulesRATP(config);
     const routes = allSchedules.routes.filter(
       routesByDepartureStation(pStation)
     );
@@ -41,7 +42,7 @@ class SchedulesController {
     const pTo = normalizeString(to);
     checkParameterDestination(pStation, pTo);
 
-    const allSchedules = await this.apiAdapter.getAllSchedulesRATP();
+    const allSchedules = await this.apiAdapter.getAllSchedulesRATP(config);
 
     const routes = allSchedules.routes
       .filter(routesByDepartureStation(pStation))
