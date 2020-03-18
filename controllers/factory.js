@@ -6,4 +6,4 @@ const _schedulesController = new SchedulesController({
   apiAdapter: apiAdapter
 });
 
-module.exports = getSchedulesController = () => _schedulesController;
+exports.getSchedulesController = () => _schedulesController;
