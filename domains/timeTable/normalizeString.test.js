@@ -3,6 +3,9 @@ const each = require("jest-each").default;
 
 describe("normalizeString", () => {
   each([
+    [null, null],
+    [undefined, null],
+    ["", null],
     ["é", "e"],
     ["è", "e"],
     ["à", "a"],
