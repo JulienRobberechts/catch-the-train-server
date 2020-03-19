@@ -36,23 +36,28 @@ const timeTable = {
       trains: [
         {
           departureTime: "2020-03-10T09:24:00+01:00",
-          platform: "2"
+          platform: "2",
+          trainCode: "0924"
         },
         {
           departureTime: "2020-03-10T09:32:00+01:00",
-          platform: "4"
+          platform: "4",
+          trainCode: "0932"
         },
         {
           departureTime: "2020-03-10T09:43:00+01:00",
-          platform: "2"
+          platform: "2",
+          trainCode: "0943"
         },
         {
           departureTime: "2020-03-10T09:55:00+01:00",
-          platform: "4"
+          platform: "4",
+          trainCode: "0955"
         },
         {
           departureTime: "2020-03-10T10:05:00+01:00",
-          platform: "4"
+          platform: "4",
+          trainCode: "1005"
         }
       ]
     },
@@ -73,19 +78,23 @@ const timeTable = {
       trains: [
         {
           departureTime: "2020-03-10T09:26:00+01:00",
-          platform: "A"
+          platform: "A",
+          trainCode: "0926"
         },
         {
           departureTime: "2020-03-10T09:42:00+01:00",
-          platform: "B"
+          platform: "B",
+          trainCode: "0942"
         },
         {
           departureTime: "2020-03-10T09:57:00+01:00",
-          platform: "A"
+          platform: "A",
+          trainCode: "0957"
         },
         {
           departureTime: "2020-03-10T10:19:00+01:00",
-          platform: "A"
+          platform: "A",
+          trainCode: "1019"
         }
       ]
     },
@@ -122,19 +131,23 @@ const timeTable = {
       trains: [
         {
           departureTime: "2020-03-10T09:29:00+01:00",
-          platform: "B"
+          platform: "B",
+          trainCode: "0929"
         },
         {
           departureTime: "2020-03-10T09:40:00+01:00",
-          platform: "B"
+          platform: "B",
+          trainCode: "0940"
         },
         {
           departureTime: "2020-03-10T09:55:00+01:00",
-          platform: "B"
+          platform: "B",
+          trainCode: "0955"
         },
         {
           departureTime: "2020-03-10T10:09:00+01:00",
-          platform: "B"
+          platform: "B",
+          trainCode: "1009"
         }
       ]
     }
