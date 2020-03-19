@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "cross-env RATP_API_MOCK_DATA=true DEBUG=ctt:* PORT=3034 nodemon ./bin/www",
-    "start-prod": "cross-env PORT=3035 nodemon ./bin/www",
+    "start-prod": "cross-env RATP_API_MOCK_DATA=true PORT=8080 node ./bin/www",
     "test": "cross-env DEBUG=ctt:* jest --collectCoverage",
     "test-update": "jest -u"
   },
