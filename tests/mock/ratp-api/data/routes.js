@@ -58,6 +58,11 @@ const timeTable = {
           departureTime: "2020-03-10T10:05:00+01:00",
           platform: "4",
           trainCode: "1005"
+        },
+        {
+          departureTime: "2020-03-10T10:35:00+01:00",
+          platform: "4",
+          trainCode: "1035"
         }
       ]
     },
