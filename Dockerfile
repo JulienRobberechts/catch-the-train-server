@@ -1,6 +1,6 @@
 # Use the official Node.js 10 image.
 # https://hub.docker.com/_/node
-FROM node:12
+FROM mhart/alpine-node
 
 # Create and change to the app directory.
 WORKDIR /usr/src/app
@@ -18,7 +18,7 @@ COPY . .
 
 # Service must listen to $PORT environment variable.
 # This default value facilitates local development.
-ENV PORT 8080
+ENV PORT 80
 EXPOSE $PORT
 
 # Run the web service on container startup.
