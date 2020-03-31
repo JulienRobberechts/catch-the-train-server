@@ -5,6 +5,7 @@ const debug = require("debug")("ctt:api:schedule");
 const { ValidationError } = require("../utils/errors");
 const { ConnectivityError } = require("../utils/errors");
 const getCurrentServerIp = require("../domains/config/getIp");
+const packageJson = require("../package.json");
 
 router.get("/", function(req, res, next) {
   debug("ping check received");
@@ -13,7 +14,8 @@ router.get("/", function(req, res, next) {
 
 router.get("/parameters", async function(req, res, next) {
   const serverPublicIp = await getCurrentServerIp();
-  res.send({ status: "ok", serverPublicIp });
+  const { version } = packageJson;
+  res.send({ status: "ok", serverPublicIp, version });
 });
 
 router.get(

@@ -1,6 +1,6 @@
 {
   "name": "catch-the-train-server",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "cross-env RATP_API_MOCK_DATA=true DEBUG=ctt:* PORT=3034 nodemon ./bin/www",
