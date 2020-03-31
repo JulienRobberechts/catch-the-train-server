@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use("/schedules", schedulesRoutes);
-app.use("/health-check", healthChecksRoutes);
+app.use("/", healthChecksRoutes);
 
 app.use(handleValidationError);
 app.use(handleConnectivityError);

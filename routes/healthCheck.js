@@ -4,10 +4,16 @@ const { wrapAsync } = require("../utils/errors");
 const debug = require("debug")("ctt:api:schedule");
 const { ValidationError } = require("../utils/errors");
 const { ConnectivityError } = require("../utils/errors");
+const getCurrentServerIp = require("../domains/config/getIp");
 
 router.get("/", function(req, res, next) {
   debug("ping check received");
   res.send({ status: "ok" });
+});
+
+router.get("/parameters", async function(req, res, next) {
+  const serverPublicIp = await getCurrentServerIp();
+  res.send({ status: "ok", serverPublicIp });
 });
 
 router.get(
