@@ -1,9 +1,11 @@
 const axios = require("axios");
 
+// const checkIpUrl = 'checkip.amazonaws.com';
+const checkIpUrl = "https://api.ipify.org/";
+
 const getCurrentServerIp = async () => {
   try {
-    const url = "https://api.ipify.org/";
-    const response = await axios.get(url);
+    const response = await axios.get(checkIpUrl);
     return response.data;
   } catch (error) {
     return "???.???.???.???";
