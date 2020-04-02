@@ -6,12 +6,12 @@ const { ConnectivityError } = require("../../utils/errors");
 
 const apiName = "ratp";
 
-async function getAllSchedulesRATP({ RATP_API_ROOT_URL }) {
+async function getAllSchedulesRATP({ RATP_API_ROOT_URL, type, line, station }) {
   if (!RATP_API_ROOT_URL) {
     throw new Error("RATP_API_ROOT_URL parameter is not valid");
   }
   try {
-    const url = RATP_API_ROOT_URL + "/all";
+    const url = RATP_API_ROOT_URL + `/schedules/${type}/${line}/${station}/A+R`;
     const response = await axios.get(url);
     return response.data;
   } catch (error) {

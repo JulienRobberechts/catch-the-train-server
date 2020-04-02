@@ -7,30 +7,15 @@ const debug = require("debug")("ctt:api:schedule");
 const schedulesController = getSchedulesController();
 
 router.get(
-  "/",
+  "/:type/:line/:station",
   wrapAsync(async function(req, res, next) {
-    const result = await schedulesController.getAllSchedules();
-    res.send(result);
-  })
-);
-
-router.get(
-  "/:station",
-  wrapAsync(async function(req, res, next) {
-    const station = req.params.station;
-    const result = await schedulesController.getSchedulesForStation(station);
-    res.send(result);
-  })
-);
-
-router.get(
-  "/:station/:to",
-  wrapAsync(async function(req, res, next) {
-    const station = req.params.station;
-    const to = req.params.to;
+    const { type, line, station } = req.params;
+    const missions = null;
     const result = await schedulesController.getSchedulesForJourney(
+      type,
+      line,
       station,
-      to
+      missions
     );
     res.send(result);
   })

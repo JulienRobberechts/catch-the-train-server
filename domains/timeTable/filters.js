@@ -1,10 +1,6 @@
-const routesByDepartureStation = station => route =>
-  !station || route.station.code === station;
-
-const routesByDestination = destination => route =>
-  !destination || route.destinations.includes(destination);
+const routesByMissions = missions => departure =>
+  !missions || missions.includes(departure.code);
 
 module.exports = {
-  routesByDepartureStation,
-  routesByDestination
+  routesByMissions
 };

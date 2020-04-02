@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start-dev": "nodemon ./bin/www",
+    "start": "nodemon ./bin/www",
     "start-prod": "node ./bin/www",
     "test": "jest --collectCoverage",
     "test-watch": "jest --watch",

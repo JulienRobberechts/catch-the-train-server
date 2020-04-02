@@ -1,16 +1,24 @@
 const { ValidationError } = require("../../utils/errors");
 const stations = require("../../tests/mock/ratp-api/data/stations");
 
-function checkParameterStation(station) {
-  if (!stations.includes(station))
+function checkParameterType(type) {
+  if (type !== "rers")
+    throw new ValidationError(`the type '${station}' is not recognized.`);
+}
+
+function checkParameterLine(type, line) {
+  if (line !== "A")
+    throw new ValidationError(`the line '${line}' is not recognized.`);
+}
+
+function checkParameterStation(type, line, station) {
+  // if (!stations.includes(station))
+  if (station !== "chatelet+les+halles")
     throw new ValidationError(`the station '${station}' is not recognized.`);
 }
 
-function checkParameterDestination(station, destination) {
-  if (!stations.includes(destination))
-    throw new ValidationError(
-      `The destination '${destination}' is not recognized for the station '${station}' the api only support destination on the same train line.`
-    );
-}
-
-module.exports = { checkParameterStation, checkParameterDestination };
+module.exports = {
+  checkParameterType,
+  checkParameterLine,
+  checkParameterStation
+};

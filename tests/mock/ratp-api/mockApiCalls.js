@@ -5,7 +5,7 @@ var config = require("../../../config");
 const mockApiCalls = () => {
   nock(config.RATP_API_ROOT_URL)
     .defaultReplyHeaders({ "access-control-allow-origin": "*" })
-    .get("/all")
+    .get("/next-train/rers/A/chatelet+les+halles")
     .reply(200, routesTestDouble);
 };
 

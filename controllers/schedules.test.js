@@ -22,19 +22,11 @@ describe("schedules controller", () => {
       new SchedulesController({ apiAdapter: null });
     expect(invalidControllerInit).toThrow();
   });
-  it("should return all schedules", async () => {
-    const result = await controller.getAllSchedules();
-    expect(result).toMatchSnapshot();
-  });
-  it("should return schedules for a station", async () => {
-    const station = "saint-germain-en-laye";
-    const result = await controller.getSchedulesForStation(station);
-    expect(result).toMatchSnapshot();
-  });
   it("should return schedules for a station/to", async () => {
-    const station = "saint-germain-en-laye";
-    const to = "nation";
-    const result = await controller.getSchedulesForJourney(station, to);
+    const type = "rers";
+    const line = "A";
+    const station = "chatelet+les+halles";
+    const result = await controller.getSchedulesForJourney(type, line, station);
     expect(result).toMatchSnapshot();
   });
 });

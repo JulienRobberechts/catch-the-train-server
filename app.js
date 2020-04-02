@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use("/schedules", schedulesRoutes);
+app.use("/next-trains", schedulesRoutes);
 app.use("/", healthChecksRoutes);
 
 app.use(handleValidationError);

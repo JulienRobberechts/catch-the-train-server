@@ -1,12 +1,9 @@
 const debug = require("debug")("ctt:api:schedule");
+const { routesByMissions } = require("../domains/timeTable/filters");
 const {
-  routesByDepartureStation,
-  routesByDestination
-} = require("../domains/timeTable/filters");
-const { normalizeString } = require("../domains/timeTable/normalizeString");
-const {
-  checkParameterStation,
-  checkParameterDestination
+  checkParameterType,
+  checkParameterLine,
+  checkParameterStation
 } = require("../domains/timeTable/checkParameter");
 const config = require("../config");
 
@@ -18,35 +15,21 @@ class SchedulesController {
     this.apiAdapter = apiAdapter;
   }
 
-  async getAllSchedules() {
-    const allSchedules = await this.apiAdapter.getAllSchedulesRATP(config);
-    const routes = allSchedules.routes;
-    return { routes };
-  }
+  async getSchedulesForJourney(type, line, station, missions) {
+    checkParameterType(type);
+    checkParameterLine(type, line);
+    checkParameterStation(type, line, station);
 
-  async getSchedulesForStation(station) {
-    const pStation = normalizeString(station);
-    checkParameterStation(station);
+    const allSchedules = await this.apiAdapter.getAllSchedulesRATP({
+      type,
+      line,
+      station,
+      ...config
+    });
 
-    const allSchedules = await this.apiAdapter.getAllSchedulesRATP(config);
-    const routes = allSchedules.routes.filter(
-      routesByDepartureStation(pStation)
+    const routes = allSchedules.result.schedules.filter(
+      routesByMissions(missions)
     );
-    return { routes };
-  }
-
-  async getSchedulesForJourney(station, to) {
-    const pStation = normalizeString(station);
-    checkParameterStation(station);
-
-    const pTo = normalizeString(to);
-    checkParameterDestination(pStation, pTo);
-
-    const allSchedules = await this.apiAdapter.getAllSchedulesRATP(config);
-
-    const routes = allSchedules.routes
-      .filter(routesByDepartureStation(pStation))
-      .filter(routesByDestination(pTo));
 
     return { routes };
   }
