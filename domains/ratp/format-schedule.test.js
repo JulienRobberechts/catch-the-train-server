@@ -1,4 +1,4 @@
-const { formatSchedule } = require("./schedule-format");
+const { formatSchedule } = require("./format-schedule");
 const each = require("jest-each").default;
 
 describe("formatSchedule", () => {
