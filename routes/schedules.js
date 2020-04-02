@@ -10,7 +10,9 @@ router.get(
   "/:type/:line/:station",
   wrapAsync(async function(req, res, next) {
     const { type, line, station } = req.params;
-    const missions = null;
+    const missionsQuery = req.query.missions;
+    const missions = missionsQuery ? missionsQuery.split(",") : null;
+
     const result = await schedulesController.getSchedulesForJourney(
       type,
       line,

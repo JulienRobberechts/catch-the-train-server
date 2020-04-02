@@ -1,22 +1,11 @@
 
 @rootUrl=http://localhost:3034
 
-### all stations
+### all missions at chatelet+les+halles
+GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles
 
-GET {{rootUrl}}/schedules
+### missions TAXE at chatelet+les+halles
+GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles?missions=TAXE
 
-### Station only
-
-GET {{rootUrl}}/schedules/maisons-laffitte
-
-### Station + direction
-GET {{rootUrl}}/schedules/saint-germain-en-laye/le-vesinet-centre
-
-### Station + direction
-GET {{rootUrl}}/schedules/maisons-laffitte/cergy-le-haut
-
-### Station + direction
-GET {{rootUrl}}/schedules/maisons-laffitte/marne-la-vallee-chessy
-
-### Validation error
-GET {{rootUrl}}/schedules/invalid-station
+### missions TAXE and NOTE at chatelet+les+halles
+GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles?missions=TAXE+NOTE
