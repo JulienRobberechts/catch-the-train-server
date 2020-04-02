@@ -1,0 +1,46 @@
+
+@rootUrl=https://api-ratp.pierre-grimaud.fr/v4
+
+### line RER A
+GET {{rootUrl}}/lines/rers/A
+
+# {
+#     "code": "A",
+#     "name": "RER A",
+#     "directions": "Marne la Vallee-Boissy Saint Leger / Cergy-Poissy-Saint Germain en Laye",
+#     "id": "77"
+# }
+
+### All Station of RER A
+GET {{rootUrl}}/stations/rers/A?way=A
+
+### schedules at Saint-Germain-en-Laye
+GET {{rootUrl}}/schedules/rers/A/saint%2Bgermain%2Ben%2Blaye/R
+
+# {
+#     "code": "QIKI",
+#     "message": "12:36 Départ Voie 2",
+#     "destination": "Marne-la-Vallee Chessy"
+# }
+
+### detail mission QIKI
+GET {{rootUrl}}/missions/rers/A/QIKI
+
+### detail mission ZULI
+GET {{rootUrl}}/missions/rers/A/ZULI
+
+### detail mission NATO
+GET {{rootUrl}}/missions/rers/A/NATO
+
+### detail mission QURE
+GET {{rootUrl}}/missions/rers/A/QURE
+
+### detail mission UZAR
+GET {{rootUrl}}/missions/rers/A/UZAR
+
+### detail mission TEDI
+GET {{rootUrl}}/missions/rers/A/TEDI
+
+### Trafic
+
+GET {{rootUrl}}/traffic/rers/A

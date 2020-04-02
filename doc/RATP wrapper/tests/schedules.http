@@ -1,0 +1,140 @@
+
+@rootUrl=https://api-ratp.pierre-grimaud.fr/v4
+
+### schedules at Saint-Germain-en-Laye A
+GET {{rootUrl}}/schedules/rers/A/saint%2Bgermain%2Ben%2Blaye/A
+
+# {
+#     "code": "QIKI",
+#     "message": "12:36 Départ Voie 2",
+#     "destination": "Marne-la-Vallee Chessy"
+# }
+
+### schedules at Saint-Germain-en-Laye R (seems departure to Paris)
+GET {{rootUrl}}/schedules/rers/A/saint%2Bgermain%2Ben%2Blaye/R
+
+### schedules at Le Vesinet-Centre A (to 'St Germain en Laye')
+GET {{rootUrl}}/schedules/rers/A/le+vesinet+centre/A
+
+# QIKI: from St Germain en Laye to Marne la Vallee-Chessy
+# ZULI: from 'Marne la Vallee-Chessy' to 'St Germain en Laye'
+
+### schedules at Le Vesinet-Centre A
+GET {{rootUrl}}/schedules/rers/A/le+vesinet+centre/A+R
+
+### schedules at Le Vesinet-Centre R (to 'Marne la Vallee-Chessy')
+GET {{rootUrl}}/schedules/rers/A/le+vesinet+centre/R
+
+### schedules at Chatelet-Les Halles => to east
+GET {{rootUrl}}/schedules/rers/A/chatelet+les+halles/R
+
+### schedules at Chatelet-Les Halles => to west
+GET {{rootUrl}}/schedules/rers/A/chatelet+les+halles/A
+
+### schedules at Chatelet-Les Halles both
+GET {{rootUrl}}/schedules/rers/A/chatelet+les+halles/A+R
+
+# NATO: Cergy-Le Haut => Boissy Saint Leger
+# QURE: Poissy => Marne la Vallee-Chessy
+# QIKI: St Germain en Laye => Marne la Vallee-Chessy
+
+# ZULI: Marne la Vallee-Chessy => St Germain en Laye
+# UZAR: Boissy Saint Leger => Cergy-Le Haut
+# TEDI: Marne la Vallee-Chessy => Poissy
+
+### schedules at Chatelet-Les Halles both
+GET {{rootUrl}}/schedules/rers/A/st+germain+en+laye/A+R
+
+# "message": 
+#   "Train terminus V.2"
+#    "15:16 Départ Voie 2"
+
+### schedules at Chatelet-Les Halles both
+GET {{rootUrl}}/schedules/rers/A/le+vesinet+le+pecq/A+R
+
+# "13:35 Voie 2"
+# "15:19 Voie 1"
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/le+vesinet+centre/A+R
+
+# "14:01"
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/chatou+croissy/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/rueil+malmaison/A+R
+
+# "14:07 Voie 2"
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/nanterre+ville/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/nanterre+prefecture/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/grande+arche+la+defense/A+R
+
+## "13:45 Voie 2"
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/charles+de+gaulle+etoile/A+R
+
+# "Train à l'approche" == 0
+# "Train à quai" +1min sometimes
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/auber/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/chatelet+les+halles/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/gare+de+lyon/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/nation/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/vincennes/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/val+de+fontenay/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/neuilly+plaisance/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/bry+sur+marne/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/noisy+le+grand+mont+d'est/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/noisy+champs/A+R
+
+# "13:55 Voie 2"
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/noisiel/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/lognes/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/torcy/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/bussy+st+georges/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/val+d'europe+serris/A+R
+
+### schedules
+GET {{rootUrl}}/schedules/rers/A/marne+la+vallee+chessy/A+R
+
+# "Train terminus V.1"
+# "13:47 Départ Voie 2"
+
