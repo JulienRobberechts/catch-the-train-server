@@ -5,7 +5,7 @@ const app = require("../app");
 const api = request(app);
 const { mockApiCalls } = require("../tests/mock/ratp-api/mockApiCalls");
 
-describe("GET /schedules", () => {
+describe("GET /next-train/{type}/{line}/{station}?missions=...", () => {
   beforeEach(() => {
     mockApiCalls();
   });

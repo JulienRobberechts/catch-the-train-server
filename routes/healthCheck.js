@@ -6,6 +6,7 @@ const { ValidationError } = require("../utils/errors");
 const { ConnectivityError } = require("../utils/errors");
 const getCurrentServerIp = require("../domains/config/getIp");
 const packageJson = require("../package.json");
+const config = require("../config");
 
 router.get("/", function(req, res, next) {
   debug("ping check received");
@@ -15,7 +16,15 @@ router.get("/", function(req, res, next) {
 router.get("/parameters", async function(req, res, next) {
   const serverPublicIp = await getCurrentServerIp();
   const { version } = packageJson;
-  res.send({ status: "ok", serverPublicIp, version });
+  const ratpApiRootUrl = config.RATP_API_ROOT_URL;
+  const ratpApiMockData = config.RATP_API_MOCK_DATA;
+  res.send({
+    status: "ok",
+    serverPublicIp,
+    version,
+    ratpApiRootUrl,
+    ratpApiMockData
+  });
 });
 
 router.get(

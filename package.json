@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "cross-env RATP_API_MOCK_DATA=true DEBUG=ctt:* PORT=3034 nodemon ./bin/www",
-    "start-prod": "cross-env RATP_API_MOCK_DATA=true node ./bin/www",
-    "test": "cross-env DEBUG=ctt:* jest --collectCoverage",
-    "test-watch": "cross-env DEBUG=ctt:* jest --watch",
+    "start-dev": "nodemon ./bin/www",
+    "start-prod": "node ./bin/www",
+    "test": "jest --collectCoverage",
+    "test-watch": "jest --watch",
     "test-update": "jest -u"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "cors": "^2.8.5",
     "cross-env": "^7.0.2",
     "debug": "~4.1.1",
+    "dotenv": "^8.2.0",
     "express": "~4.17.1",
     "moment": "^2.24.0",
     "morgan": "~1.10.0",
