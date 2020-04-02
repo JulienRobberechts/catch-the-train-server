@@ -6,6 +6,7 @@
     "start": "cross-env RATP_API_MOCK_DATA=true DEBUG=ctt:* PORT=3034 nodemon ./bin/www",
     "start-prod": "cross-env RATP_API_MOCK_DATA=true node ./bin/www",
     "test": "cross-env DEBUG=ctt:* jest --collectCoverage",
+    "test-watch": "cross-env DEBUG=ctt:* jest --watch",
     "test-update": "jest -u"
   },
   "dependencies": {
@@ -15,6 +16,7 @@
     "cross-env": "^7.0.2",
     "debug": "~4.1.1",
     "express": "~4.17.1",
+    "moment": "^2.24.0",
     "morgan": "~1.10.0",
     "nodemon": "^2.0.2"
   },
