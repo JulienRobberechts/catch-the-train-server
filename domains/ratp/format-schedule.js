@@ -6,7 +6,8 @@ const {
   matchApproaching,
   matchTerminus,
   matchDeparture,
-  matchPlatformLabel
+  matchPlatformLabel,
+  matchNoPassenger
 } = require("./match-ratp-display");
 
 // how long we can estimate a departure is still valid after the current time (in minutes)
@@ -26,6 +27,7 @@ exports.formatSchedule = (now, msg) => {
     const platform = matchPlatformLabel(msg);
     const isTerminus = matchTerminus(msg);
     const isApproaching = matchApproaching(msg);
+    const noPassenger = matchNoPassenger(msg);
 
     if (isApproaching) {
       const nowMoment = moment(now).add(
@@ -43,11 +45,12 @@ exports.formatSchedule = (now, msg) => {
     }
 
     // interaction logic
-    if (!time && !isTerminus) {
+    if (!time && !isTerminus && !noPassenger) {
       throw Error(`No time or terminus`);
     }
 
     return {
+      noPassenger,
       time,
       platform,
       isOnPlatform,

@@ -57,11 +57,17 @@ exports.matchDeparture = msg => {
 };
 
 exports.matchPlatformLabel = msg => {
-  const patternPlatformLabel = /(Voie|V.)\s*(?<platform>\w)/i;
+  const patternPlatformLabel = /(Voie|V\.)\s*(?<platform>\w)/i;
   const platformResults = msg.match(patternPlatformLabel);
   let platform;
   if (platformResults && platformResults.groups) {
     platform = platformResults.groups.platform;
   }
   return platform;
+};
+
+exports.matchNoPassenger = msg => {
+  const patternNoPassenger = /Sans voyageurs/i;
+  const noPassenger = patternNoPassenger.test(msg) ? true : undefined;
+  return noPassenger;
 };

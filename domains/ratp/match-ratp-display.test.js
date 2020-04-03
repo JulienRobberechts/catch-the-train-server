@@ -4,7 +4,8 @@ const {
   matchApproaching,
   matchTerminus,
   matchDeparture,
-  matchPlatformLabel
+  matchPlatformLabel,
+  matchNoPassenger
 } = require("./match-ratp-display");
 const each = require("jest-each").default;
 
@@ -101,7 +102,8 @@ describe("matchPlatformLabel", () => {
     ["V.A", "A"],
     ["Voie 1", "1"],
     ["voie 3", "3"],
-    ["Voie B", "B"]
+    ["Voie B", "B"],
+    ["voyageurs", undefined]
   ]).it(
     "should convert '%s' into PlatformLabel='%s'",
     (msg, expectedResult) => {
@@ -110,3 +112,20 @@ describe("matchPlatformLabel", () => {
     }
   );
 });
+
+"Sans voyageurs V.1",
+  describe("matchNoPassenger", () => {
+    each([
+      ["Sans voyageurs V.1", true],
+      ["Sans voyageurs", true],
+      ["sans voyageurs", true],
+      ["voyageurs", undefined],
+      ["sans", undefined]
+    ]).it(
+      "should convert '%s' into NoPassenger='%s'",
+      (msg, expectedResult) => {
+        const actualResult = matchNoPassenger(msg);
+        expect(actualResult).toEqual(expectedResult);
+      }
+    );
+  });

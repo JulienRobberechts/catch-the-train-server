@@ -147,6 +147,15 @@ describe("formatSchedule", () => {
         time: "2020-03-10T09:22:30+01:00",
         isOnPlatform: true
       }
+    ],
+    [
+      "no passengers",
+      "2020-03-10T09:22:30+01:00",
+      "Sans voyageurs V.1",
+      {
+        noPassenger: true,
+        platform: "1"
+      }
     ]
   ]).it(
     "%s - at %s should convert '%s' (test %#)",
