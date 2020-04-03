@@ -2,6 +2,9 @@
 
 exports[`schedules controller should return schedules for a station/to 1`] = `
 Object {
+  "at": "2020-03-10T09:22:30+01:00",
+  "line": "A",
+  "provider": "ratp",
   "routes": Array [
     Object {
       "code": "TAXE",
@@ -13,7 +16,7 @@ Object {
       "message": "21:46",
       "noPassenger": undefined,
       "platform": undefined,
-      "time": "2020-04-03T21:46:00+02:00",
+      "time": "2020-03-10T21:46:00+01:00",
     },
     Object {
       "code": "NOTE",
@@ -25,8 +28,10 @@ Object {
       "message": "21:34",
       "noPassenger": undefined,
       "platform": undefined,
-      "time": "2020-04-03T21:34:00+02:00",
+      "time": "2020-03-10T21:34:00+01:00",
     },
   ],
+  "station": "chatelet+les+halles",
+  "type": "rers",
 }
 `;

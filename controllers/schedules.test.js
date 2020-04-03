@@ -23,10 +23,16 @@ describe("schedules controller", () => {
     expect(invalidControllerInit).toThrow();
   });
   it("should return schedules for a station/to", async () => {
+    const now = "2020-03-10T09:22:30+01:00";
     const type = "rers";
     const line = "A";
     const station = "chatelet+les+halles";
-    const result = await controller.getSchedulesForJourney(type, line, station);
+    const result = await controller.getSchedulesForJourney(
+      now,
+      type,
+      line,
+      station
+    );
     expect(result).toMatchSnapshot();
   });
 });
