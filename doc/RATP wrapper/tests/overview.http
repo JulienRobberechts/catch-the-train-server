@@ -15,7 +15,7 @@ GET {{rootUrl}}/lines/rers/A
 GET {{rootUrl}}/stations/rers/A?way=A
 
 ### schedules at Saint-Germain-en-Laye
-GET {{rootUrl}}/schedules/rers/A/saint%2Bgermain%2Ben%2Blaye/R
+GET {{rootUrl}}/schedules/rers/A/st+germain+en+laye/R
 
 # {
 #     "code": "QIKI",

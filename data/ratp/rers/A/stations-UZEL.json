@@ -1,0 +1,115 @@
+{
+  "result": {
+    "stations": [
+      {
+        "name": "Boissy Saint Leger",
+        "slug": "boissy+saint+leger"
+      },
+      {
+        "name": "Sucy-Bonneuil",
+        "slug": "sucy+bonneuil"
+      },
+      {
+        "name": "La Varenne-Chennevieres",
+        "slug": "la+varenne+chennevieres"
+      },
+      {
+        "name": "Champigny",
+        "slug": "champigny"
+      },
+      {
+        "name": "Le Parc de Saint Maur",
+        "slug": "le+parc+de+saint+maur"
+      },
+      {
+        "name": "Saint Maur-Creteil",
+        "slug": "saint+maur+creteil"
+      },
+      {
+        "name": "Joinville le Pont",
+        "slug": "joinville+le+pont"
+      },
+      {
+        "name": "Nogent Sur Marne",
+        "slug": "nogent+sur+marne"
+      },
+      {
+        "name": "Fontenay Sous Bois",
+        "slug": "fontenay+sous+bois"
+      },
+      {
+        "name": "Vincennes",
+        "slug": "vincennes"
+      },
+      {
+        "name": "Nation",
+        "slug": "nation"
+      },
+      {
+        "name": "Gare de Lyon",
+        "slug": "gare+de+lyon"
+      },
+      {
+        "name": "Chatelet-Les-Halles",
+        "slug": "chatelet+les+halles"
+      },
+      {
+        "name": "Auber",
+        "slug": "auber"
+      },
+      {
+        "name": "Charles de Gaulle-Etoile",
+        "slug": "charles+de+gaulle+etoile"
+      },
+      {
+        "name": "Grande Arche la Defense",
+        "slug": "grande+arche+la+defense"
+      },
+      {
+        "name": "Nanterre Prefecture",
+        "slug": "nanterre+prefecture"
+      },
+      {
+        "name": "Houilles",
+        "slug": "houilles"
+      },
+      {
+        "name": "Sartrouville",
+        "slug": "sartrouville"
+      },
+      {
+        "name": "Maisons-Laffitte",
+        "slug": "maisons+laffitte"
+      },
+      {
+        "name": "Acheres Ville",
+        "slug": "acheres+ville"
+      },
+      {
+        "name": "Conflans-Fin d'Oise",
+        "slug": "conflans+fin+d'oise"
+      },
+      {
+        "name": "Neuville Universite",
+        "slug": "neuville+universite"
+      },
+      {
+        "name": "Cergy-Prefecture",
+        "slug": "cergy+prefecture"
+      },
+      {
+        "name": "Cergy-St-Christophe",
+        "slug": "cergy+st+christophe"
+      },
+      {
+        "name": "Cergy-Le Haut",
+        "slug": "cergy+le+haut"
+      }
+    ]
+  },
+  "_metadata": {
+    "call": "GET /missions/rers/A/UZEL",
+    "date": "2020-04-03T18:44:56+02:00",
+    "version": 4
+  }
+}

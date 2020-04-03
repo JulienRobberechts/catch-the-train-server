@@ -1,5 +1,5 @@
 const { ValidationError } = require("../../utils/errors");
-const stations = require("../../tests/mock/ratp-api/data/stations");
+const stations = require("../../data/ratp/rers/A/stations");
 
 function checkParameterType(type) {
   if (type !== "rers")
@@ -12,9 +12,16 @@ function checkParameterLine(type, line) {
 }
 
 function checkParameterStation(type, line, station) {
-  // if (!stations.includes(station))
-  if (station !== "chatelet+les+halles")
-    throw new ValidationError(`the station '${station}' is not recognized.`);
+  if (!type || !line || !station) {
+    throw new ValidationError(
+      `the station '${type}/${line}/${station}' is not recognized.`
+    );
+  }
+  if (!stations.find(s => s.slug === station.toLowerCase())) {
+    throw new ValidationError(
+      `the station '${type}/${line}/${station}' is not recognized.`
+    );
+  }
 }
 
 module.exports = {
