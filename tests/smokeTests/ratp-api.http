@@ -1,0 +1,5 @@
+
+@rootApiUrl=https://api-ratp.pierre-grimaud.fr/v4
+
+##
+{{rootApiUrl}}/schedules/rers/a/chatelet+les+halles/A+R
