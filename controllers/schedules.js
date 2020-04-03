@@ -6,6 +6,8 @@ const {
   checkParameterStation
 } = require("../domains/timeTable/checkParameter");
 const config = require("../config");
+const { formatSchedule } = require("../domains/ratp/format-schedule");
+const moment = require("moment");
 
 class SchedulesController {
   constructor({ apiAdapter }) {
@@ -27,9 +29,14 @@ class SchedulesController {
       ...config
     });
 
-    const routes = allSchedules.result.schedules.filter(
-      routesByMissions(missions)
-    );
+    const now = moment();
+
+    const routes = allSchedules.result.schedules
+      .filter(routesByMissions(missions))
+      .map(departure => ({
+        ...formatSchedule(now, departure.message),
+        ...departure
+      }));
 
     return { routes };
   }
