@@ -7,6 +7,7 @@ const {
 } = require("../domains/timeTable/checkParameter");
 const config = require("../config");
 const { formatSchedule } = require("../domains/ratp/format-schedule");
+const { createTrainCode } = require("../domains/ratp/create-train-code");
 
 class SchedulesController {
   constructor({ apiAdapter }) {
@@ -34,7 +35,11 @@ class SchedulesController {
         ...formatSchedule(now, departure.message),
         ...departure
       }))
-      .filter(departure => !departure.noPassenger);
+      .filter(departure => departure.time)
+      .map(departure => ({
+        trainCode: createTrainCode(departure.time),
+        ...departure
+      }));
 
     return { at: now, provider: "ratp", type, line, station, routes };
   }
