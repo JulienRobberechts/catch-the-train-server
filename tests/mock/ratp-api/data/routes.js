@@ -10,6 +10,11 @@ const timeTable = {
         code: "NOTE",
         message: "21:34",
         destination: "Boissy-Saint-Leger"
+      },
+      {
+        code: "WYWZ",
+        message: "Sans voyageurs V.1",
+        destination: "Boissy-Saint-Leger"
       }
     ]
   },

@@ -36,7 +36,8 @@ class SchedulesController {
       .map(departure => ({
         ...formatSchedule(now, departure.message),
         ...departure
-      }));
+      }))
+      .filter(departure => !departure.noPassenger);
 
     return { routes };
   }
