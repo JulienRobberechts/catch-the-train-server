@@ -51,7 +51,7 @@ exports.formatSchedule = (now, msg) => {
 
     return {
       noPassenger,
-      time,
+      departureTime: time,
       platform,
       isOnPlatform,
       isApproaching,

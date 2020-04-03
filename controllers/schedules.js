@@ -33,11 +33,13 @@ class SchedulesController {
       .filter(routesByMissions(missions))
       .map(departure => ({
         ...formatSchedule(now, departure.message),
-        ...departure
+        mission: departure.code,
+        displayAttributes: departure.message,
+        displayDestination: departure.destination
       }))
-      .filter(departure => departure.time)
+      .filter(departure => departure.departureTime)
       .map(departure => ({
-        trainCode: createTrainCode(departure.time),
+        trainCode: createTrainCode(departure.departureTime),
         ...departure
       }));
 
