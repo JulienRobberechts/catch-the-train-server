@@ -13,6 +13,18 @@ async function getAllSchedulesRATP({ RATP_API_ROOT_URL, type, line, station }) {
   try {
     const url = RATP_API_ROOT_URL + `/schedules/${type}/${line}/${station}/A+R`;
     const response = await axios.get(url);
+
+    if (!response.status >= 400) {
+      throw new ConnectivityError(
+        `Error response from the Api '${apiName}'`,
+        response
+      );
+    }
+
+    if (!response.data) {
+      throw new ConnectivityError(`Empty response from the Api '${apiName}'`);
+    }
+
     return response.data;
   } catch (error) {
     throw new ConnectivityError(

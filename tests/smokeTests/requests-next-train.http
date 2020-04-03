@@ -8,4 +8,4 @@ GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles
 GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles?missions=TAXE
 
 ### missions TAXE and NOTE at chatelet+les+halles
-GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles?missions=TAXE+NOTE
+GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles?missions=TAXE,NOTE

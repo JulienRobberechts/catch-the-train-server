@@ -2,16 +2,16 @@
 @rootUrl=http://localhost:3034
 
 ### ping
-GET {{rootUrl}}/health-check/
+GET {{rootUrl}}/
 
 ### error-async
-GET {{rootUrl}}/health-check/error-async
+GET {{rootUrl}}/error-async
 
 ### error-sync
-GET {{rootUrl}}/health-check/error-sync
+GET {{rootUrl}}/error-sync
 
 ### error-validation
-GET {{rootUrl}}/health-check/error-validation
+GET {{rootUrl}}/error-validation
 
 ### error-connectivity
-GET {{rootUrl}}/health-check/error-connectivity
+GET {{rootUrl}}/error-connectivity
