@@ -4,6 +4,11 @@ exports[`schedules controller should return schedules for a station/to 1`] = `
 Object {
   "at": "2020-03-10T09:22:30+01:00",
   "line": "A",
+  "missions": Array [
+    "UPAC",
+    "ZEBU",
+    "TEDI",
+  ],
   "provider": "ratp",
   "routes": Array [
     Object {

@@ -31,11 +31,11 @@ class SchedulesController {
       ...config,
     });
 
-    const now = allSchedules._metadata.date;
+    const at = allSchedules._metadata.date;
     const routes = allSchedules.result.schedules
       .filter(routesByMissions(missions))
       .map((departure) => ({
-        ...formatSchedule(now, departure.message),
+        ...formatSchedule(at, departure.message),
         mission: departure.code,
         displayAttributes: departure.message,
         displayDestination: departure.destination,
@@ -46,7 +46,8 @@ class SchedulesController {
         ...departure,
       }));
 
-    return { at: now, provider: "ratp", type, line, station, routes };
+    const provider = "ratp";
+    return { at, provider, type, line, station, routes, missions };
   }
 }
 

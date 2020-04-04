@@ -26,7 +26,7 @@ describe("schedules controller", () => {
     const type = "rers";
     const line = "A";
     const station = "chatelet+les+halles";
-    const missions = undefined;
+    const missions = ["UPAC", "ZEBU", "TEDI"];
     const result = await controller.getSchedulesForJourney(
       type,
       line,
