@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("custom-env").env(true);
 
 var express = require("express");
 var cors = require("cors");
@@ -7,7 +7,7 @@ var logger = require("morgan");
 const {
   handleAllError,
   handleValidationError,
-  handleConnectivityError
+  handleConnectivityError,
 } = require("./utils/errors");
 
 var schedulesRoutes = require("./routes/schedules");
