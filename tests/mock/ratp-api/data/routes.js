@@ -2,26 +2,56 @@ const timeTable = {
   result: {
     schedules: [
       {
-        code: "TAXE",
-        message: "21:46",
+        code: "UPAC",
+        message: "09:24",
+        destination: "Cergy-Le-Haut",
+      },
+      {
+        code: "ZEBU",
+        message: "09:27",
+        destination: "Saint-Germain-en-Laye",
+      },
+      {
+        code: "UPAC",
+        message: "09:29",
+        destination: "Cergy-Le-Haut",
+      },
+      {
+        code: "ZEBU",
+        message: "09:37",
+        destination: "Saint-Germain-en-Laye",
+      },
+      {
+        code: "TEDI",
+        message: "09:39",
         destination: "Poissy",
       },
       {
-        code: "NOTE",
-        message: "21:34",
-        destination: "Boissy-Saint-Leger",
+        code: "ZEBU",
+        message: "09:47",
+        destination: "Saint-Germain-en-Laye",
+      },
+      {
+        code: "TEDI",
+        message: "19:12",
+        destination: "Poissy",
+      },
+      {
+        code: "TEDI",
+        message: "00:15",
+        destination: "Poissy",
       },
       {
         code: "WYWZ",
         message: "Sans voyageurs V.1",
-        destination: "Boissy-Saint-Leger",
+        destination: "Saint-Germain-en-Laye",
       },
     ],
   },
   _metadata: {
     mocked: true,
     call: "GET /schedules/rers/A/chatelet+les+halles/A+R",
-    date: "2020-04-02T21:32:16+02:00",
+    date: "2020-03-10T09:22:30:00+01:00",
     version: 4,
   },
 };

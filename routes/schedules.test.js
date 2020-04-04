@@ -5,7 +5,7 @@ const app = require("../app");
 const api = request(app);
 const {
   mockApiCalls,
-  mockApiCallsWithNoConnectivity
+  mockApiCallsWithNoConnectivity,
 } = require("../tests/mock/ratp-api/mockApiCalls");
 
 describe("GET /next-train/{type}/{line}/{station}?missions=...", () => {
@@ -17,19 +17,19 @@ describe("GET /next-train/{type}/{line}/{station}?missions=...", () => {
     const response = await api
       .get("/next-trains/rers/A/chatelet+les+halles")
       .expect(200);
-    expect(response.body.routes.length).toBe(2);
+    expect(response.body.routes.length).toBe(8);
   });
-  it("should return 'TAXE' missions for chatelet", async () => {
+  it("should return 'UPAC' missions for chatelet", async () => {
     const response = await api
-      .get("/next-trains/rers/A/chatelet+les+halles?missions=TAXE")
-      .expect(200);
-    expect(response.body.routes.length).toBe(1);
-  });
-  it("should return 'TAXE' and 'NOTE' missions for chatelet", async () => {
-    const response = await api
-      .get("/next-trains/rers/A/chatelet+les+halles?missions=TAXE,NOTE")
+      .get("/next-trains/rers/A/chatelet+les+halles?missions=UPAC")
       .expect(200);
     expect(response.body.routes.length).toBe(2);
+  });
+  it("should return 'UPAC' and 'ZEBU' missions for chatelet", async () => {
+    const response = await api
+      .get("/next-trains/rers/A/chatelet+les+halles?missions=UPAC,ZEBU")
+      .expect(200);
+    expect(response.body.routes.length).toBe(5);
   });
 });
 

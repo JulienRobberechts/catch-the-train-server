@@ -4,11 +4,11 @@
 ### all missions at chatelet+les+halles
 GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles
 
-### missions TAXE at chatelet+les+halles
-GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles?missions=TAXE
+### missions UPAC at chatelet+les+halles
+GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles?missions=UPAC
 
-### missions TAXE and NOTE at chatelet+les+halles
-GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles?missions=TAXE,NOTE
+### missions UPAC and ZEBU at chatelet+les+halles
+GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles?missions=UPAC,ZEBU
 
 ### st+germain+en+laye
 GET {{rootUrl}}/next-trains/rers/A/st+germain+en+laye
