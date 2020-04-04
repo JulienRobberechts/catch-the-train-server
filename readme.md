@@ -1,6 +1,10 @@
 # Catch the train Server
 
-## Setup Dev
+This project is the backend of the 'Catch the train' web application. The react frontend project is is also on github: [https://github.com/JulienRobberechts/catch-the-train-client](https://github.com/JulienRobberechts/catch-the-train-client).
+
+The application Catch the train in production: [https://catch-the-train.dev-app.space](https://catch-the-train.dev-app.space) (if deployed)
+
+## Setup the environment
 
 ### Install
 
@@ -16,7 +20,7 @@ To start the application locally or in prod with real ratp data:
 
 > npm run start-prod
 
-### Test
+## Test
 
 To run tests:
 
@@ -43,3 +47,14 @@ to launch the app
 ### Code coverage
 
 open the generated file: [coverage report](./coverage/lcov-report/index.html)
+
+## Deployment
+
+#### Build Docker the image
+
+[Build Docker the image](./doc/1.deploy-locally.md)
+
+#### Deploy on AWS
+
+[Deploy on AWS Fargate with a load balancer](./doc/2.2.deploy-aws-fargate.md)
+
