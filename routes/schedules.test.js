@@ -8,11 +8,14 @@ const {
   mockApiCallsWithNoConnectivity,
 } = require("../tests/mock/ratp-api/mockApiCalls");
 
+const config = require("../config");
+
 describe("GET /next-train/{type}/{line}/{station}?missions=...", () => {
   beforeEach(() => {
+    if (config.RATP_API_MOCK_DATA)
+      throw Error("RATP_API_MOCK_DATA should be set to 'false' for this test");
     mockApiCalls();
   });
-
   it("should return all missions for chatelet", async () => {
     const response = await api
       .get("/next-trains/rers/A/chatelet+les+halles")
@@ -35,9 +38,10 @@ describe("GET /next-train/{type}/{line}/{station}?missions=...", () => {
 
 describe("No connectivity", () => {
   beforeEach(() => {
+    if (config.RATP_API_MOCK_DATA)
+      throw Error("RATP_API_MOCK_DATA should be set to 'false' for this test");
     mockApiCallsWithNoConnectivity();
   });
-
   it("should return a connectivity error", async () => {
     const response = await api
       .get("/next-trains/rers/A/chatelet+les+halles")

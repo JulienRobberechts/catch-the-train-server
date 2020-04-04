@@ -3,18 +3,15 @@ var router = express.Router();
 const { wrapAsync } = require("../utils/errors");
 const { getSchedulesController } = require("../controllers/factory");
 const debug = require("debug")("ctt:api:schedule");
-const moment = require("moment");
 const schedulesController = getSchedulesController();
 
 router.get(
   "/:type/:line/:station",
-  wrapAsync(async function(req, res, next) {
-    const now = moment().format();
+  wrapAsync(async function (req, res, next) {
     const { type, line, station } = req.params;
     const missionsQuery = req.query.missions;
     const missions = missionsQuery ? missionsQuery.split(",") : null;
     const result = await schedulesController.getSchedulesForJourney(
-      now,
       type,
       line,
       station,

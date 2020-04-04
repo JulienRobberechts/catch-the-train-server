@@ -5,7 +5,7 @@ describe("schedules controller", () => {
   let controller;
   beforeAll(() => {
     controller = new SchedulesController({
-      apiAdapter: apiAdapterTestDouble
+      apiAdapter: apiAdapterTestDouble,
     });
   });
 
@@ -23,15 +23,15 @@ describe("schedules controller", () => {
     expect(invalidControllerInit).toThrow();
   });
   it("should return schedules for a station/to", async () => {
-    const now = "2020-03-10T09:22:30+01:00";
     const type = "rers";
     const line = "A";
     const station = "chatelet+les+halles";
+    const missions = undefined;
     const result = await controller.getSchedulesForJourney(
-      now,
       type,
       line,
-      station
+      station,
+      missions
     );
     expect(result).toMatchSnapshot();
   });

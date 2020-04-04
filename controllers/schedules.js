@@ -3,7 +3,7 @@ const { routesByMissions } = require("../domains/timeTable/filters");
 const {
   checkParameterType,
   checkParameterLine,
-  checkParameterStation
+  checkParameterStation,
 } = require("../domains/timeTable/checkParameter");
 const config = require("../config");
 const { formatSchedule } = require("../domains/ratp/format-schedule");
@@ -17,7 +17,7 @@ class SchedulesController {
     this.apiAdapter = apiAdapter;
   }
 
-  async getSchedulesForJourney(now, type, line, station, missions) {
+  async getSchedulesForJourney(type, line, station, missions) {
     checkParameterType(type);
     checkParameterLine(type, line);
     checkParameterStation(type, line, station);
@@ -26,21 +26,22 @@ class SchedulesController {
       type,
       line,
       station,
-      ...config
+      ...config,
     });
 
+    const now = allSchedules._metadata.date;
     const routes = allSchedules.result.schedules
       .filter(routesByMissions(missions))
-      .map(departure => ({
+      .map((departure) => ({
         ...formatSchedule(now, departure.message),
         mission: departure.code,
         displayAttributes: departure.message,
-        displayDestination: departure.destination
+        displayDestination: departure.destination,
       }))
-      .filter(departure => departure.departureTime)
-      .map(departure => ({
+      .filter((departure) => departure.departureTime)
+      .map((departure) => ({
         trainCode: createTrainCode(departure.departureTime),
-        ...departure
+        ...departure,
       }));
 
     return { at: now, provider: "ratp", type, line, station, routes };

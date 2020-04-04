@@ -51,7 +51,7 @@ const timeTable = {
   _metadata: {
     mocked: true,
     call: "GET /schedules/rers/A/chatelet+les+halles/A+R",
-    date: "2020-03-10T09:22:30:00+01:00",
+    date: "2020-03-10T09:22:30+01:00",
     version: 4,
   },
 };

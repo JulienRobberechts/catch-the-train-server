@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "cross-env RATP_API_MOCK_DATA=true nodemon ./bin/www",
     "start-prod": "node ./bin/www",
-    "test": "cross-env RATP_API_MOCK_DATA=false jest --collectCoverage",
-    "test-watch": "cross-env RATP_API_MOCK_DATA=false jest --watch",
-    "test-update": "cross-env RATP_API_MOCK_DATA=false jest -u"
+    "test": "jest --collectCoverage",
+    "test-watch": "jest --watch",
+    "test-update": "jest -u"
   },
   "dependencies": {
     "axios": "^0.19.2",
