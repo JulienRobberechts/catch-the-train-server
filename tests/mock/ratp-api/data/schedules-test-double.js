@@ -18,12 +18,12 @@ const timeTable = {
       },
       {
         code: "ZEBU",
-        message: "09:37",
+        message: "09:35",
         destination: "Saint-Germain-en-Laye",
       },
       {
         code: "TEDI",
-        message: "09:39",
+        message: "09:37",
         destination: "Poissy",
       },
       {
