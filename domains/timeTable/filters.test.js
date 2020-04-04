@@ -5,9 +5,9 @@ const { routesByMissions } = require("./filters");
 
 describe("routesByMissions", () => {
   each([
-    [null, { code: "TAXE", message: "21:46" }, true],
-    [["TAXE"], { code: "TAXE", message: "21:46" }, true],
-    [["NONE"], { code: "TAXE", message: "21:46" }, false]
+    [null, { code: "MIS1", message: "21:46" }, true],
+    [["MIS1"], { code: "MIS1", message: "21:46" }, true],
+    [["MIS2"], { code: "MIS1", message: "21:46" }, false],
   ]).it("%#. should check filter", (missions, departure, expectedResult) => {
     const actualResult = routesByMissions(missions)(departure);
     expect(actualResult).toBe(expectedResult);
