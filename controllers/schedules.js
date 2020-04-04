@@ -4,6 +4,7 @@ const {
   checkParameterType,
   checkParameterLine,
   checkParameterStation,
+  checkParameterMissions,
 } = require("../domains/timeTable/checkParameter");
 const config = require("../config");
 const { formatSchedule } = require("../domains/ratp/format-schedule");
@@ -21,6 +22,7 @@ class SchedulesController {
     checkParameterType(type);
     checkParameterLine(type, line);
     checkParameterStation(type, line, station);
+    // checkParameterMissions(type, line, missions);
 
     const allSchedules = await this.apiAdapter.getAllSchedulesRATP({
       type,
