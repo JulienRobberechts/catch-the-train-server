@@ -1,7 +1,7 @@
-const routes = require("../../tests/mock/ratp-api/data/routes");
+const schedulesTestDouble = require("../../tests/mock/ratp-api/data/schedules-test-double");
 
 async function getAllSchedulesRATP() {
-  return routes;
+  return schedulesTestDouble;
 }
 
 module.exports = { getAllSchedulesRATP };
