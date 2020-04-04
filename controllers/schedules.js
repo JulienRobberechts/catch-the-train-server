@@ -22,7 +22,7 @@ class SchedulesController {
     checkParameterType(type);
     checkParameterLine(type, line);
     checkParameterStation(type, line, station);
-    // checkParameterMissions(type, line, missions);
+    checkParameterMissions(type, line, missions);
 
     const allSchedules = await this.apiAdapter.getAllSchedulesRATP({
       type,
