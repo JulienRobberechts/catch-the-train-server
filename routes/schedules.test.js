@@ -20,19 +20,19 @@ describe("GET /next-train/{type}/{line}/{station}?missions=...", () => {
     const response = await api
       .get("/next-trains/rers/A/chatelet+les+halles")
       .expect(200);
-    expect(response.body.routes.length).toBe(8);
+    expect(response.body.departures.length).toBe(8);
   });
   it("should return 'UPAC' missions for chatelet", async () => {
     const response = await api
       .get("/next-trains/rers/A/chatelet+les+halles?missions=UPAC")
       .expect(200);
-    expect(response.body.routes.length).toBe(2);
+    expect(response.body.departures.length).toBe(2);
   });
   it("should return 'UPAC' and 'ZEBU' missions for chatelet", async () => {
     const response = await api
       .get("/next-trains/rers/A/chatelet+les+halles?missions=UPAC,ZEBU")
       .expect(200);
-    expect(response.body.routes.length).toBe(5);
+    expect(response.body.departures.length).toBe(5);
   });
 });
 

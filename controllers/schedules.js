@@ -32,7 +32,7 @@ class SchedulesController {
     });
 
     const at = allSchedules._metadata.date;
-    const routes = allSchedules.result.schedules
+    const departures = allSchedules.result.schedules
       .filter(routesByMissions(missions))
       .map((departure) => ({
         ...formatSchedule(at, departure.message),
@@ -47,7 +47,17 @@ class SchedulesController {
       }));
 
     const provider = "ratp";
-    return { at, provider, type, line, station, routes, missions };
+    return {
+      for: {
+        at,
+        provider,
+        type,
+        line,
+        station,
+        missions,
+      },
+      departures,
+    };
   }
 }
 

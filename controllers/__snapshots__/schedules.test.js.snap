@@ -2,15 +2,7 @@
 
 exports[`schedules controller should return schedules for a station/to 1`] = `
 Object {
-  "at": "2020-03-10T09:22:30+01:00",
-  "line": "A",
-  "missions": Array [
-    "UPAC",
-    "ZEBU",
-    "TEDI",
-  ],
-  "provider": "ratp",
-  "routes": Array [
+  "departures": Array [
     Object {
       "departureTime": "2020-03-10T09:24:00+01:00",
       "displayAttributes": "09:24",
@@ -116,7 +108,17 @@ Object {
       "trainCode": "2415",
     },
   ],
-  "station": "chatelet+les+halles",
-  "type": "rers",
+  "for": Object {
+    "at": "2020-03-10T09:22:30+01:00",
+    "line": "A",
+    "missions": Array [
+      "UPAC",
+      "ZEBU",
+      "TEDI",
+    ],
+    "provider": "ratp",
+    "station": "chatelet+les+halles",
+    "type": "rers",
+  },
 }
 `;
