@@ -1,7 +1,7 @@
 const debug = require("debug")("ctt:api:schedule");
 const { routesByMissions } = require("../domains/timeTable/filters");
 const {
-  checkParameterType,
+  checkParameterNetwork,
   checkParameterLine,
   checkParameterStation,
   checkParameterMissions,
@@ -18,14 +18,14 @@ class SchedulesController {
     this.apiAdapter = apiAdapter;
   }
 
-  async getSchedulesForJourney(type, line, station, missions) {
-    checkParameterType(type);
-    checkParameterLine(type, line);
-    checkParameterStation(type, line, station);
-    checkParameterMissions(type, line, missions);
+  async getSchedulesForJourney(network, line, station, missions) {
+    checkParameterNetwork(network);
+    checkParameterLine(network, line);
+    checkParameterStation(network, line, station);
+    checkParameterMissions(network, line, missions);
 
     const allSchedules = await this.apiAdapter.getAllSchedulesRATP({
-      type,
+      network,
       line,
       station,
       ...config,
@@ -51,7 +51,7 @@ class SchedulesController {
       context: {
         at,
         provider,
-        type,
+        network,
         line,
         station,
         missions,

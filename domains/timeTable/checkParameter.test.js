@@ -1,5 +1,5 @@
 const {
-  checkParameterType,
+  checkParameterNetwork,
   checkParameterLine,
   checkParameterStation,
   checkParameterMissions,
@@ -14,9 +14,12 @@ describe("checkParameterStation", () => {
     ["rers", "A", "Le+Vesinet+centre"],
     ["rers", "A", "noisy+le+grand+mont+d'est"],
     ["rers", "A", "Noisiel"],
-  ]).it("should check station '%s/%s/%s' as valid", (type, line, station) => {
-    checkParameterStation(type, line, station);
-  });
+  ]).it(
+    "should check station '%s/%s/%s' as valid",
+    (network, line, station) => {
+      checkParameterStation(network, line, station);
+    }
+  );
   each([
     [null, null, null],
     ["rers", null, null],
@@ -26,40 +29,43 @@ describe("checkParameterStation", () => {
     ["rers", "A", " "],
     ["rers", "A", "Le Vesinet - centre"],
     ["rers", "A", "Noisy le Grand-Mont d'Est"],
-  ]).it("should check station '%s/%s/%s' as invalid", (type, line, station) => {
-    const check = () => checkParameterStation(type, line, station);
-    expect(check).toThrow(ValidationError);
-  });
+  ]).it(
+    "should check station '%s/%s/%s' as invalid",
+    (network, line, station) => {
+      const check = () => checkParameterStation(network, line, station);
+      expect(check).toThrow(ValidationError);
+    }
+  );
 });
 
 describe("checkParameterLine", () => {
   each([
     ["rers", "A"],
     ["rers", "a"],
-  ]).it("should check line '%s/%s' as valid", (type, line) => {
-    checkParameterLine(type, line);
+  ]).it("should check line '%s/%s' as valid", (network, line) => {
+    checkParameterLine(network, line);
   });
   each([
     [null, null],
     ["rers", null],
     ["rers", "Z"],
-  ]).it("should check line '%s/%s' as invalid", (type, line) => {
-    const check = () => checkParameterLine(type, line);
+  ]).it("should check line '%s/%s' as invalid", (network, line) => {
+    const check = () => checkParameterLine(network, line);
     expect(check).toThrow(ValidationError);
   });
 });
 
-describe("checkParameterType", () => {
+describe("checkParameterNetwork", () => {
   each([["rers"], ["RERS"]]).it(
-    "should check transport type '%s' as valid",
-    (type) => {
-      checkParameterType(type);
+    "should check transport network '%s' as valid",
+    (network) => {
+      checkParameterNetwork(network);
     }
   );
   each([[null], ["rer"], ["bus"]]).it(
-    "should check transport type '%s' as invalid",
-    (type) => {
-      const check = () => checkParameterType(type);
+    "should check transport network '%s' as invalid",
+    (network) => {
+      const check = () => checkParameterNetwork(network);
       expect(check).toThrow(ValidationError);
     }
   );
@@ -73,9 +79,12 @@ describe("checkParameterMissions", () => {
     ["rers", "A", ["NANI"]],
     ["rers", "A", ["QIKI"]],
     ["rers", "A", ["NANI", "QIKI"]],
-  ]).it("should check missions '%s/%s/%s' as valid", (type, line, missions) => {
-    checkParameterMissions(type, line, missions);
-  });
+  ]).it(
+    "should check missions '%s/%s/%s' as valid",
+    (network, line, missions) => {
+      checkParameterMissions(network, line, missions);
+    }
+  );
   each([
     [null, null, null],
     ["rers", null, null],
@@ -83,8 +92,8 @@ describe("checkParameterMissions", () => {
     ["rers", "A", ["NANI", "ERRO"]],
   ]).it(
     "should check missions '%s/%s/%s' as invalid",
-    (type, line, missions) => {
-      const check = () => checkParameterMissions(type, line, missions);
+    (network, line, missions) => {
+      const check = () => checkParameterMissions(network, line, missions);
       expect(check).toThrow(ValidationError);
     }
   );

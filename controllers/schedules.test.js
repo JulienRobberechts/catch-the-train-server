@@ -23,12 +23,12 @@ describe("schedules controller", () => {
     expect(invalidControllerInit).toThrow();
   });
   it("should return schedules for a station/to", async () => {
-    const type = "rers";
+    const network = "rers";
     const line = "A";
     const station = "chatelet+les+halles";
     const missions = ["UPAC", "ZEBU", "TEDI"];
     const result = await controller.getSchedulesForJourney(
-      type,
+      network,
       line,
       station,
       missions

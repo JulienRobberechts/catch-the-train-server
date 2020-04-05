@@ -10,9 +10,9 @@ Object {
       "ZEBU",
       "TEDI",
     ],
+    "network": "rers",
     "provider": "ratp",
     "station": "chatelet+les+halles",
-    "type": "rers",
   },
   "departures": Array [
     Object {

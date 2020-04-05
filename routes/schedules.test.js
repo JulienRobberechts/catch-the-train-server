@@ -10,7 +10,7 @@ const {
 
 const config = require("../config");
 
-describe("GET /next-train/{type}/{line}/{station}?missions=...", () => {
+describe("GET /next-train/{network}/{line}/{station}?missions=...", () => {
   beforeEach(() => {
     if (config.RATP_API_MOCK_DATA)
       throw Error("RATP_API_MOCK_DATA should be set to 'false' for this test");
