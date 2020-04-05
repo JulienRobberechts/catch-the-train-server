@@ -9,6 +9,7 @@ const {
 const config = require("../config");
 const { formatSchedule } = require("../domains/ratp/format-schedule");
 const { createTrainCode } = require("../domains/ratp/create-train-code");
+const { getStationName } = require("../domains/ratp/getStationName");
 
 class SchedulesController {
   constructor({ apiAdapter }) {
@@ -18,16 +19,16 @@ class SchedulesController {
     this.apiAdapter = apiAdapter;
   }
 
-  async getSchedulesForJourney(network, line, station, missions) {
+  async getSchedulesForJourney(network, line, stationSlug, missions) {
     checkParameterNetwork(network);
     checkParameterLine(network, line);
-    checkParameterStation(network, line, station);
+    checkParameterStation(network, line, stationSlug);
     checkParameterMissions(network, line, missions);
 
     const allSchedules = await this.apiAdapter.getAllSchedulesRATP({
       network,
       line,
-      station,
+      station: stationSlug,
       ...config,
     });
 
@@ -47,6 +48,10 @@ class SchedulesController {
       }));
 
     const provider = "ratp";
+    const station = {
+      name: getStationName(network, line, stationSlug),
+      slug: stationSlug,
+    };
     return {
       context: {
         at,

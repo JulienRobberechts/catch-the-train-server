@@ -12,7 +12,10 @@ Object {
     ],
     "network": "rers",
     "provider": "ratp",
-    "station": "chatelet+les+halles",
+    "station": Object {
+      "name": "Chatelet-Les-Halles",
+      "slug": "chatelet+les+halles",
+    },
   },
   "departures": Array [
     Object {
