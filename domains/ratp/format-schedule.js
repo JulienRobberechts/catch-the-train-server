@@ -7,7 +7,7 @@ const {
   matchTerminus,
   matchDeparture,
   matchPlatformLabel,
-  matchNoPassenger
+  matchNoPassenger,
 } = require("./match-ratp-display");
 
 // how long we can estimate a departure is still valid after the current time (in minutes)
@@ -30,17 +30,16 @@ exports.formatSchedule = (now, msg) => {
     const noPassenger = matchNoPassenger(msg);
 
     if (isApproaching) {
-      const nowMoment = moment(now).add(
-        estimateApproachingDurationInSeconds,
-        "seconds"
-      );
+      const nowMoment = moment
+        .parseZone(now)
+        .add(estimateApproachingDurationInSeconds, "seconds");
       time = nowMoment.format();
     }
 
     const isOnPlatform = matchOnPlatform(msg);
 
     if (isOnPlatform) {
-      const nowMoment = moment(now);
+      const nowMoment = moment.parseZone(now);
       time = nowMoment.format();
     }
 
@@ -56,13 +55,13 @@ exports.formatSchedule = (now, msg) => {
       isOnPlatform,
       isApproaching,
       isDeparture,
-      isTerminus
+      isTerminus,
     };
   } catch (error) {
     // log
     debug(`parsing error on message '${msg}': ${error.message}`);
     return {
-      isInvalid: true
+      isInvalid: true,
     };
   }
 };

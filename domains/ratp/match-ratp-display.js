@@ -12,7 +12,7 @@ exports.matchTime = (now, msg, maxValidDelayInMinutes = 60) => {
 
   const { hour, minute } = timeResult.groups;
 
-  const resultMoment = moment(now);
+  const resultMoment = moment.parseZone(now);
 
   resultMoment.set({ hour, minute, second: 0, millisecond: 0 });
 
@@ -20,10 +20,9 @@ exports.matchTime = (now, msg, maxValidDelayInMinutes = 60) => {
     throw Error(`Invalid time`);
   }
 
-  const oneHourAgoMoment = moment(now).subtract(
-    maxValidDelayInMinutes,
-    "minutes"
-  );
+  const oneHourAgoMoment = moment
+    .parseZone(now)
+    .subtract(maxValidDelayInMinutes, "minutes");
 
   if (oneHourAgoMoment.isAfter(resultMoment)) {
     resultMoment.add(1, "days");
@@ -32,31 +31,31 @@ exports.matchTime = (now, msg, maxValidDelayInMinutes = 60) => {
   return resultMoment.format();
 };
 
-exports.matchOnPlatform = msg => {
+exports.matchOnPlatform = (msg) => {
   const patternOnPlatform = /(à|a) quai/i;
   const isOnPlatform = patternOnPlatform.test(msg) ? true : undefined;
   return isOnPlatform;
 };
 
-exports.matchApproaching = msg => {
+exports.matchApproaching = (msg) => {
   const patternApproaching = /(à|a) l('| )approche/i;
   const isApproaching = patternApproaching.test(msg) ? true : undefined;
   return isApproaching;
 };
 
-exports.matchTerminus = msg => {
+exports.matchTerminus = (msg) => {
   const patternTerminus = /terminus/i;
   const isTerminus = patternTerminus.test(msg) ? true : undefined;
   return isTerminus;
 };
 
-exports.matchDeparture = msg => {
+exports.matchDeparture = (msg) => {
   const patternDeparture = /D(é|e)part/i;
   const isDeparture = patternDeparture.test(msg) ? true : undefined;
   return isDeparture;
 };
 
-exports.matchPlatformLabel = msg => {
+exports.matchPlatformLabel = (msg) => {
   const patternPlatformLabel = /(Voie|V\.)\s*(?<platform>\w)/i;
   const platformResults = msg.match(patternPlatformLabel);
   let platform;
@@ -66,7 +65,7 @@ exports.matchPlatformLabel = msg => {
   return platform;
 };
 
-exports.matchNoPassenger = msg => {
+exports.matchNoPassenger = (msg) => {
   const patternNoPassenger = /Sans voyageurs/i;
   const noPassenger = patternNoPassenger.test(msg) ? true : undefined;
   return noPassenger;
