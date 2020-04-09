@@ -4,9 +4,7 @@ This project is the backend of the 'Catch the train' web application. The react 
 
 The application Catch the train in production: [https://catch-the-train.dev-app.space](https://catch-the-train.dev-app.space) (if deployed)
 
-[![build](https://github.com/JulienRobberechts/catch-the-train-server/workflows/build/badge.svg)](https://github.com/JulienRobberechts/catch-the-train-server/actions?query=workflow%3Abuild)
-
-[![Deploy on AWS](https://github.com/JulienRobberechts/catch-the-train-server/workflows/Deploy%20on%20AWS/badge.svg)](https://github.com/JulienRobberechts/catch-the-train-server/actions?query=workflow%3A%22Deploy+on+AWS%22)
+[![build](https://github.com/JulienRobberechts/catch-the-train-server/workflows/build/badge.svg)](https://github.com/JulienRobberechts/catch-the-train-server/actions?query=workflow%3Abuild) [![Deploy on AWS](https://github.com/JulienRobberechts/catch-the-train-server/workflows/Deploy%20on%20AWS/badge.svg)](https://github.com/JulienRobberechts/catch-the-train-server/actions?query=workflow%3A%22Deploy+on+AWS%22)
 
 ## Setup the environment
 
