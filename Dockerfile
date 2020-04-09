@@ -1,6 +1,5 @@
-# Use the official Node.js 10 image.
-# https://hub.docker.com/_/node
-FROM mhart/alpine-node
+# Use Minimal Node.js built on Alpine Linux
+FROM mhart/alpine-node:12
 
 # Create and change to the app directory.
 WORKDIR /usr/src/app
@@ -14,7 +13,7 @@ COPY package*.json ./
 RUN npm install --only=production
 
 # Copy local code to the container image.
-COPY . .
+COPY ./src ./src
 
 # Service must listen to $PORT environment variable.
 # This default value facilitates local development.
