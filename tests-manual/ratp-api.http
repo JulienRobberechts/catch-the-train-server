@@ -1,5 +1,5 @@
 
 @rootApiUrl=https://api-ratp.pierre-grimaud.fr/v4
 
-##
+## Current departure at chatelet+les+halles
 {{rootApiUrl}}/schedules/rers/a/chatelet+les+halles/A+R
