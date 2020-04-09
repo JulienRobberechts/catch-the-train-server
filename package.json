@@ -1,13 +1,13 @@
 {
   "name": "catch-the-train-server",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "start": "cross-env RATP_API_MOCK_DATA=true nodemon ./src/bin/www",
     "start-prod": "node ./src/bin/www",
-    "test": "jest --collectCoverage",
-    "test-watch": "jest --watch",
-    "test-update": "jest -u"
+    "test": "jest --watch",
+    "test-update": "jest -u",
+    "ci:test": "jest --collectCoverage"
   },
   "dependencies": {
     "axios": "^0.19.2",

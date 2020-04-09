@@ -1,0 +1,79 @@
+{
+  "family": "ctt-task",
+  "taskRoleArn": "arn:aws:iam::027555717518:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::027555717518:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+    {
+      "name": "ctt-container",
+      "cpu": 0,
+      "memory": null,
+      "memoryReservation": null,
+      "links": null,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "protocol": "tcp",
+          "containerPort": 80
+        }
+      ],
+      "essential": true,
+      "entryPoint": null,
+      "command": null,
+      "environment": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "linuxParameters": null,
+      "secrets": null,
+      "dependsOn": null,
+      "startTimeout": 120,
+      "stopTimeout": 120,
+      "hostname": null,
+      "user": null,
+      "workingDirectory": null,
+      "disableNetworking": null,
+      "privileged": null,
+      "readonlyRootFilesystem": null,
+      "dnsServers": null,
+      "dnsSearchDomains": null,
+      "extraHosts": null,
+      "dockerSecurityOptions": null,
+      "interactive": null,
+      "pseudoTerminal": null,
+      "dockerLabels": null,
+      "ulimits": null,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "/ecs/ctt-task",
+          "awslogs-region": "eu-west-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "healthCheck": null,
+      "systemControls": null,
+      "resourceRequirements": null,
+      "firelensConfiguration": null
+    }
+  ],
+  "volumes": [],
+  "placementConstraints": [],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "tags": [
+    {
+      "key": "application",
+      "value": "ctt"
+    },
+    {
+      "key": "deployment-mode",
+      "value": "ci"
+    }
+  ],
+  "pidMode": null,
+  "ipcMode": null,
+  "proxyConfiguration": null,
+  "inferenceAccelerators": null
+}

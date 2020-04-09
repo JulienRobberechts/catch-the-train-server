@@ -12,7 +12,7 @@ The application Catch the train in production: [https://catch-the-train.dev-app.
 
 ### Start
 
-To start the application locally with mocked data: 
+To start the application locally with mocked data:
 
 > npm start
 
@@ -36,7 +36,7 @@ Warning: Mocked data is only returning 'rers/A/chatelet+les+halles'
 
 To run tests with watch mode:
 
-> npm run test-watch
+> npm run test
 
 To run update the snapshot tests:
 
@@ -57,4 +57,3 @@ open the generated file: [coverage report](./coverage/lcov-report/index.html)
 #### Deploy on AWS
 
 [Deploy on AWS Fargate with a load balancer](./doc/2.2.deploy-aws-fargate.md)
-
