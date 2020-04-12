@@ -29,12 +29,12 @@ function checkParameterStation(network, line, station) {
 function checkParameterMissions(network, line, missions) {
   if (!network || !line)
     throw new ValidationError(
-      `the missions '${network}/${line}/${missions}' is not recognized.`
+      `the network and line is not recognized: ${network}/${line}.`
     );
 
   if (missions && !missions.every(missionIsValid))
     throw new ValidationError(
-      `the missions '${network}/${line}/${missions}' is not recognized.`
+      `one of the missions '${missions}' is not recognized (${network}/${line}).`
     );
 }
 
