@@ -1,13 +1,21 @@
 module.exports = {
-  // 400: Bad Request
+  // 400: Bad Request (error due to the client)
+  // Default client error
   ERROR_40000_BAD_REQUEST: 40000,
 
-  // 500: Internal Server Error
+  // 500: Internal Server Error (error due to the server)
+  // Default server error
   ERROR_50000_UNKNOWN_SERVER_ERROR: 50000,
+  // Error server error in error management
   ERROR_50010_SERVER_ERROR_MANAGEMENT_ERROR: 50010,
+  // Error when an external error return a 400 error
   ERROR_50020_EXTERNAL_SERVICE_USAGE_ERROR: 50020,
 
-  // 503: Service Unavailable
-  ERROR_50300_CONNECTIVITY_ERROR: 50300,
-  ERROR_50310_PROVIDER_SERVICE_UNAVAILABLE: 50310,
+  // 503: Service Unavailable (error in an external service)
+  // Default error when an external service return a 500 error
+  ERROR_50300_EXTERNAL_SERVICE_UNKNOWN_ERROR: 50300,
+  // Error when an external service return a 500 error
+  ERROR_50320_EXTERNAL_SERVICE_SERVER_ERROR: 50320,
+  // Error when an external service return a 503 error
+  ERROR_50310_EXTERNAL_SERVICE_UNAVAILABLE: 50310,
 };

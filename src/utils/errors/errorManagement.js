@@ -22,11 +22,21 @@ const identifyError = (rawError) => {
 
   const httpStatus = rawError.response.status;
 
-  if (httpStatus === 500) return ErrorCodes.ERROR_50000_UNKNOWN_SERVER_ERROR;
-  if (httpStatus === 503) return ErrorCodes.ERROR_50300_CONNECTIVITY_ERROR;
-  if (httpStatus === 400) return ErrorCodes.ERROR_40000_BAD_REQUEST;
-  if (!httpStatus) return ErrorCodes.ERROR_50000_UNKNOWN_SERVER_ERROR;
-  return ErrorCodes.ERROR_50000_UNKNOWN_SERVER_ERROR;
+  return identifyExternalServiceError(httpStatus);
+};
+
+const identifyExternalServiceError = (status) => {
+  if (status >= 400 && status < 500)
+    return ErrorCodes.ERROR_50020_EXTERNAL_SERVICE_USAGE_ERROR;
+
+  switch (status) {
+    case 500:
+      return ErrorCodes.ERROR_50320_EXTERNAL_SERVICE_SERVER_ERROR;
+    case 503:
+      return ErrorCodes.ERROR_50310_EXTERNAL_SERVICE_UNAVAILABLE;
+    default:
+      return ErrorCodes.ERROR_50300_EXTERNAL_SERVICE_UNKNOWN_ERROR;
+  }
 };
 
 const formatError = (errorCode) => {

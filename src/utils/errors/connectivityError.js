@@ -11,7 +11,7 @@ class ConnectivityError extends Error {
 function handleConnectivityError(error, req, res, next) {
   debug("API Error: ", error);
   if (error instanceof ConnectivityError) {
-    console.log("ConnectivityError", { rawError: error.externalError });
+    // console.log("ConnectivityError", { rawError: error.externalError });
 
     res.status(503).send({
       errorMessage: error.message,

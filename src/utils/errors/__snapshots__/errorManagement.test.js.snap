@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`errorManagement handleError %#. should handleError an error 1`] = `
+Object {
+  "code": 50000,
+  "msg": "Erreur serveur inconnue",
+}
+`;
+
+exports[`errorManagement handleError %#. should handleError an error 2`] = `
+Object {
+  "code": 50020,
+  "msg": "Erreur server",
+}
+`;
+
+exports[`errorManagement handleError %#. should handleError an error 3`] = `undefined`;
+
+exports[`errorManagement handleError %#. should handleError an error 4`] = `
+Object {
+  "code": 50310,
+  "msg": "le fournisseur de donnees est momentanément indisponible",
+}
+`;
