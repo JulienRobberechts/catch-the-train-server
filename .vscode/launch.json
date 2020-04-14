@@ -14,9 +14,35 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
-      "program": "${workspaceFolder}/bin/www",
-      "skipFiles": ["<node_internals>/**"]
+      "name": "Launch Prod",
+      "program": "${workspaceFolder}/src/bin/www",
+      "skipFiles": ["<node_internals>/**"],
+      "env": {
+        "RATP_API_MOCK_DATA": false,
+        "RATP_API_MOCK_DATA_INVALID": false
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Mock Valid",
+      "program": "${workspaceFolder}/src/bin/www",
+      "skipFiles": ["<node_internals>/**"],
+      "env": {
+        "RATP_API_MOCK_DATA": true,
+        "RATP_API_MOCK_DATA_INVALID": false
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Mock Unavailable",
+      "program": "${workspaceFolder}/src/bin/www",
+      "skipFiles": ["<node_internals>/**"],
+      "env": {
+        "RATP_API_MOCK_DATA": true,
+        "RATP_API_MOCK_DATA_INVALID": true
+      }
     }
   ]
 }
