@@ -1,5 +1,8 @@
 
 @rootApiUrl=https://api-ratp.pierre-grimaud.fr/v4
 
-## Current departure at chatelet+les+halles
+### Current departure at chatelet+les+halles
 {{rootApiUrl}}/schedules/rers/a/chatelet+les+halles/A+R
+
+### Current departure at neuville+universite
+{{rootApiUrl}}/schedules/rers/a/neuville+universite/A+R
