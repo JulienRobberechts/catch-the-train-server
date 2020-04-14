@@ -1,12 +1,13 @@
 const nock = require("nock");
-const schedulesTestDouble = require("./data/schedules-test-double");
+const schedulesTestDoubleValid = require("./data/schedules-test-double.valid");
+const schedulesTestDoubleUnavailable = require("./data/schedules-test-double.unavailable");
 var config = require("../../../config");
 
 const mockApiCalls = () => {
   nock(config.RATP_API_ROOT_URL)
     .defaultReplyHeaders({ "access-control-allow-origin": "*" })
     .get("/schedules/rers/A/chatelet+les+halles/A+R")
-    .reply(200, schedulesTestDouble);
+    .reply(200, schedulesTestDoubleValid);
 };
 
 const mockApiCallsWithNoConnectivity = () => {
@@ -16,4 +17,15 @@ const mockApiCallsWithNoConnectivity = () => {
     .reply(404);
 };
 
-module.exports = { mockApiCalls, mockApiCallsWithNoConnectivity };
+const mockApiCallsWithScheduleUnavailable = () => {
+  nock(config.RATP_API_ROOT_URL)
+    .defaultReplyHeaders({ "access-control-allow-origin": "*" })
+    .get("/schedules/rers/A/cergy+prefecture/A+R")
+    .reply(503, schedulesTestDoubleUnavailable);
+};
+
+module.exports = {
+  mockApiCalls,
+  mockApiCallsWithNoConnectivity,
+  mockApiCallsWithScheduleUnavailable,
+};
