@@ -12,7 +12,7 @@ const errorCase = {
     expectedErrorCode: ErrorCodes.ERROR_50020_EXTERNAL_SERVICE_USAGE_ERROR,
   },
 
-  externalService_ConnectivityError: {
+  externalService_ServerError: {
     incomingError: { isAxiosError: true, response: { status: 500 } },
     expectedErrorCode: ErrorCodes.ERROR_50320_EXTERNAL_SERVICE_SERVER_ERROR,
   },
@@ -49,7 +49,7 @@ describe("errorManagement", () => {
       name    | errorCase
       ${1}  | ${errorCase.server_Error}
       ${2}  | ${errorCase.externalService_UsageError}
-      ${3}  | ${errorCase.externalService_ConnectivityError}
+      ${3}  | ${errorCase.externalService_ServerError}
       ${4}  | ${errorCase.externalService_UnavailableError}
       ${5}  | ${errorCase.externalService_OtherError}
     `.test("should identify an error $name", ({ name, errorCase }) => {

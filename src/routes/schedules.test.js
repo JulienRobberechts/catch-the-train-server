@@ -47,10 +47,8 @@ describe("No connectivity", () => {
     const response = await api
       .get("/next-trains/rers/A/chatelet+les+halles")
       .expect(503);
-    expect(response.body.errorType).toBe("ConnectivityError");
-    expect(response.body.errorMessage).toBe(
-      "Connectivity Error with the Api 'ratp'"
-    );
+    expect(response.body.errorType).toBe("ServerError");
+    expect(response.body.errorMessage).toBe("Server Error");
   });
 });
 
@@ -65,9 +63,7 @@ describe("Schedule Unavailable", () => {
       .get("/next-trains/rers/A/cergy+prefecture")
       .expect(503);
 
-    expect(response.body.errorType).toBe("ConnectivityError");
-    expect(response.body.errorMessage).toBe(
-      "Connectivity Error with the Api 'ratp'"
-    );
+    expect(response.body.errorType).toBe("ServerError");
+    expect(response.body.errorMessage).toBe("Server Error");
   });
 });

@@ -7,7 +7,7 @@ var logger = require("morgan");
 const {
   handleAllError,
   handleValidationError,
-  handleConnectivityError,
+  handleServerError,
 } = require("./utils/errors");
 
 var schedulesRoutes = require("./routes/schedules");
@@ -25,7 +25,7 @@ app.use("/next-trains", schedulesRoutes);
 app.use("/", healthChecksRoutes);
 
 app.use(handleValidationError);
-app.use(handleConnectivityError);
+app.use(handleServerError);
 app.use(handleAllError);
 
 module.exports = app;

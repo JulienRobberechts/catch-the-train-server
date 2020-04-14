@@ -15,7 +15,7 @@ const errorCase = {
     incomingError: { isAxiosError: true, response: { status: 400 } },
     expectedErrorCode: ErrorCodes.ERROR_50020_EXTERNAL_SERVICE_USAGE_ERROR,
   },
-  externalService_ConnectivityError: {
+  externalService_ServerError: {
     incomingError: { isAxiosError: true, response: { status: 500 } },
     expectedErrorCode: ErrorCodes.ERROR_50300_CONNECTIVITY_ERROR,
   },
@@ -49,7 +49,7 @@ describe("errorManagement", () => {
       errorCase                  
       ${errorCase.server_Error}
       ${errorCase.externalService_UsageError}
-      ${errorCase.externalService_ConnectivityError}
+      ${errorCase.externalService_ServerError}
       ${errorCase.externalService_UnavailableError}
     `.test("%#. should handleError an error", ({ errorCase }) => {
       const actualErrorObject = handleError(errorCase.incomingError);

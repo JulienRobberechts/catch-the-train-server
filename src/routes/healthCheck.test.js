@@ -31,7 +31,7 @@ describe("GET /", () => {
 
   it("should return an connectivity error response", async () => {
     const response = await api.get("/error-connectivity").expect(503);
-    expect(response.body.errorType).toBe("ConnectivityError");
+    expect(response.body.errorType).toBe("ServerError");
     expect(response.body.errorMessage).toBe(
       "sample connectivity error message"
     );

@@ -3,7 +3,7 @@ var router = express.Router();
 const { wrapAsync } = require("../utils/errors");
 const debug = require("debug")("ctt:api:schedule");
 const { ValidationError } = require("../utils/errors");
-const { ConnectivityError } = require("../utils/errors");
+const { ServerError } = require("../utils/errors");
 const getCurrentServerIp = require("../domains/config/getIp");
 const packageJson = require("../../package.json");
 const config = require("../config");
@@ -54,7 +54,7 @@ router.get(
   "/error-connectivity",
   wrapAsync(async function (req, res, next) {
     debug("error-connectivity check received");
-    throw new ConnectivityError("sample connectivity error message");
+    throw new ServerError("sample connectivity error message");
   })
 );
 

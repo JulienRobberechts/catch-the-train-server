@@ -1,17 +1,17 @@
 var debug = require("debug")("ctt");
 
-class ConnectivityError extends Error {
+class ServerError extends Error {
   constructor(message, externalError) {
     super(message);
-    this.name = "ConnectivityError";
+    this.name = "ServerError";
     this.externalError = externalError;
   }
 }
 
-function handleConnectivityError(error, req, res, next) {
+function handleServerError(error, req, res, next) {
   debug("API Error: ", error);
-  if (error instanceof ConnectivityError) {
-    // console.log("ConnectivityError", { rawError: error.externalError });
+  if (error instanceof ServerError) {
+    // console.log("ServerError", { rawError: error.externalError });
 
     res.status(503).send({
       errorMessage: error.message,
@@ -22,4 +22,4 @@ function handleConnectivityError(error, req, res, next) {
   }
 }
 
-module.exports = { ConnectivityError, handleConnectivityError };
+module.exports = { ServerError, handleServerError };
