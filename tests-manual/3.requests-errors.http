@@ -13,5 +13,5 @@ GET {{rootUrl}}/error-sync
 ### error-validation
 GET {{rootUrl}}/error-validation
 
-### error-connectivity
-GET {{rootUrl}}/error-connectivity
+### error-server-unavailable
+GET {{rootUrl}}/error-server-unavailable

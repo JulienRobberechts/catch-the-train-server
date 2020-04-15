@@ -20,7 +20,7 @@ describe("ratp-api adapter error management", () => {
     console.error = originalError;
   });
 
-  it("should fail with connectivity error immediately with invalid http address", (done) => {
+  it("should fail with server error immediately with invalid http address", (done) => {
     apiAdapter
       .getAllSchedulesRATP({
         RATP_API_ROOT_URL: "https://invalid-api.ratp.fr",
@@ -32,7 +32,7 @@ describe("ratp-api adapter error management", () => {
         done();
       });
   }, 2000);
-  it("should fail with connectivity error after the timeout (500ms) with invalid address (non http)", (done) => {
+  it("should fail with server error after the timeout (500ms) with invalid address (non http)", (done) => {
     apiAdapter
       .getAllSchedulesRATP({
         RATP_API_ROOT_URL: "invalid-api.ratp.fr",

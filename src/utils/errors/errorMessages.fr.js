@@ -34,6 +34,10 @@ const ErrorMessages = [
     code: ErrorCodes.ERROR_50320_EXTERNAL_SERVICE_SERVER_ERROR,
     msg: "Le service externe a rencontré une erreur",
   },
+  {
+    code: ErrorCodes.ERROR_50330_EXTERNAL_SERVICE_NOT_FOUND,
+    msg: "Le service externe a ne répond pas",
+  },
 ];
 
 module.exports = { ErrorMessages, errorInErrorManagementObject };

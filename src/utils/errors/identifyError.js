@@ -1,0 +1,53 @@
+const ErrorCodes = require("./errorCodes");
+const { ServerError } = require("./serverError");
+
+const identifyError = (incomingError) => {
+  if (!incomingError) {
+    return ErrorCodes.ERROR_50000_UNKNOWN_SERVER_ERROR;
+  }
+
+  if (incomingError instanceof ServerError) {
+    return identifyServerError(incomingError);
+  }
+
+  return identifyNativeError(incomingError);
+};
+
+const identifyServerError = (serverError) => {
+  const { rootError } = serverError;
+  if (!rootError) {
+    return ErrorCodes.ERROR_50000_UNKNOWN_SERVER_ERROR;
+  }
+  const { response } = rootError;
+  if (!response || !response.status) {
+    return ErrorCodes.ERROR_50000_UNKNOWN_SERVER_ERROR;
+  }
+
+  const httpStatus = response.status;
+
+  return identifyExternalServiceError(httpStatus);
+};
+
+const identifyExternalServiceError = (status) => {
+  switch (status) {
+    case 404:
+      return ErrorCodes.ERROR_50330_EXTERNAL_SERVICE_NOT_FOUND;
+    case 500:
+      return ErrorCodes.ERROR_50320_EXTERNAL_SERVICE_SERVER_ERROR;
+    case 503:
+      return ErrorCodes.ERROR_50310_EXTERNAL_SERVICE_UNAVAILABLE;
+    default:
+      if (status >= 400 && status < 500) {
+        return ErrorCodes.ERROR_50020_EXTERNAL_SERVICE_USAGE_ERROR;
+      }
+      return ErrorCodes.ERROR_50300_EXTERNAL_SERVICE_UNKNOWN_ERROR;
+  }
+};
+
+const identifyNativeError = (nativeError) => {
+  return ErrorCodes.ERROR_50000_UNKNOWN_SERVER_ERROR;
+};
+
+module.exports = {
+  identifyError,
+};

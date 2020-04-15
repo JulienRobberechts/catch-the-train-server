@@ -2,67 +2,50 @@
 
 exports[`errorManagement handleError should handleError an error number 1 1`] = `
 Object {
-  "OriginalException": Object {
-    "message": "Any random error on the server",
-  },
-  "code": 50000,
-  "msg": "Erreur serveur inconnue",
-  "responseHttpCode": 500,
+  "errorCode": 50000,
+  "errorHttpCode": 500,
+  "errorMessage": "Erreur serveur inconnue",
+  "errorType": "Error",
+  "originalException": [ServerError: error],
 }
 `;
 
 exports[`errorManagement handleError should handleError an error number 2 1`] = `
 Object {
-  "OriginalException": Object {
-    "isAxiosError": true,
-    "response": Object {
-      "status": 400,
-    },
-  },
-  "code": 50020,
-  "msg": "Erreur du serveur",
-  "responseHttpCode": 500,
+  "errorCode": 50020,
+  "errorHttpCode": 500,
+  "errorMessage": "Erreur du serveur",
+  "errorType": "Error",
+  "originalException": [ServerError: error],
 }
 `;
 
 exports[`errorManagement handleError should handleError an error number 3 1`] = `
 Object {
-  "OriginalException": Object {
-    "isAxiosError": true,
-    "response": Object {
-      "status": 500,
-    },
-  },
-  "code": 50320,
-  "msg": "Le service externe a rencontré une erreur",
-  "responseHttpCode": 503,
+  "errorCode": 50320,
+  "errorHttpCode": 503,
+  "errorMessage": "Le service externe a rencontré une erreur",
+  "errorType": "Error",
+  "originalException": [ServerError: error],
 }
 `;
 
 exports[`errorManagement handleError should handleError an error number 4 1`] = `
 Object {
-  "OriginalException": Object {
-    "isAxiosError": true,
-    "response": Object {
-      "status": 503,
-    },
-  },
-  "code": 50310,
-  "msg": "Le service externe est momentanément indisponible",
-  "responseHttpCode": 503,
+  "errorCode": 50310,
+  "errorHttpCode": 503,
+  "errorMessage": "Le service externe est momentanément indisponible",
+  "errorType": "Error",
+  "originalException": [ServerError: error],
 }
 `;
 
 exports[`errorManagement handleError should handleError an error number 5 1`] = `
 Object {
-  "OriginalException": Object {
-    "isAxiosError": true,
-    "response": Object {
-      "status": 501,
-    },
-  },
-  "code": 50300,
-  "msg": "Le service externe a rencontré une erreur inconnue",
-  "responseHttpCode": 503,
+  "errorCode": 50300,
+  "errorHttpCode": 503,
+  "errorMessage": "Le service externe a rencontré une erreur inconnue",
+  "errorType": "Error",
+  "originalException": [ServerError: error],
 }
 `;

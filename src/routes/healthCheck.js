@@ -49,10 +49,12 @@ router.get(
 );
 
 router.get(
-  "/error-connectivity",
+  "/error-server-unavailable",
   wrapAsync(async function (req, res, next) {
-    debug("error-connectivity check received");
-    throw new ServerError("sample connectivity error message");
+    debug("error-server-unavailable check received");
+    throw new ServerError("sample server error message", {
+      response: { status: 503 },
+    });
   })
 );
 

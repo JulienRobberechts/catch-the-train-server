@@ -4,11 +4,7 @@ var express = require("express");
 var cors = require("cors");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-const {
-  handleAllError,
-  handleValidationError,
-  handleServerError,
-} = require("./utils/errors");
+const { handleAllError, handleValidationError } = require("./utils/errors");
 
 var schedulesRoutes = require("./routes/schedules");
 var healthChecksRoutes = require("./routes/healthCheck");
@@ -25,7 +21,6 @@ app.use("/next-trains", schedulesRoutes);
 app.use("/", healthChecksRoutes);
 
 app.use(handleValidationError);
-app.use(handleServerError);
 app.use(handleAllError);
 
 module.exports = app;

@@ -1,15 +1,15 @@
 var debug = require("debug")("ctt");
+const { handleError } = require("./errorManagement");
 
 function handleAllError(error, req, res, next) {
-  debug("API Error: ", error);
-  if (process.env.NODE_ENV !== "production") {
-    res.status(500).json({
-      errorMessage: error.message,
-      errorType: error.name,
-      errorStack: error.stack
+  try {
+    const publicError = handleError(error);
+    res.status(publicError.errorHttpCode).send(publicError);
+  } catch (error) {
+    res.status(500).send({
+      errorCode: 50010,
+      errorMessage: "Erreur dans la gestion d'erreur du serveur",
     });
-  } else {
-    res.status(500).json({ errorMessage: "Internal error in Event API" });
   }
 }
 

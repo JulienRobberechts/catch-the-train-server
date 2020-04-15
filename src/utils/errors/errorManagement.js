@@ -3,42 +3,43 @@ const {
   ErrorMessages,
   errorInErrorManagementObject,
 } = require("./errorMessages.fr");
+const { identifyError } = require("./identifyError");
 
-const handleServerError = (rawError) => {
+var debug = require("debug")("ctt");
+
+const handleError = (incomingError) => {
   try {
-    const errorCode = identifyError(rawError);
+    const errorCode = identifyError(incomingError);
     const appError = getAppError(errorCode);
-    appError.OriginalException = rawError;
+    appError.originalException = incomingError;
     appError.responseHttpCode = getResponseHttpCode(errorCode);
     logError(appError);
-    return appError;
+    return toPublicError(appError);
   } catch (errorInErrorManagement) {
     console.log("Error in the error treatment", { errorInErrorManagement });
     return errorInErrorManagementObject;
   }
 };
 
-const identifyError = (rawError) => {
-  if (!rawError || !rawError.response || !rawError.response.status)
-    return ErrorCodes.ERROR_50000_UNKNOWN_SERVER_ERROR;
+const toPublicError = (appError) => {
+  const {
+    code: errorCode,
+    msg: errorMessage,
+    responseHttpCode: errorHttpCode,
+  } = appError;
 
-  const httpStatus = rawError.response.status;
+  const originalException =
+    process.env.NODE_ENV !== "production"
+      ? appError.originalException
+      : undefined;
 
-  return identifyExternalServiceError(httpStatus);
-};
-
-const identifyExternalServiceError = (status) => {
-  if (status >= 400 && status < 500)
-    return ErrorCodes.ERROR_50020_EXTERNAL_SERVICE_USAGE_ERROR;
-
-  switch (status) {
-    case 500:
-      return ErrorCodes.ERROR_50320_EXTERNAL_SERVICE_SERVER_ERROR;
-    case 503:
-      return ErrorCodes.ERROR_50310_EXTERNAL_SERVICE_UNAVAILABLE;
-    default:
-      return ErrorCodes.ERROR_50300_EXTERNAL_SERVICE_UNKNOWN_ERROR;
-  }
+  return {
+    errorType: "Error",
+    errorCode,
+    errorMessage,
+    originalException,
+    errorHttpCode,
+  };
 };
 
 const getAppError = (errorCode) => {
@@ -58,11 +59,12 @@ const getResponseHttpCode = (errorCode) => {
 };
 
 const logError = (appError) => {
-  console.error({ appError });
+  // debug({ appError });
+  // console.error({ appError });
 };
 
 module.exports = {
-  handleError: handleServerError,
+  handleError,
   identifyError,
   getAppError,
   getResponseHttpCode,

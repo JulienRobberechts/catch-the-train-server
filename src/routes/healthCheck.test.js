@@ -12,15 +12,15 @@ describe("GET /", () => {
   it("should return an error in async requests", async () => {
     const response = await api.get("/error-async").expect(500);
     expect(response.body.errorType).toBe("Error");
-    expect(response.body.errorMessage).toBe(
-      "sample asynchronous error message"
-    );
+    expect(response.body.errorMessage).toBe("Erreur serveur inconnue");
+    // TODO: add check to get 'sample synchronous error message'
   });
 
   it("should return an error in sync requests", async () => {
     const response = await api.get("/error-sync").expect(500);
     expect(response.body.errorType).toBe("Error");
-    expect(response.body.errorMessage).toBe("sample synchronous error message");
+    expect(response.body.errorMessage).toBe("Erreur serveur inconnue");
+    // TODO: add check to get 'sample synchronous error message'
   });
 
   it("should return an validation error response", async () => {
@@ -29,11 +29,11 @@ describe("GET /", () => {
     expect(response.body.errorMessage).toBe("sample validation error message");
   });
 
-  it("should return an connectivity error response", async () => {
-    const response = await api.get("/error-connectivity").expect(503);
-    expect(response.body.errorType).toBe("ServerError");
+  it("should return an server error response", async () => {
+    const response = await api.get("/error-server-unavailable").expect(503);
+    expect(response.body.errorType).toBe("Error");
     expect(response.body.errorMessage).toBe(
-      "sample connectivity error message"
+      "Le service externe est momentanément indisponible"
     );
   });
 });

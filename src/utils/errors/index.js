@@ -1,7 +1,7 @@
 const wrapAsync = require("./wrapAsync");
 const handleAllError = require("./handleAllError");
 const { ValidationError, handleValidationError } = require("./validationError");
-const { ServerError, handleServerError } = require("./serverError");
+const { ServerError } = require("./serverError");
 
 module.exports = {
   wrapAsync,
@@ -9,5 +9,4 @@ module.exports = {
   ValidationError,
   handleValidationError,
   ServerError,
-  handleServerError,
 };

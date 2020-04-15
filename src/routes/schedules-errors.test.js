@@ -20,8 +20,11 @@ describe("No connectivity", () => {
   });
   it("should return a connectivity error", async () => {
     const response = await api.get(url).expect(503);
-    expect(response.body.errorType).toBe("ServerError");
-    expect(response.body.errorMessage).toBe("Server Error");
+    expect(response.body.errorType).toBe("Error");
+    expect(response.body.errorCode).toBe(50330);
+    expect(response.body.errorMessage).toBe(
+      "Le service externe a ne répond pas"
+    );
   });
 });
 
@@ -33,9 +36,12 @@ describe("Schedule Unavailable", () => {
       throw Error("RATP_API_MOCK_DATA should be set to 'false' for this test");
     mockApiCallsWithScheduleUnavailable(station);
   });
-  it("should return a connectivity error", async () => {
+  it("should return an error 50310", async () => {
     const response = await api.get(url).expect(503);
-    expect(response.body.errorType).toBe("ServerError");
-    expect(response.body.errorMessage).toBe("Server Error");
+    expect(response.body.errorType).toBe("Error");
+    expect(response.body.errorCode).toBe(50310);
+    expect(response.body.errorMessage).toBe(
+      "Le service externe est momentanément indisponible"
+    );
   });
 });
