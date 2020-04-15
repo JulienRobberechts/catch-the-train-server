@@ -35,7 +35,6 @@ describe("Schedule Unavailable", () => {
   });
   it("should return a connectivity error", async () => {
     const response = await api.get(url).expect(503);
-
     expect(response.body.errorType).toBe("ServerError");
     expect(response.body.errorMessage).toBe("Server Error");
   });

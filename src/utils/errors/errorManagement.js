@@ -7,7 +7,7 @@ const {
 const handleServerError = (rawError) => {
   try {
     const errorCode = identifyError(rawError);
-    const errorObject = formatError(errorCode);
+    const errorObject = getAppError(errorCode);
     LogErrorInternally(rawError, errorObject);
     return errorObject;
   } catch (errorInErrorManagement) {
@@ -39,11 +39,11 @@ const identifyExternalServiceError = (status) => {
   }
 };
 
-const formatError = (errorCode) => {
+const getAppError = (errorCode) => {
   return ErrorMessages.find((e) => e.code === errorCode);
 };
 
-const attachErrorContext = (errorObject, context) => {
+const addResponseHttpCode = (errorObject) => {
   errorObject.context = context;
   return errorObject;
 };
@@ -64,7 +64,7 @@ const LogErrorInternally = (errorInDev, errorObjectWithContext) => {
 module.exports = {
   handleError: handleServerError,
   identifyError,
-  formatError,
-  attachErrorContext,
+  getAppError,
+  attachErrorContext: addResponseHttpCode,
   LogErrorInternally,
 };

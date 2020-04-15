@@ -3,7 +3,7 @@ const ErrorCodes = require("./errorCodes");
 const {
   handleError,
   identifyError,
-  formatError,
+  getAppError,
 } = require("./errorManagement");
 
 const errorCase = {
@@ -56,7 +56,7 @@ describe("errorManagement", () => {
       expect(actualErrorObject).toMatchSnapshot();
     });
   });
-  describe("formatError", () => {
+  describe("getAppError", () => {
     each`
       errorCode     | expectedMessage
       ${40000}      | ${"Erreur de requete"}
@@ -68,7 +68,7 @@ describe("errorManagement", () => {
     `.test(
       "should format an error $errorCode",
       ({ errorCode, expectedMessage }) => {
-        const actualObject = formatError(errorCode);
+        const actualObject = getAppError(errorCode);
         expect(actualObject).toBeTruthy();
         expect(actualObject.msg).toEqual(expectedMessage);
       }
