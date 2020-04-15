@@ -29,15 +29,18 @@ const errorCase = {
 describe("errorManagement", () => {
   describe("identifyError", () => {
     each`
-      name    | errorCase
+      errorCaseId | errorCase
       ${1}  | ${errorCase.server_Error}
       ${2}  | ${errorCase.externalService_UsageError}
       ${3}  | ${errorCase.externalService_ServerError}
       ${4}  | ${errorCase.externalService_UnavailableError}
       ${5}  | ${errorCase.externalService_OtherError}
-    `.test("should identify an error $name", ({ name, errorCase }) => {
-      const actualErrorCode = identifyError(errorCase.incomingError);
-      expect(actualErrorCode).toEqual(errorCase.expectedErrorCode);
-    });
+    `.test(
+      "should identify an error case number $errorCaseId",
+      ({ errorCaseId, errorCase }) => {
+        const actualErrorCode = identifyError(errorCase.incomingError);
+        expect(actualErrorCode).toEqual(errorCase.expectedErrorCode);
+      }
+    );
   });
 });
