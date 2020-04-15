@@ -7,9 +7,11 @@ const {
 const handleServerError = (rawError) => {
   try {
     const errorCode = identifyError(rawError);
-    const errorObject = getAppError(errorCode);
-    LogErrorInternally(rawError, errorObject);
-    return errorObject;
+    const appError = getAppError(errorCode);
+    appError.OriginalException = rawError;
+    appError.responseHttpCode = getResponseHttpCode(errorCode);
+    logError(appError);
+    return appError;
   } catch (errorInErrorManagement) {
     console.log("Error in the error treatment", { errorInErrorManagement });
     return errorInErrorManagementObject;
@@ -40,31 +42,29 @@ const identifyExternalServiceError = (status) => {
 };
 
 const getAppError = (errorCode) => {
-  return ErrorMessages.find((e) => e.code === errorCode);
+  const appError = ErrorMessages.find((e) => e.code === errorCode);
+
+  if (!appError)
+    throw new Error(`Message for error code '${errorCode}' not found`);
+
+  return appError;
 };
 
-const addResponseHttpCode = (errorObject) => {
-  errorObject.context = context;
-  return errorObject;
+const getResponseHttpCode = (errorCode) => {
+  if (!errorCode || errorCode < 40000 || errorCode >= 60000)
+    throw new Error(`The errorCode '${errorCode}' is not valid`);
+
+  return Math.floor(errorCode / 100);
 };
 
-const LogErrorInternally = (errorInDev, errorObjectWithContext) => {
-  if (
-    process.env.NODE_ENV === "development" ||
-    process.env.NODE_ENV === "test"
-  ) {
-    console.error({ errorInDev });
-    console.error({ errorObjectWithContext });
-  }
-
-  // log via the server
-  // todo ...
+const logError = (appError) => {
+  console.error({ appError });
 };
 
 module.exports = {
   handleError: handleServerError,
   identifyError,
   getAppError,
-  attachErrorContext: addResponseHttpCode,
-  LogErrorInternally,
+  getResponseHttpCode,
+  logError,
 };

@@ -1,24 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`errorManagement handleError %#. should handleError an error 1`] = `
+exports[`errorManagement handleError should handleError an error number 1 1`] = `
 Object {
+  "OriginalException": Object {
+    "message": "Any random error on the server",
+  },
   "code": 50000,
   "msg": "Erreur serveur inconnue",
+  "responseHttpCode": 500,
 }
 `;
 
-exports[`errorManagement handleError %#. should handleError an error 2`] = `
+exports[`errorManagement handleError should handleError an error number 2 1`] = `
 Object {
+  "OriginalException": Object {
+    "isAxiosError": true,
+    "response": Object {
+      "status": 400,
+    },
+  },
   "code": 50020,
-  "msg": "Erreur server",
+  "msg": "Erreur du serveur",
+  "responseHttpCode": 500,
 }
 `;
 
-exports[`errorManagement handleError %#. should handleError an error 3`] = `undefined`;
-
-exports[`errorManagement handleError %#. should handleError an error 4`] = `
+exports[`errorManagement handleError should handleError an error number 3 1`] = `
 Object {
+  "OriginalException": Object {
+    "isAxiosError": true,
+    "response": Object {
+      "status": 500,
+    },
+  },
+  "code": 50320,
+  "msg": "Le service externe a rencontré une erreur",
+  "responseHttpCode": 503,
+}
+`;
+
+exports[`errorManagement handleError should handleError an error number 4 1`] = `
+Object {
+  "OriginalException": Object {
+    "isAxiosError": true,
+    "response": Object {
+      "status": 503,
+    },
+  },
   "code": 50310,
-  "msg": "le fournisseur de donnees est momentanément indisponible",
+  "msg": "Le service externe est momentanément indisponible",
+  "responseHttpCode": 503,
+}
+`;
+
+exports[`errorManagement handleError should handleError an error number 5 1`] = `
+Object {
+  "OriginalException": Object {
+    "isAxiosError": true,
+    "response": Object {
+      "status": 501,
+    },
+  },
+  "code": 50300,
+  "msg": "Le service externe a rencontré une erreur inconnue",
+  "responseHttpCode": 503,
 }
 `;

@@ -1,10 +1,6 @@
 const each = require("jest-each").default;
 const ErrorCodes = require("./errorCodes");
-const {
-  handleError,
-  identifyError,
-  getAppError,
-} = require("./errorManagement");
+const { handleError, getAppError } = require("./errorManagement");
 
 const errorCase = {
   server_Error: {
@@ -15,13 +11,18 @@ const errorCase = {
     incomingError: { isAxiosError: true, response: { status: 400 } },
     expectedErrorCode: ErrorCodes.ERROR_50020_EXTERNAL_SERVICE_USAGE_ERROR,
   },
+
   externalService_ServerError: {
     incomingError: { isAxiosError: true, response: { status: 500 } },
-    expectedErrorCode: ErrorCodes.ERROR_50300_CONNECTIVITY_ERROR,
+    expectedErrorCode: ErrorCodes.ERROR_50320_EXTERNAL_SERVICE_SERVER_ERROR,
   },
   externalService_UnavailableError: {
     incomingError: { isAxiosError: true, response: { status: 503 } },
-    expectedErrorCode: ErrorCodes.ERROR_50310_PROVIDER_SERVICE_UNAVAILABLE,
+    expectedErrorCode: ErrorCodes.ERROR_50310_EXTERNAL_SERVICE_UNAVAILABLE,
+  },
+  externalService_OtherError: {
+    incomingError: { isAxiosError: true, response: { status: 501 } },
+    expectedErrorCode: ErrorCodes.ERROR_50300_EXTERNAL_SERVICE_UNKNOWN_ERROR,
   },
 };
 
@@ -46,25 +47,41 @@ describe("errorManagement", () => {
 
   describe("handleError", () => {
     each`
-      errorCase                  
-      ${errorCase.server_Error}
-      ${errorCase.externalService_UsageError}
-      ${errorCase.externalService_ServerError}
-      ${errorCase.externalService_UnavailableError}
-    `.test("%#. should handleError an error", ({ errorCase }) => {
-      const actualErrorObject = handleError(errorCase.incomingError);
-      expect(actualErrorObject).toMatchSnapshot();
+      errorCaseId | errorCase                  
+      ${1} | ${errorCase.server_Error}
+      ${2} | ${errorCase.externalService_UsageError}
+      ${3} | ${errorCase.externalService_ServerError}
+      ${4} | ${errorCase.externalService_UnavailableError}
+      ${5} | ${errorCase.externalService_OtherError}
+    `.test(
+      "should handleError an error number $errorCaseId",
+      ({ errorCaseId, errorCase }) => {
+        const actualAppError = handleError(errorCase.incomingError);
+        expect(actualAppError).toMatchSnapshot();
+        expect(actualAppError.code).toBeTruthy();
+        expect(actualAppError.msg).toBeTruthy();
+        expect(actualAppError.code).toEqual(errorCase.expectedErrorCode);
+        expect(actualAppError.responseHttpCode).toBeTruthy();
+      }
+    );
+
+    test("should reproduce test", () => {
+      const actualAppError = handleError(
+        errorCase.externalService_ServerError.incomingError
+      );
+      expect(actualAppError).toBeTruthy();
+      expect(actualAppError.code).toEqual(
+        errorCase.externalService_ServerError.expectedErrorCode
+      );
     });
   });
   describe("getAppError", () => {
     each`
       errorCode     | expectedMessage
-      ${40000}      | ${"Erreur de requete"}
+      ${40000}      | ${"Erreur de requête"}
       ${50000}      | ${"Erreur serveur inconnue"}
-      ${50010}      | ${"La gestion d'erreur n'a pas fonctionnée"}
-      ${50020}      | ${"Erreur server"}
-      ${50300}      | ${"Erreur de connectivite avec le service externe"}
-      ${50310}      | ${"le fournisseur de donnees est momentanément indisponible"}
+      ${50010}      | ${"Erreur dans la gestion d'erreur du serveur"}
+      ${50300}      | ${"Le service externe a rencontré une erreur inconnue"}
     `.test(
       "should format an error $errorCode",
       ({ errorCode, expectedMessage }) => {
