@@ -18,14 +18,12 @@ router.get("/parameters", async function (req, res, next) {
   const { version } = packageJson;
   const ratpApiRootUrl = config.RATP_API_ROOT_URL;
   const ratpApiMockData = config.RATP_API_MOCK_DATA;
-  const ratpApiMockDataInvalid = config.RATP_API_MOCK_DATA_INVALID;
   res.send({
     status: "ok",
     serverPublicIp,
     version,
     ratpApiRootUrl,
     ratpApiMockData,
-    ratpApiMockDataInvalid,
   });
 });
 
