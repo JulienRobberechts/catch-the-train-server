@@ -1,8 +1,34 @@
 const each = require("jest-each").default;
 const ErrorCodes = require("./errorCodes");
+const { ErrorMessages: errorMessagesFr } = require("./errorMessages.fr");
 const { getAppError } = require("./errorManagement");
 
 describe("errorManagement", () => {
+  describe("errorMessagesFr", () => {
+    each(
+      Object.entries(ErrorCodes).map(([errorCodeName, errorCodeValue]) => [
+        errorCodeValue,
+      ])
+    ).test(
+      "should have an entry for errorCode %o (in ErrorCodes.js)",
+      (errorCode) => {
+        const appError = getAppError(errorCode);
+        // console.log({ appError });
+        expect(appError).toBeTruthy();
+        expect(appError.code).toBe(errorCode);
+        expect(appError.msg).toBeTruthy();
+      }
+    );
+    each(errorMessagesFr.map((m) => [m])).test(
+      "entry %o should match an errorCode in ErrorCodes.js",
+      (errorMessage) => {
+        const codeInErrorCodeFile = Object.entries(ErrorCodes).find(
+          ([key, value]) => value === errorMessage.code
+        );
+        expect(codeInErrorCodeFile).toBeTruthy();
+      }
+    );
+  });
   describe("getAppError", () => {
     each`
       errorCode     | expectedMessage
