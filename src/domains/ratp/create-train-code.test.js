@@ -2,6 +2,15 @@ const { createTrainCode } = require("./create-train-code");
 const each = require("jest-each").default;
 
 describe("train helpers", () => {
+  // disable console warns for this test
+  let originalWarn;
+  beforeAll(() => {
+    originalWarn = console.warn;
+    console.warn = jest.fn();
+  });
+  afterAll(() => {
+    console.warn = originalWarn;
+  });
   describe("createTrainCode", () => {
     each([
       [null, undefined],
@@ -12,7 +21,7 @@ describe("train helpers", () => {
       ["2020-03-10T15:20:00+01:00", "1520"],
       ["2020-03-10T00:00:00+01:00", "2400"],
       ["2020-03-10T12:00:00+01:00", "1200"],
-      ["2020-03-10T15:00:00+01:00", "1500"]
+      ["2020-03-10T15:00:00+01:00", "1500"],
     ]).test(
       "should convert valid string '%s' into '%s'",
       (timeString, expectedTrainCode) => {

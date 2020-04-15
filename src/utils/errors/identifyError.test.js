@@ -27,23 +27,6 @@ const errorCase = {
 };
 
 describe("errorManagement", () => {
-  // disable console logs for this test
-  let originalError;
-  let originalWarn;
-  let originalLog;
-  beforeAll(() => {
-    originalError = console.error;
-    console.error = jest.fn();
-    originalWarn = console.warn;
-    console.warn = jest.fn();
-    originalLog = console.log;
-    console.log = jest.fn();
-  });
-  afterAll(() => {
-    console.error = originalError;
-    console.warn = originalWarn;
-    console.log = originalLog;
-  });
   describe("identifyError", () => {
     each`
       name    | errorCase
