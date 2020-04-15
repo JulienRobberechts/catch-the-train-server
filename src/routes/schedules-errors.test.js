@@ -11,30 +11,30 @@ const {
 const config = require("../config");
 
 describe("No connectivity", () => {
+  const station = "chatelet+les+halles";
+  const url = "/next-trains/rers/A/" + station;
   beforeEach(() => {
     if (config.RATP_API_MOCK_DATA)
       throw Error("RATP_API_MOCK_DATA should be set to 'false' for this test");
-    mockApiCallsWithNoConnectivity();
+    mockApiCallsWithNoConnectivity(station);
   });
   it("should return a connectivity error", async () => {
-    const response = await api
-      .get("/next-trains/rers/A/chatelet+les+halles")
-      .expect(503);
+    const response = await api.get(url).expect(503);
     expect(response.body.errorType).toBe("ServerError");
     expect(response.body.errorMessage).toBe("Server Error");
   });
 });
 
 describe("Schedule Unavailable", () => {
+  const station = "cergy+prefecture";
+  const url = "/next-trains/rers/A/" + station;
   beforeEach(() => {
     if (config.RATP_API_MOCK_DATA)
       throw Error("RATP_API_MOCK_DATA should be set to 'false' for this test");
-    mockApiCallsWithScheduleUnavailable();
+    mockApiCallsWithScheduleUnavailable(station);
   });
   it("should return a connectivity error", async () => {
-    const response = await api
-      .get("/next-trains/rers/A/cergy+prefecture")
-      .expect(503);
+    const response = await api.get(url).expect(503);
 
     expect(response.body.errorType).toBe("ServerError");
     expect(response.body.errorMessage).toBe("Server Error");
