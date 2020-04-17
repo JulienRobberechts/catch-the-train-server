@@ -1,9 +1,18 @@
 const ErrorCodes = require("./errorCodes");
 const { ServerError } = require("./serverError");
+const { ApplicationError } = require("./applicationError");
 
 const identifyError = (incomingError) => {
   if (!incomingError) {
     return ErrorCodes.ERROR_50000_UNKNOWN_SERVER_ERROR;
+  }
+
+  if (incomingError instanceof ApplicationError) {
+    const { errorCode } = incomingError;
+    if (!errorCode) {
+      throw Error("an ApplicationError should have an errorCode");
+    }
+    return errorCode;
   }
 
   if (incomingError instanceof ServerError) {
@@ -15,9 +24,19 @@ const identifyError = (incomingError) => {
 
 const identifyServerError = (serverError) => {
   const { rootError } = serverError;
+
   if (!rootError) {
     return ErrorCodes.ERROR_50000_UNKNOWN_SERVER_ERROR;
   }
+
+  if (rootError instanceof ApplicationError) {
+    const { errorCode } = rootError;
+    if (!errorCode) {
+      throw Error("an ApplicationError should have an errorCode");
+    }
+    return errorCode;
+  }
+
   const { response } = rootError;
   if (!response || !response.status) {
     return ErrorCodes.ERROR_50000_UNKNOWN_SERVER_ERROR;

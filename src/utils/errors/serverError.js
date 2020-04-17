@@ -1,3 +1,4 @@
+// Error to carry an other exception (native of application)
 class ServerError extends Error {
   constructor(message, rootError) {
     super(message);

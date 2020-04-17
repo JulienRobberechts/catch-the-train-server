@@ -25,11 +25,13 @@ describe("errorManagement", () => {
   describe("handleError", () => {
     each`
       errorCaseId | errorCase                  
-      ${1} | ${errorCases.server_Error}
-      ${2} | ${errorCases.externalService_UsageError}
-      ${3} | ${errorCases.externalService_ServerError}
-      ${4} | ${errorCases.externalService_UnavailableError}
-      ${5} | ${errorCases.externalService_OtherError}
+      ${1}  | ${errorCases.native_Error}
+      ${2}  | ${errorCases.application_Error}
+      ${3}  | ${errorCases.application_in_server_Error}
+      ${4}  | ${errorCases.externalService_UsageError}
+      ${5}  | ${errorCases.externalService_ServerError}
+      ${6}  | ${errorCases.externalService_UnavailableError}
+      ${7}  | ${errorCases.externalService_OtherError}
     `.test(
       "should handleError an error number $errorCaseId",
       ({ errorCaseId, errorCase }) => {
@@ -44,11 +46,11 @@ describe("errorManagement", () => {
 
     test.skip("should reproduce test", () => {
       const actualAppError = handleError(
-        errorCases.externalService_ServerError.incomingError
+        errorCases.application_Error.incomingError
       );
       expect(actualAppError).toBeTruthy();
       expect(actualAppError.errorCode).toEqual(
-        errorCases.externalService_ServerError.expectedErrorCode
+        errorCases.application_Error.expectedErrorCode
       );
     });
   });

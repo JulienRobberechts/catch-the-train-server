@@ -1,12 +1,34 @@
 const ErrorCodes = require("./errorCodes");
 const { ServerError } = require("./serverError");
+const { ApplicationError } = require("./applicationError");
 
 const errorCases = {
-  server_Error: {
-    incomingError: new ServerError("error", {
+  native_Error: {
+    incomingError: new Error("error", {
       message: "Any random error on the server",
     }),
     expectedErrorCode: ErrorCodes.ERROR_50000_UNKNOWN_SERVER_ERROR,
+  },
+  application_Error: {
+    incomingError: new ApplicationError(
+      ErrorCodes.ERROR_50310_EXTERNAL_SERVICE_UNAVAILABLE,
+      {
+        key1: "value1",
+      }
+    ),
+    expectedErrorCode: ErrorCodes.ERROR_50310_EXTERNAL_SERVICE_UNAVAILABLE,
+  },
+  application_in_server_Error: {
+    incomingError: new ServerError(
+      "error",
+      new ApplicationError(
+        ErrorCodes.ERROR_50310_EXTERNAL_SERVICE_UNAVAILABLE,
+        {
+          key1: "value1",
+        }
+      )
+    ),
+    expectedErrorCode: ErrorCodes.ERROR_50310_EXTERNAL_SERVICE_UNAVAILABLE,
   },
   externalService_UsageError: {
     incomingError: new ServerError("error", {
