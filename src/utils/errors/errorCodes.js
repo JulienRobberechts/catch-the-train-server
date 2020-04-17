@@ -6,9 +6,9 @@ module.exports = {
   // 500: Internal Server Error (error due to the server)
   // Default server error
   ERROR_50000_UNKNOWN_SERVER_ERROR: 50000,
-  // Error server error in error management
+  // Server error in error management
   ERROR_50010_SERVER_ERROR_MANAGEMENT_ERROR: 50010,
-  // Error when an external error return a 400 error
+  // Error when an external service return a 400 error
   ERROR_50020_EXTERNAL_SERVICE_USAGE_ERROR: 50020,
 
   // 503: Service Unavailable (error due to an external service)
