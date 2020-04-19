@@ -18,3 +18,9 @@ GET {{rootUrl}}/next-trains/rers/A/st+germain+en+laye?missions=QIKI
 
 ### le+vesinet+le+pecq
 GET {{rootUrl}}/next-trains/rers/A/le+vesinet+le+pecq?missions=QIKI
+
+### cergy+le+haut
+GET {{rootUrl}}/next-trains/rers/A/cergy+le+haut
+
+### boissy+saint+leger
+GET {{rootUrl}}/next-trains/rers/A/boissy+saint+leger

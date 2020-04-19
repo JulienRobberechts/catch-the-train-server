@@ -47,4 +47,5 @@ module.exports = {
   checkParameterLine,
   checkParameterStation,
   checkParameterMissions,
+  missionIsValid,
 };

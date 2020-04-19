@@ -1,3 +1,4 @@
+const { missionIsValid } = require("../domains/timeTable/checkParameter");
 const debug = require("debug")("ctt:api:schedule");
 const { routesByMissions } = require("../domains/timeTable/filters");
 const {
@@ -47,6 +48,8 @@ class SchedulesController {
         ...departure,
       }));
 
+    checkMissionsCodes(departures);
+
     const provider = "ratp";
     const station = {
       name: getStationName(network, line, stationSlug),
@@ -65,5 +68,25 @@ class SchedulesController {
     };
   }
 }
+
+const checkMissionsCodes = (departures) => {
+  try {
+    if (!departures) return;
+
+    const unknownMissions = departures
+      .filter((departure) => !departure.noPassenger)
+      .map((departure) => departure.mission)
+      .filter(uniqueItem)
+      .filter((m) => !missionIsValid(m));
+
+    if (unknownMissions.length > 0) {
+      console.warn("Unknown Missions", { unknownMissions });
+    }
+  } catch (error) {
+    console.warn("error in checkMissionsCodes", error);
+  }
+};
+
+const uniqueItem = (value, index, array) => array.indexOf(value) === index;
 
 module.exports = SchedulesController;

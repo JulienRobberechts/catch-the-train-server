@@ -6,3 +6,9 @@
 
 ### Current departure at neuville+universite
 {{rootApiUrl}}/schedules/rers/a/neuville+universite/A+R
+
+### Current departure at st+germain+en+laye
+{{rootApiUrl}}/schedules/rers/a/st+germain+en+laye/A+R
+
+### Current departure at boissy+saint+leger
+{{rootApiUrl}}/schedules/rers/a/boissy+saint+leger/A+R

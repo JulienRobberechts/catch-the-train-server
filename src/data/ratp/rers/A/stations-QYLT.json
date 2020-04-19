@@ -1,0 +1,123 @@
+{
+  "result": {
+    "stations": [
+      {
+        "name": "Cergy-Le Haut",
+        "slug": "cergy+le+haut"
+      },
+      {
+        "name": "Cergy-St-Christophe",
+        "slug": "cergy+st+christophe"
+      },
+      {
+        "name": "Cergy-Prefecture",
+        "slug": "cergy+prefecture"
+      },
+      {
+        "name": "Neuville Universite",
+        "slug": "neuville+universite"
+      },
+      {
+        "name": "Conflans-Fin d'Oise",
+        "slug": "conflans+fin+d'oise"
+      },
+      {
+        "name": "Acheres Ville",
+        "slug": "acheres+ville"
+      },
+      {
+        "name": "Maisons-Laffitte",
+        "slug": "maisons+laffitte"
+      },
+      {
+        "name": "Sartrouville",
+        "slug": "sartrouville"
+      },
+      {
+        "name": "Houilles",
+        "slug": "houilles"
+      },
+      {
+        "name": "Nanterre Prefecture",
+        "slug": "nanterre+prefecture"
+      },
+      {
+        "name": "Grande Arche la Defense",
+        "slug": "grande+arche+la+defense"
+      },
+      {
+        "name": "Charles de Gaulle-Etoile",
+        "slug": "charles+de+gaulle+etoile"
+      },
+      {
+        "name": "Auber",
+        "slug": "auber"
+      },
+      {
+        "name": "Chatelet-Les-Halles",
+        "slug": "chatelet+les+halles"
+      },
+      {
+        "name": "Gare de Lyon",
+        "slug": "gare+de+lyon"
+      },
+      {
+        "name": "Nation",
+        "slug": "nation"
+      },
+      {
+        "name": "Vincennes",
+        "slug": "vincennes"
+      },
+      {
+        "name": "Val de Fontenay",
+        "slug": "val+de+fontenay"
+      },
+      {
+        "name": "Neuilly-Plaisance",
+        "slug": "neuilly+plaisance"
+      },
+      {
+        "name": "Bry Sur Marne",
+        "slug": "bry+sur+marne"
+      },
+      {
+        "name": "Noisy le Grand-Mont d'Est",
+        "slug": "noisy+le+grand+mont+d'est"
+      },
+      {
+        "name": "Noisy-Champs",
+        "slug": "noisy+champs"
+      },
+      {
+        "name": "Noisiel",
+        "slug": "noisiel"
+      },
+      {
+        "name": "Lognes",
+        "slug": "lognes"
+      },
+      {
+        "name": "Torcy",
+        "slug": "torcy"
+      },
+      {
+        "name": "Bussy St-Georges",
+        "slug": "bussy+st+georges"
+      },
+      {
+        "name": "Val d'Europe-Serris",
+        "slug": "val+d'europe+serris"
+      },
+      {
+        "name": "Marne la Vallee-Chessy",
+        "slug": "marne+la+vallee+chessy"
+      }
+    ]
+  },
+  "_metadata": {
+    "call": "GET /missions/rers/A/QYLT",
+    "date": "2020-04-19T20:43:00+02:00",
+    "version": 4
+  }
+}
