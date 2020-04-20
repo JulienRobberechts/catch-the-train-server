@@ -36,7 +36,12 @@ exports.formatSchedule = (now, msg) => {
       time = nowMoment.format();
     }
 
-    const isOnPlatform = matchOnPlatform(msg);
+    // Message like "Départ Voie 4" means isOnPlatform
+    const isProbablyOnPlatform =
+      !time && isDeparture && platform && !isTerminus;
+
+    const isOnPlatform =
+      matchOnPlatform(msg) || isProbablyOnPlatform ? true : undefined;
 
     if (isOnPlatform) {
       const nowMoment = moment.parseZone(now);
