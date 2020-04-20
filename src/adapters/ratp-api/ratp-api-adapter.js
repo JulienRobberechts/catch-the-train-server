@@ -22,10 +22,10 @@ async function getAllSchedulesRATP({
 
     if (
       response.data.result &&
-      response.data.result.schedule &&
-      response.data.result.schedule.length === 1 &&
-      response.data.result.schedule[0].code === "Schedules unavailable" &&
-      response.data.result.schedule[0].message === "Schedules unavailable"
+      response.data.result.schedules &&
+      response.data.result.schedules.length === 1 &&
+      response.data.result.schedules[0].code === "Schedules unavailable" &&
+      response.data.result.schedules[0].message === "Schedules unavailable"
     ) {
       throw new ApplicationError(
         ErrorCodes.ERROR_50310_EXTERNAL_SERVICE_UNAVAILABLE,
