@@ -31,7 +31,9 @@ describe("errorManagement", () => {
       ${4}  | ${errorCases.externalService_UsageError}
       ${5}  | ${errorCases.externalService_ServerError}
       ${6}  | ${errorCases.externalService_UnavailableError}
-      ${7}  | ${errorCases.externalService_OtherError}
+      ${7}  | ${errorCases.externalService_Timeout}
+      ${8}  | ${errorCases.externalService_Timeout2}
+      ${9}  | ${errorCases.externalService_OtherError}
     `.test(
       "should handleError an error number $errorCaseId",
       ({ errorCaseId, errorCase }) => {

@@ -23,7 +23,7 @@ describe("No connectivity", () => {
     expect(response.body.errorType).toBe("Error");
     expect(response.body.errorCode).toBe(50330);
     expect(response.body.errorMessage).toBe(
-      "Le service externe a ne répond pas"
+      "Le service externe n'est pas joignable"
     );
   });
 });

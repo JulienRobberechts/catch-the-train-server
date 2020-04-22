@@ -20,4 +20,6 @@ module.exports = {
   ERROR_50310_EXTERNAL_SERVICE_UNAVAILABLE: 50310,
   // Error when an external service return a 404 error
   ERROR_50330_EXTERNAL_SERVICE_NOT_FOUND: 50330,
+  // Error when an external service return a timeout
+  ERROR_50340_EXTERNAL_SERVICE_TIMEOUT: 50340,
 };

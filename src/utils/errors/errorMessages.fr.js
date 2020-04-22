@@ -36,7 +36,11 @@ const ErrorMessages = [
   },
   {
     code: ErrorCodes.ERROR_50330_EXTERNAL_SERVICE_NOT_FOUND,
-    msg: "Le service externe a ne répond pas",
+    msg: "Le service externe n'est pas joignable",
+  },
+  {
+    code: ErrorCodes.ERROR_50340_EXTERNAL_SERVICE_TIMEOUT,
+    msg: "Le service externe a ne répond pas assez rapidement",
   },
 ];
 

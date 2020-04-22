@@ -37,17 +37,36 @@ const identifyServerError = (serverError) => {
     return errorCode;
   }
 
-  const { response } = rootError;
-  if (!response || !response.status) {
-    return ErrorCodes.ERROR_50000_UNKNOWN_SERVER_ERROR;
+  if (rootError.code) {
+    return identifyExternalServiceErrorByCode(rootError.code);
   }
 
-  const httpStatus = response.status;
+  if (rootError.response && rootError.response.status) {
+    return identifyExternalServiceErrorByHttpStatusCode(
+      rootError.response.status
+    );
+  }
 
-  return identifyExternalServiceError(httpStatus);
+  return ErrorCodes.ERROR_50000_UNKNOWN_SERVER_ERROR;
 };
 
-const identifyExternalServiceError = (status) => {
+// list of Linux error codes
+// https://www-numi.fnal.gov/offline_software/srt_public_context/WebDocs/Errors/unix_system_errors.html
+const identifyExternalServiceErrorByCode = (externalCode) => {
+  switch (externalCode) {
+    case "ETIMEDOUT":
+    case "ECONNABORTED":
+    case "ECONNRESET":
+      return ErrorCodes.ERROR_50340_EXTERNAL_SERVICE_TIMEOUT;
+    default:
+      console.log(
+        `External service error code '${externalCode}' not recognized`
+      );
+      return ErrorCodes.ERROR_50300_EXTERNAL_SERVICE_UNKNOWN_ERROR;
+  }
+};
+
+const identifyExternalServiceErrorByHttpStatusCode = (status) => {
   switch (status) {
     case 404:
       return ErrorCodes.ERROR_50330_EXTERNAL_SERVICE_NOT_FOUND;

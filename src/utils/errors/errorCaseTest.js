@@ -52,6 +52,20 @@ const errorCases = {
     }),
     expectedErrorCode: ErrorCodes.ERROR_50310_EXTERNAL_SERVICE_UNAVAILABLE,
   },
+  externalService_Timeout: {
+    incomingError: new ServerError("error", {
+      isAxiosError: true,
+      code: "ETIMEDOUT",
+    }),
+    expectedErrorCode: ErrorCodes.ERROR_50340_EXTERNAL_SERVICE_TIMEOUT,
+  },
+  externalService_Timeout2: {
+    incomingError: new ServerError("error", {
+      isAxiosError: true,
+      code: "ECONNABORTED",
+    }),
+    expectedErrorCode: ErrorCodes.ERROR_50340_EXTERNAL_SERVICE_TIMEOUT,
+  },
   externalService_OtherError: {
     incomingError: new ServerError("error", {
       isAxiosError: true,
