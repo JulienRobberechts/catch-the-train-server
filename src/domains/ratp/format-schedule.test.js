@@ -93,6 +93,13 @@ describe("formatSchedule", () => {
       },
     ],
     [
+      "no passengers v2",
+      "Train sans arrêt",
+      {
+        noPassenger: true,
+      },
+    ],
+    [
       "probably on platform",
       "Départ Voie 4",
       {
