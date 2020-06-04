@@ -58,4 +58,4 @@ open the generated file: [coverage report](./coverage/lcov-report/index.html)
 
 #### Deploy on AWS
 
-[Deploy on AWS Fargate with a load balancer](./doc/2.2.deploy-aws-fargate.md)
+[Deploy on AWS Fargate with a load balancer](./doc/2.deploy-aws-fargate.md)
