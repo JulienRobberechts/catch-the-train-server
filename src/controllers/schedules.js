@@ -67,6 +67,61 @@ class SchedulesController {
       departures,
     };
   }
+
+  async getSchedulesForJourneyByDestination(
+    network,
+    line,
+    fromStationSlug,
+    toStationSlug
+  ) {
+    checkParameterNetwork(network);
+    checkParameterLine(network, line);
+    checkParameterStation(network, line, fromStationSlug);
+    checkParameterStation(network, line, toStationSlug);
+
+    const allSchedules = await this.apiAdapter.getAllSchedulesRATP({
+      network,
+      line,
+      station: fromStationSlug,
+      ...config,
+    });
+
+    const at = allSchedules._metadata.date;
+    // fill missions with destination information
+    const missions = undefined;
+    const departures = allSchedules.result.schedules
+      .filter(routesByMissions(missions))
+      .map((departure) => ({
+        ...formatSchedule(at, departure.message),
+        mission: departure.code,
+        displayAttributes: departure.message,
+        displayDestination: departure.destination,
+      }))
+      .filter((departure) => departure.departureTime)
+      .map((departure) => ({
+        trainCode: createTrainCode(departure.departureTime),
+        ...departure,
+      }));
+
+    checkMissionsCodes(departures);
+
+    const provider = "ratp";
+    const station = {
+      name: getStationName(network, line, fromStationSlug),
+      slug: fromStationSlug,
+    };
+    return {
+      context: {
+        at,
+        provider,
+        network,
+        line,
+        station,
+        missions,
+      },
+      departures,
+    };
+  }
 }
 
 const checkMissionsCodes = (departures) => {

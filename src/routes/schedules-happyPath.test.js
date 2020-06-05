@@ -28,3 +28,18 @@ describe("GET /next-train/{network}/{line}/{station}?missions=...", () => {
     expect(response.body.departures.length).toBe(5);
   });
 });
+
+describe("GET schedule by destination", () => {
+  const fromStation = "chatelet+les+halles";
+  const toStation = "le+vesinet+le+pecq";
+  const url = `/next-trains/rers/A/${fromStation}/${toStation}`;
+  beforeEach(() => {
+    if (config.RATP_API_MOCK_DATA)
+      throw Error("RATP_API_MOCK_DATA should be set to 'false' for this test");
+    mockApiCalls(fromStation);
+  });
+  it("should return departure towards auber for chatelet", async () => {
+    const response = await api.get(url).expect(200);
+    expect(response.body.departures.length).toBe(5);
+  });
+});

@@ -21,4 +21,19 @@ router.get(
   })
 );
 
+router.get(
+  "/:network/:line/:fromStation/:toStation",
+  wrapAsync(async function (req, res, next) {
+    const { network, line, fromStation, toStation } = req.params;
+    const missionsQuery = req.query.missions;
+    const result = await schedulesController.getSchedulesForJourneyByDestination(
+      network,
+      line,
+      fromStation,
+      toStation
+    );
+    res.send(result);
+  })
+);
+
 module.exports = router;
