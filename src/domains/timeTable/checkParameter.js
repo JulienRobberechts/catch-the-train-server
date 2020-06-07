@@ -1,5 +1,5 @@
 const { ValidationError } = require("../../utils/errors");
-const { missionIsValid } = require("../ratp/mission");
+const { missionIsValid } = require("../ratp/missions");
 const stations = require("../../data/ratp/rers/A/stations");
 
 function checkParameterNetwork(network) {

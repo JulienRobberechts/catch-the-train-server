@@ -1,4 +1,4 @@
-const allMissionsRerA = require("../../data/ratp/rers/A/missions.json");
+const allMissionsRerA = require("../../../data/ratp/rers/A/missions.json");
 
 function missionIsValid(network, line) {
   if (!network || !line) return (_mission) => false;

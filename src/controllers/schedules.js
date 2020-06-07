@@ -1,4 +1,4 @@
-const { displayUnknownMissionsCodes } = require("../domains/ratp/mission");
+const { displayUnknownMissionsCodes } = require("../domains/ratp/missions");
 const debug = require("debug")("ctt:api:schedule");
 const { routesByMissions } = require("../domains/timeTable/filters");
 const {
