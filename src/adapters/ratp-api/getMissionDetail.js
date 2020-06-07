@@ -15,4 +15,4 @@ async function getMissionDetail({ RATP_API_ROOT_URL, missionCode }) {
   }
 }
 
-module.exports = { getMissionDetail };
+module.exports = getMissionDetail;

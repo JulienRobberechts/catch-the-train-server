@@ -1,11 +1,13 @@
 const SchedulesController = require("./schedules");
-const apiAdapterTestDouble = require("../adapters/ratp-api/ratp-api-adapter.mock");
+const apiAdapterFactory = require("../adapters/ratp-api/factory");
 
 describe("schedules controller", () => {
   let controller;
   beforeAll(() => {
     controller = new SchedulesController({
-      apiAdapter: apiAdapterTestDouble,
+      apiAdapter: apiAdapterFactory.getRatpApiAdapter({
+        RATP_API_MOCK_DATA: true,
+      }),
     });
   });
 

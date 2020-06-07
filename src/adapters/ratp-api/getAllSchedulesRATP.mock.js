@@ -4,4 +4,4 @@ async function getAllSchedulesRATP() {
   return schedulesTestDoubleValid;
 }
 
-module.exports = { getAllSchedulesRATP };
+module.exports = getAllSchedulesRATP;

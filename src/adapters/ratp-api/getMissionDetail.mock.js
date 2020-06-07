@@ -4,4 +4,4 @@ async function getMissionDetail() {
   return missionTestDoubleValid;
 }
 
-module.exports = { getMissionDetail };
+module.exports = getMissionDetail;

@@ -39,4 +39,4 @@ async function getAllSchedulesRATP({
   }
 }
 
-module.exports = { getAllSchedulesRATP };
+module.exports = getAllSchedulesRATP;
