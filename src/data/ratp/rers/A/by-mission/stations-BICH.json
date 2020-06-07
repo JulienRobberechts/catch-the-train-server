@@ -1,0 +1,83 @@
+{
+  "result": {
+    "stations": [
+      {
+        "name": "Marne la Vallee-Chessy",
+        "slug": "marne+la+vallee+chessy"
+      },
+      {
+        "name": "Val d'Europe-Serris",
+        "slug": "val+d'europe+serris"
+      },
+      {
+        "name": "Bussy St-Georges",
+        "slug": "bussy+st+georges"
+      },
+      {
+        "name": "Torcy",
+        "slug": "torcy"
+      },
+      {
+        "name": "Lognes",
+        "slug": "lognes"
+      },
+      {
+        "name": "Noisiel",
+        "slug": "noisiel"
+      },
+      {
+        "name": "Noisy-Champs",
+        "slug": "noisy+champs"
+      },
+      {
+        "name": "Noisy le Grand-Mont d'Est",
+        "slug": "noisy+le+grand+mont+d'est"
+      },
+      {
+        "name": "Bry Sur Marne",
+        "slug": "bry+sur+marne"
+      },
+      {
+        "name": "Neuilly-Plaisance",
+        "slug": "neuilly+plaisance"
+      },
+      {
+        "name": "Val de Fontenay",
+        "slug": "val+de+fontenay"
+      },
+      {
+        "name": "Vincennes",
+        "slug": "vincennes"
+      },
+      {
+        "name": "Nation",
+        "slug": "nation"
+      },
+      {
+        "name": "Gare de Lyon",
+        "slug": "gare+de+lyon"
+      },
+      {
+        "name": "Chatelet-Les-Halles",
+        "slug": "chatelet+les+halles"
+      },
+      {
+        "name": "Auber",
+        "slug": "auber"
+      },
+      {
+        "name": "Charles de Gaulle-Etoile",
+        "slug": "charles+de+gaulle+etoile"
+      },
+      {
+        "name": "Grande Arche la Defense",
+        "slug": "grande+arche+la+defense"
+      }
+    ]
+  },
+  "_metadata": {
+    "call": "GET /missions/rers/A/BICH",
+    "date": "2020-05-01T08:35:10+02:00",
+    "version": 4
+  }
+}
