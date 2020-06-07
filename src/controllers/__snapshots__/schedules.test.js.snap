@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`schedules controller should return schedules for a station/to 1`] = `
+exports[`schedules controller should return schedules 1`] = `
 Object {
   "context": Object {
     "at": "2020-03-10T09:22:30+01:00",

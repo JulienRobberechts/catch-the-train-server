@@ -1,101 +1,101 @@
 
 @rootUrl=http://localhost:3034
 
-### all missions at chatelet+les+halles
-GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles
+### chatelet+les+halles
+GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles/auber
 
 ### st+germain+en+laye
-GET {{rootUrl}}/next-trains/rers/A/st+germain+en+laye
+GET {{rootUrl}}/next-trains/rers/A/st+germain+en+laye/auber
 
 ### le+vesinet+le+pecq
-GET {{rootUrl}}/next-trains/rers/A/le+vesinet+le+pecq
+GET {{rootUrl}}/next-trains/rers/A/le+vesinet+le+pecq/auber
 
 ### cergy+le+haut
-GET {{rootUrl}}/next-trains/rers/A/cergy+le+haut
+GET {{rootUrl}}/next-trains/rers/A/cergy+le+haut/auber
 
 ### cergy+st+christophe
-GET {{rootUrl}}/next-trains/rers/A/cergy+st+christophe
+GET {{rootUrl}}/next-trains/rers/A/cergy+st+christophe/auber
 
 ### neuville+universite
-GET {{rootUrl}}/next-trains/rers/A/neuville+universite
+GET {{rootUrl}}/next-trains/rers/A/neuville+universite/auber
 
 ### conflans+fin+d'oise
-GET {{rootUrl}}/next-trains/rers/A/conflans+fin+d'oise
+GET {{rootUrl}}/next-trains/rers/A/conflans+fin+d'oise/auber
 
 ### acheres+ville
-GET {{rootUrl}}/next-trains/rers/A/acheres+ville
+GET {{rootUrl}}/next-trains/rers/A/acheres+ville/auber
 
 ### maisons+laffitte
-GET {{rootUrl}}/next-trains/rers/A/maisons+laffitte
+GET {{rootUrl}}/next-trains/rers/A/maisons+laffitte/auber
 
 ### sartrouville
-GET {{rootUrl}}/next-trains/rers/A/sartrouville
+GET {{rootUrl}}/next-trains/rers/A/sartrouville/auber
 
 ### houilles
-GET {{rootUrl}}/next-trains/rers/A/houilles
+GET {{rootUrl}}/next-trains/rers/A/houilles/auber
 
 ### nanterre+prefecture
-GET {{rootUrl}}/next-trains/rers/A/nanterre+prefecture
+GET {{rootUrl}}/next-trains/rers/A/nanterre+prefecture/auber
 
 ### grande+arche+la+defense
-GET {{rootUrl}}/next-trains/rers/A/grande+arche+la+defense
+GET {{rootUrl}}/next-trains/rers/A/grande+arche+la+defense/auber
 
 ### charles+de+gaulle+etoile
-GET {{rootUrl}}/next-trains/rers/A/charles+de+gaulle+etoile
+GET {{rootUrl}}/next-trains/rers/A/charles+de+gaulle+etoile/auber
 
 ### auber
-GET {{rootUrl}}/next-trains/rers/A/auber
+GET {{rootUrl}}/next-trains/rers/A/auber/chatelet+les+halles
 
 ### chatelet+les+halles
-GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles
+GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles/auber
 
 ### gare+de+lyon
-GET {{rootUrl}}/next-trains/rers/A/gare+de+lyon
+GET {{rootUrl}}/next-trains/rers/A/gare+de+lyon/auber
 
 ### nation
-GET {{rootUrl}}/next-trains/rers/A/nation
+GET {{rootUrl}}/next-trains/rers/A/nation/auber
 
 ### vincennes
-GET {{rootUrl}}/next-trains/rers/A/vincennes
+GET {{rootUrl}}/next-trains/rers/A/vincennes/auber
 
 ### fontenay+sous+bois
-GET {{rootUrl}}/next-trains/rers/A/fontenay+sous+bois
+GET {{rootUrl}}/next-trains/rers/A/fontenay+sous+bois/auber
 
 ### nogent+sur+marne
-GET {{rootUrl}}/next-trains/rers/A/nogent+sur+marne
+GET {{rootUrl}}/next-trains/rers/A/nogent+sur+marne/auber
 
 ### joinville+le+pont
-GET {{rootUrl}}/next-trains/rers/A/joinville+le+pont
+GET {{rootUrl}}/next-trains/rers/A/joinville+le+pont/auber
 
 ### saint+maur+creteil
-GET {{rootUrl}}/next-trains/rers/A/saint+maur+creteil
+GET {{rootUrl}}/next-trains/rers/A/saint+maur+creteil/auber
 
 ### le+parc+de+saint+maur
-GET {{rootUrl}}/next-trains/rers/A/le+parc+de+saint+maur
+GET {{rootUrl}}/next-trains/rers/A/le+parc+de+saint+maur/auber
 
 ### champigny
-GET {{rootUrl}}/next-trains/rers/A/champigny
+GET {{rootUrl}}/next-trains/rers/A/champigny/auber
 
 ### la+varenne+chennevieres
-GET {{rootUrl}}/next-trains/rers/A/la+varenne+chennevieres
+GET {{rootUrl}}/next-trains/rers/A/la+varenne+chennevieres/auber
 
 ### sucy+bonneuil
-GET {{rootUrl}}/next-trains/rers/A/sucy+bonneuil
+GET {{rootUrl}}/next-trains/rers/A/sucy+bonneuil/auber
 
 ### cergy+prefecture
-GET {{rootUrl}}/next-trains/rers/A/cergy+prefecture
+GET {{rootUrl}}/next-trains/rers/A/cergy+prefecture/auber
 
 ### acheres+ville
-GET {{rootUrl}}/next-trains/rers/A/acheres+ville
+GET {{rootUrl}}/next-trains/rers/A/acheres+ville/auber
 
 ### sartrouville
-GET {{rootUrl}}/next-trains/rers/A/sartrouville
+GET {{rootUrl}}/next-trains/rers/A/sartrouville/auber
 
 ### houilles
-GET {{rootUrl}}/next-trains/rers/A/houilles
+GET {{rootUrl}}/next-trains/rers/A/houilles/auber
 
 ### boissy+saint+leger
-GET {{rootUrl}}/next-trains/rers/A/boissy+saint+leger
+GET {{rootUrl}}/next-trains/rers/A/boissy+saint+leger/auber
 
 ### boissy+saint+leger
-GET {{rootUrl}}/next-trains/rers/A/boissy+saint+leger
+GET {{rootUrl}}/next-trains/rers/A/boissy+saint+leger/auber

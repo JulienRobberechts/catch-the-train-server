@@ -1,13 +1,8 @@
 
 @rootUrl=http://localhost:3034
 
-### all missions at chatelet+les+halles
-GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles
 
-### missions UPAC at chatelet+les+halles
-GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles/auber
-
-### missions UPAC and ZEBU at chatelet+les+halles
+### chatelet+les+halles
 GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles/auber
 
 ### st+germain+en+laye

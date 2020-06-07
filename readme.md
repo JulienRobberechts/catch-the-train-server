@@ -28,7 +28,7 @@ To run tests:
 
 > npm test
 
-then query the api at ['http://localhost:3034/next-trains/rers/A/chatelet+les+halles?missions=UPAC,ZEBU'](http://localhost:3034/next-trains/rers/A/chatelet+les+halles?missions=UPAC,ZEBU)
+then query the api at ['http://localhost:3034/next-trains/rers/A/chatelet+les+halles/auber'](http://localhost:3034/next-trains/rers/A/chatelet+les+halles/auber)
 
 or one of the query in [requests-next-train.http](./tests/smokeTests/requests-next-train.http)
 

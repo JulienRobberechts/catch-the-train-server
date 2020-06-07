@@ -1,5 +1,4 @@
 const { ValidationError } = require("../../utils/errors");
-const { missionIsValid } = require("../ratp/missions");
 const stations = require("../../data/ratp/rers/A/stations");
 
 function checkParameterNetwork(network) {
@@ -26,21 +25,8 @@ function checkParameterStation(network, line, station) {
     );
 }
 
-function checkParameterMissions(network, line, missions) {
-  if (!network || !line)
-    throw new ValidationError(
-      `the network and line is not recognized: ${network}/${line}.`
-    );
-
-  if (missions && !missions.every(missionIsValid(network, line)))
-    throw new ValidationError(
-      `one of the missions '${missions}' is not recognized (${network}/${line}).`
-    );
-}
-
 module.exports = {
   checkParameterNetwork,
   checkParameterLine,
   checkParameterStation,
-  checkParameterMissions,
 };

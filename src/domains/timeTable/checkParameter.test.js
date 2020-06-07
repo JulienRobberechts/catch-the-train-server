@@ -2,7 +2,6 @@ const {
   checkParameterNetwork,
   checkParameterLine,
   checkParameterStation,
-  checkParameterMissions,
 } = require("./checkParameter");
 const each = require("jest-each").default;
 const { ValidationError } = require("../../utils/errors");
@@ -66,34 +65,6 @@ describe("checkParameterNetwork", () => {
     "should check transport network '%s' as invalid",
     (network) => {
       const check = () => checkParameterNetwork(network);
-      expect(check).toThrow(ValidationError);
-    }
-  );
-});
-
-describe("checkParameterMissions", () => {
-  each([
-    ["rers", "A", null],
-    ["rers", "A", undefined],
-    ["rers", "A", ""],
-    ["rers", "A", ["NANI"]],
-    ["rers", "A", ["QIKI"]],
-    ["rers", "A", ["NANI", "QIKI"]],
-  ]).it(
-    "should check missions '%s/%s/%s' as valid",
-    (network, line, missions) => {
-      checkParameterMissions(network, line, missions);
-    }
-  );
-  each([
-    [null, null, null],
-    ["rers", null, null],
-    ["rers", "A", ["ERRO"]],
-    ["rers", "A", ["NANI", "ERRO"]],
-  ]).it(
-    "should check missions '%s/%s/%s' as invalid",
-    (network, line, missions) => {
-      const check = () => checkParameterMissions(network, line, missions);
       expect(check).toThrow(ValidationError);
     }
   );

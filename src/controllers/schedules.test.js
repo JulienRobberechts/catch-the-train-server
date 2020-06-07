@@ -22,7 +22,7 @@ describe("schedules controller", () => {
       new SchedulesController({ apiAdapter: null });
     expect(invalidControllerInit).toThrow();
   });
-  it("should return schedules for a station/to", async () => {
+  it("should return schedules", async () => {
     const network = "rers";
     const line = "A";
     const fromStationSlug = "chatelet+les+halles";

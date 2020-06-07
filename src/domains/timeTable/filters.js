@@ -1,6 +1,6 @@
-const routesByMissions = (missions) => (departure) =>
+const routesByRatpMissions = (missions) => (departure) =>
   !missions || missions.includes(departure.code.toUpperCase());
 
 module.exports = {
-  routesByMissions,
+  routesByRatpMissions,
 };

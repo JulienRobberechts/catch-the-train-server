@@ -3,12 +3,11 @@ const {
   displayUnknownMissionsCodes,
 } = require("../domains/ratp/missions");
 const debug = require("debug")("ctt:api:schedule");
-const { routesByMissions } = require("../domains/timeTable/filters");
+const { routesByRatpMissions } = require("../domains/timeTable/filters");
 const {
   checkParameterNetwork,
   checkParameterLine,
   checkParameterStation,
-  checkParameterMissions,
 } = require("../domains/timeTable/checkParameter");
 const config = require("../config");
 const { formatSchedule } = require("../domains/ratp/format-schedule");
@@ -42,7 +41,6 @@ class SchedulesController {
     });
 
     const at = allSchedules._metadata.date;
-    // fill missions with destination information
     const missions = getMissionForJourney(
       network,
       line,
@@ -50,7 +48,7 @@ class SchedulesController {
       toStationSlug
     );
     const departures = allSchedules.result.schedules
-      .filter(routesByMissions(missions))
+      .filter(routesByRatpMissions(missions))
       .map((departure) => ({
         ...formatSchedule(at, departure.message),
         mission: departure.code,
