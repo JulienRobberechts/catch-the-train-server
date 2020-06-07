@@ -1,16 +1,7 @@
 const getMissionForJourney = require("./getMissionForJourney");
 const each = require("jest-each").default;
 
-const CergyToMaisonsLaffitte = [
-  "NANI",
-  "NATO",
-  "QYAN",
-  "QYLT",
-  "UPAC",
-  "UPUS",
-  "UZAR",
-  "UZEL",
-];
+const CergyToMaisonsLaffitte = ["NANI", "NATO", "QYAN", "QYLT"];
 
 describe("getMissionForJourney", () => {
   each`
@@ -18,8 +9,6 @@ describe("getMissionForJourney", () => {
     ${null}     | ${null} | ${null}                     | ${null}                | ${null}
     ${"rers"}   | ${null} | ${null}                     | ${null}                | ${null}
     ${"rers"}   | ${"A"}  | ${null}                     | ${null}                | ${null}
-    ${"rers"}   | ${"A"}  | ${"maisons-laffitte"}       | ${null}                | ${null}
-    ${"rers"}   | ${"A"}  | ${"XXX"}                    | ${"auber"}             | ${null}
   `.it(
     "should return null in case of invalid input",
     ({ network, line, fromStation, toStation, expectedResult }) => {
@@ -40,8 +29,8 @@ describe("getMissionForJourney", () => {
     "should get mission for  '$fromStation'-> '$toStation' = '$expectedResult'",
     ({ network, line, fromStation, toStation, expectedResult }) => {
       const actualResult = getMissionForJourney(
-        network,
-        line,
+        "rers",
+        "A",
         fromStation,
         toStation
       );
