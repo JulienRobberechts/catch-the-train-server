@@ -25,13 +25,13 @@ describe("schedules controller", () => {
   it("should return schedules for a station/to", async () => {
     const network = "rers";
     const line = "A";
-    const station = "chatelet+les+halles";
-    const missions = ["UPAC", "ZEBU", "TEDI"];
-    const result = await controller.getSchedulesForJourney(
+    const fromStationSlug = "chatelet+les+halles";
+    const toStationSlug = "auber";
+    const result = await controller.getSchedulesForJourneyByDestination(
       network,
       line,
-      station,
-      missions
+      fromStationSlug,
+      toStationSlug
     );
     expect(result).toMatchSnapshot();
   });

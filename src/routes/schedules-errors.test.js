@@ -11,12 +11,13 @@ const {
 const config = require("../config");
 
 describe("No connectivity", () => {
-  const station = "chatelet+les+halles";
-  const url = "/next-trains/rers/A/" + station;
+  const fromStation = "chatelet+les+halles";
+  const toStation = "auber";
+  const url = `/next-trains/rers/A/${fromStation}/${toStation}`;
   beforeEach(() => {
     if (config.RATP_API_MOCK_DATA)
       throw Error("RATP_API_MOCK_DATA should be set to 'false' for this test");
-    mockApiCallsWithNoConnectivity(station);
+    mockApiCallsWithNoConnectivity(fromStation);
   });
   it("should return a connectivity error", async () => {
     const response = await api.get(url).expect(503);
@@ -29,12 +30,13 @@ describe("No connectivity", () => {
 });
 
 describe("Schedule Unavailable", () => {
-  const station = "cergy+prefecture";
-  const url = "/next-trains/rers/A/" + station;
+  const fromStation = "cergy+prefecture";
+  const toStation = "auber";
+  const url = `/next-trains/rers/A/${fromStation}/${toStation}`;
   beforeEach(() => {
     if (config.RATP_API_MOCK_DATA)
       throw Error("RATP_API_MOCK_DATA should be set to 'false' for this test");
-    mockApiCallsWithScheduleUnavailable(station);
+    mockApiCallsWithScheduleUnavailable(fromStation);
   });
   it("should return an error 50310", async () => {
     const response = await api.get(url).expect(503);

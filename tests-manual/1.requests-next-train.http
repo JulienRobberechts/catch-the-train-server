@@ -5,34 +5,34 @@
 GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles
 
 ### missions UPAC at chatelet+les+halles
-GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles?missions=UPAC
+GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles/auber
 
 ### missions UPAC and ZEBU at chatelet+les+halles
-GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles?missions=UPAC,ZEBU
+GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles/auber
 
 ### st+germain+en+laye
-GET {{rootUrl}}/next-trains/rers/A/st+germain+en+laye
+GET {{rootUrl}}/next-trains/rers/A/st+germain+en+laye/auber
 
 ### st+germain+en+laye
-GET {{rootUrl}}/next-trains/rers/A/st+germain+en+laye?missions=QIKI
+GET {{rootUrl}}/next-trains/rers/A/st+germain+en+laye/auber
 
 ### le+vesinet+le+pecq
-GET {{rootUrl}}/next-trains/rers/A/le+vesinet+le+pecq
+GET {{rootUrl}}/next-trains/rers/A/le+vesinet+le+pecq/auber
 
 ### cergy+le+haut
-GET {{rootUrl}}/next-trains/rers/A/cergy+le+haut
+GET {{rootUrl}}/next-trains/rers/A/cergy+le+haut/auber
 
 ### cergy+prefecture
-GET {{rootUrl}}/next-trains/rers/A/cergy+prefecture
+GET {{rootUrl}}/next-trains/rers/A/cergy+prefecture/auber
 
 ### acheres+ville
-GET {{rootUrl}}/next-trains/rers/A/acheres+ville
+GET {{rootUrl}}/next-trains/rers/A/acheres+ville/auber
 
 ### sartrouville
-GET {{rootUrl}}/next-trains/rers/A/sartrouville
+GET {{rootUrl}}/next-trains/rers/A/sartrouville/auber
 
 ### houilles
-GET {{rootUrl}}/next-trains/rers/A/houilles
+GET {{rootUrl}}/next-trains/rers/A/houilles/auber
 
 ### boissy+saint+leger
-GET {{rootUrl}}/next-trains/rers/A/boissy+saint+leger
+GET {{rootUrl}}/next-trains/rers/A/boissy+saint+leger/auber
