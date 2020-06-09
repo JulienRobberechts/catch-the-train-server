@@ -1,25 +1,24 @@
 const { RATP_API_ROOT_URL } = require("../../../config");
 
-async function importMissionsSchedules(getMissionDetailMethod, missionCodes) {
-  const schedules = Promise.all(
-    missionCodes.map((missionCode) => {
-      return importMissionSchedule(getMissionDetailMethod, missionCode);
-    })
+async function getSchedulesForMissions(getMissionDetailMethod, missionCodes) {
+  return Promise.all(
+    missionCodes.map(getSchedulesForAMission(getMissionDetailMethod))
   );
-  return schedules;
 }
 
-async function importMissionSchedule(getMissionDetailMethod, missionCode) {
-  const result = await getMissionDetailMethod({
+const getSchedulesForAMission = (getMissionDetailMethod) => async (mission) => {
+  const rawSchedule = await getMissionDetailMethod({
     RATP_API_ROOT_URL,
-    missionCode,
+    missionCode: mission,
   });
-  return {
-    mission: missionCode,
-    stations: result.result.stations.map((station) => station.slug),
-  };
-}
+  return formatSchedule(mission, rawSchedule);
+};
+
+const formatSchedule = (mission, rawSchedule) => ({
+  mission,
+  stations: rawSchedule.result.stations.map((station) => station.slug),
+});
 
 module.exports = {
-  importMissionsSchedules,
+  getSchedulesForMissions,
 };

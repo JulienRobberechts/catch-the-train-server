@@ -1,4 +1,4 @@
-const { importMissionsSchedules } = require("./dataAccess");
+const { getSchedulesForMissions } = require("./dataAccess");
 const { calculateMissionsForJourney } = require("./missionSchedule");
 
 function onlyUnique(mission, index, sourceArray) {
@@ -17,7 +17,7 @@ const getMissionForJourney = async (
 
   const uniqueMissionsCodes = prospectMissions.filter(onlyUnique);
 
-  const missionsSchedules = await importMissionsSchedules(
+  const missionsSchedules = await getSchedulesForMissions(
     getMissionDetailMethod,
     uniqueMissionsCodes
   );
