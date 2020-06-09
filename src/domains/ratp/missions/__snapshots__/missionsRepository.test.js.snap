@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`dataAccess getSchedulesForMissions should import Missions Schedules 1`] = `
+exports[`missionsRepository getSchedulesForMissions should import Missions Schedules 1`] = `
 Array [
   Object {
     "mission": "NANI",

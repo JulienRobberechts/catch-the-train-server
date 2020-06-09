@@ -1,10 +1,10 @@
-const { getSchedulesForMissions } = require("./dataAccess");
+const { getSchedulesForMissions } = require("./missionsRepository");
 
 const {
   getMissionDetailMocked,
 } = require("../../../adapters/ratp-api/factory");
 
-describe("dataAccess", () => {
+describe("missionsRepository", () => {
   describe("getSchedulesForMissions", () => {
     test("should import Missions Schedules", async () => {
       const missionCodes = ["NANI", "NOTE"];
