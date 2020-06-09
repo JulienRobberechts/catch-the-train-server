@@ -13,6 +13,7 @@ async function getMissionDetail({ RATP_API_ROOT_URL, missionCode }) {
   }
   try {
     const url = RATP_API_ROOT_URL + `/missions/rers/A/${missionCode}`;
+    console.log("call to : ", url);
     const response = await axios.get(url);
     return response.data;
   } catch (error) {
