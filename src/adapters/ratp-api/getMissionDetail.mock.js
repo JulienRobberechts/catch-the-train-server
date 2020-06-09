@@ -1,7 +1,10 @@
-const missionTestDoubleValid = require("../../tests/mock/ratp-api/data/mission-test-double.valid");
-
-async function getMissionDetail() {
-  return missionTestDoubleValid;
+async function getMissionDetail({ missionCode }) {
+  try {
+    const missionDetail = require(`../../data/ratp/rers/A/by-mission/stations-${missionCode}.json`);
+    return missionDetail.result;
+  } catch (err) {
+    console.log(`Mission '${missionCode}' can not be mocked`);
+  }
 }
 
 module.exports = getMissionDetail;

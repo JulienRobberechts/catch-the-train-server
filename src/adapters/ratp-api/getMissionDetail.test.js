@@ -3,10 +3,18 @@ const { ServerError } = require("../../utils/errors");
 
 describe("getMissionDetail", () => {
   it("should throw an error if RATP_API_ROOT_URL is not provided", (done) => {
-    getMissionDetail({}).catch((e) => {
+    getMissionDetail({ missionCode: "ABCD" }).catch((e) => {
       expect(e instanceof Error).toBeTruthy();
       done();
     });
+  });
+  it("should throw an error if missionCode is not provided", (done) => {
+    getMissionDetail({ RATP_API_ROOT_URL: "https://api-ratp.fr" }).catch(
+      (e) => {
+        expect(e instanceof Error).toBeTruthy();
+        done();
+      }
+    );
   });
 });
 
@@ -23,6 +31,7 @@ describe("getMissionDetail error management", () => {
   it("should fail with server error immediately with invalid http address", (done) => {
     getMissionDetail({
       RATP_API_ROOT_URL: "https://invalid-api.ratp.fr",
+      missionCode: "ABCD",
     }).catch((e) => {
       expect(e instanceof ServerError).toBeTruthy();
       expect(e.name).toEqual("ServerError");
@@ -30,9 +39,10 @@ describe("getMissionDetail error management", () => {
       done();
     });
   }, 2000);
-  it("should fail with server error after the timeout (500ms) with invalid address (non http)", (done) => {
+  it("should fail with server error after the timeout with invalid address (non http)", (done) => {
     getMissionDetail({
       RATP_API_ROOT_URL: "invalid-api.ratp.fr",
+      missionCode: "ABCD",
     }).catch((e) => {
       expect(e instanceof ServerError).toBeTruthy();
       expect(e.name).toEqual("ServerError");
