@@ -4,15 +4,19 @@ const debug = require("debug")("ctt:test");
 const app = require("../app");
 const api = request(app);
 const { mockApiCalls } = require("../tests/mock/ratp-api/mockApiCalls");
+const {
+  nockRatpMissionsApiCalls,
+} = require("../tests/mock/ratp-api/mockMissionsCalls");
 
 const config = require("../config");
 
 describe("GET schedule by destination", () => {
   const fromStation = "chatelet+les+halles";
-  beforeEach(() => {
+  beforeEach(async () => {
     if (config.RATP_API_MOCK_DATA)
       throw Error("RATP_API_MOCK_DATA should be set to 'false' for this test");
     mockApiCalls(fromStation);
+    await nockRatpMissionsApiCalls();
   });
   it("should return 5 departures from chatelet+les+halles to maisons+laffitte", async () => {
     const toStation = "maisons+laffitte";
