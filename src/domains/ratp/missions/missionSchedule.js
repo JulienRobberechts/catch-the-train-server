@@ -1,13 +1,3 @@
-function formatMissionsSchedules(missionsSchedules) {
-  const formattedSchedules = missionsSchedules.map(({ mission, result }) => {
-    return {
-      mission,
-      stations: result.result.stations.map((station) => station.slug),
-    };
-  });
-  return formattedSchedules;
-}
-
 function calculateMissionsForJourney(
   missionsSchedules,
   departureStation,
@@ -37,7 +27,6 @@ const addStationIndexToSchedule = (station, indexPropName) => ({
 });
 
 module.exports = {
-  formatMissionsSchedules,
   calculateMissionsForJourney,
   addStationIndexToSchedule,
 };

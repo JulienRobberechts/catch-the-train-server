@@ -22,7 +22,7 @@ async function importMissionSchedule(getMissionDetailMethod, missionCode) {
   });
   return {
     mission: missionCode,
-    result,
+    stations: result.result.stations.map((station) => station.slug),
   };
 }
 
