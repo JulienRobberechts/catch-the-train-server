@@ -28,7 +28,7 @@ describe("schedules controller", () => {
     const network = "rers";
     const line = "A";
     const fromStationSlug = "chatelet+les+halles";
-    const toStationSlug = "auber";
+    const toStationSlug = "maisons+laffitte";
     const result = await controller.getSchedulesForJourneyByDestination(
       network,
       line,
