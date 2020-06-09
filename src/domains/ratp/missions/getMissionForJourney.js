@@ -8,18 +8,6 @@ function onlyUnique(mission, index, sourceArray) {
   return sourceArray.findIndex((m) => m === mission) === index;
 }
 
-const getMissionsSchedules = async function getMissionsSchedules(
-  getMissionDetailMethod,
-  missionsCodes
-) {
-  const uniqueMissionsCodes = missionsCodes.filter(onlyUnique);
-
-  return await importMissionsSchedules(
-    getMissionDetailMethod,
-    uniqueMissionsCodes
-  );
-};
-
 const getMissionForJourney = async (
   getMissionDetailMethod,
   network,
@@ -30,10 +18,13 @@ const getMissionForJourney = async (
 ) => {
   if (!network || !line || !fromStationSlug || !toStationSlug) return null;
 
-  const missionsSchedules = await getMissionsSchedules(
+  const uniqueMissionsCodes = prospectMissions.filter(onlyUnique);
+
+  const missionsSchedules = await importMissionsSchedules(
     getMissionDetailMethod,
-    prospectMissions
+    uniqueMissionsCodes
   );
+
   const missions = calculateMissionsForJourney(
     missionsSchedules,
     fromStationSlug,
