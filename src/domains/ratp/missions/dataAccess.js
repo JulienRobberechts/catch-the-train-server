@@ -1,4 +1,3 @@
-const stations = require("../../../data/ratp/rers/A/stations");
 const { RATP_API_ROOT_URL } = require("../../../config");
 
 async function importMissionsSchedules(getMissionDetailMethod, missionCodes) {
@@ -21,11 +20,6 @@ async function importMissionSchedule(getMissionDetailMethod, missionCode) {
   };
 }
 
-function importStations() {
-  return stations;
-}
-
 module.exports = {
   importMissionsSchedules,
-  importStations,
 };
