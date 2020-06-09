@@ -5,9 +5,7 @@ describe("schedules controller", () => {
   let controller;
   beforeAll(() => {
     controller = new SchedulesController({
-      apiAdapter: apiAdapterFactory.getRatpApiAdapter({
-        RATP_API_MOCK_DATA: true,
-      }),
+      apiAdapter: apiAdapterFactory.getRatpApiAdapter(true),
     });
   });
 

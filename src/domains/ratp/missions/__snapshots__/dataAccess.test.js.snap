@@ -50,219 +50,223 @@ Array [
 exports[`dataAccess importMissionsSchedules should import Missions Schedules 1`] = `
 Array [
   Object {
-    "_metadata": Object {
-      "call": "GET /missions/rers/A/NANI",
-      "date": "2020-04-03T18:41:38+02:00",
-      "version": 4,
-    },
     "mission": "NANI",
     "result": Object {
-      "stations": Array [
-        Object {
-          "name": "Cergy-Le Haut",
-          "slug": "cergy+le+haut",
-        },
-        Object {
-          "name": "Cergy-St-Christophe",
-          "slug": "cergy+st+christophe",
-        },
-        Object {
-          "name": "Cergy-Prefecture",
-          "slug": "cergy+prefecture",
-        },
-        Object {
-          "name": "Neuville Universite",
-          "slug": "neuville+universite",
-        },
-        Object {
-          "name": "Conflans-Fin d'Oise",
-          "slug": "conflans+fin+d'oise",
-        },
-        Object {
-          "name": "Acheres Ville",
-          "slug": "acheres+ville",
-        },
-        Object {
-          "name": "Maisons-Laffitte",
-          "slug": "maisons+laffitte",
-        },
-        Object {
-          "name": "Sartrouville",
-          "slug": "sartrouville",
-        },
-        Object {
-          "name": "Houilles",
-          "slug": "houilles",
-        },
-        Object {
-          "name": "Nanterre Prefecture",
-          "slug": "nanterre+prefecture",
-        },
-        Object {
-          "name": "Grande Arche la Defense",
-          "slug": "grande+arche+la+defense",
-        },
-        Object {
-          "name": "Charles de Gaulle-Etoile",
-          "slug": "charles+de+gaulle+etoile",
-        },
-        Object {
-          "name": "Auber",
-          "slug": "auber",
-        },
-        Object {
-          "name": "Chatelet-Les-Halles",
-          "slug": "chatelet+les+halles",
-        },
-        Object {
-          "name": "Gare de Lyon",
-          "slug": "gare+de+lyon",
-        },
-        Object {
-          "name": "Nation",
-          "slug": "nation",
-        },
-        Object {
-          "name": "Vincennes",
-          "slug": "vincennes",
-        },
-        Object {
-          "name": "Fontenay Sous Bois",
-          "slug": "fontenay+sous+bois",
-        },
-        Object {
-          "name": "Nogent Sur Marne",
-          "slug": "nogent+sur+marne",
-        },
-        Object {
-          "name": "Joinville le Pont",
-          "slug": "joinville+le+pont",
-        },
-        Object {
-          "name": "Saint Maur-Creteil",
-          "slug": "saint+maur+creteil",
-        },
-        Object {
-          "name": "Le Parc de Saint Maur",
-          "slug": "le+parc+de+saint+maur",
-        },
-        Object {
-          "name": "Champigny",
-          "slug": "champigny",
-        },
-        Object {
-          "name": "La Varenne-Chennevieres",
-          "slug": "la+varenne+chennevieres",
-        },
-        Object {
-          "name": "Sucy-Bonneuil",
-          "slug": "sucy+bonneuil",
-        },
-        Object {
-          "name": "Boissy Saint Leger",
-          "slug": "boissy+saint+leger",
-        },
-      ],
+      "_metadata": Object {
+        "call": "GET /missions/rers/A/NANI",
+        "date": "2020-04-03T18:41:38+02:00",
+        "version": 4,
+      },
+      "result": Object {
+        "stations": Array [
+          Object {
+            "name": "Cergy-Le Haut",
+            "slug": "cergy+le+haut",
+          },
+          Object {
+            "name": "Cergy-St-Christophe",
+            "slug": "cergy+st+christophe",
+          },
+          Object {
+            "name": "Cergy-Prefecture",
+            "slug": "cergy+prefecture",
+          },
+          Object {
+            "name": "Neuville Universite",
+            "slug": "neuville+universite",
+          },
+          Object {
+            "name": "Conflans-Fin d'Oise",
+            "slug": "conflans+fin+d'oise",
+          },
+          Object {
+            "name": "Acheres Ville",
+            "slug": "acheres+ville",
+          },
+          Object {
+            "name": "Maisons-Laffitte",
+            "slug": "maisons+laffitte",
+          },
+          Object {
+            "name": "Sartrouville",
+            "slug": "sartrouville",
+          },
+          Object {
+            "name": "Houilles",
+            "slug": "houilles",
+          },
+          Object {
+            "name": "Nanterre Prefecture",
+            "slug": "nanterre+prefecture",
+          },
+          Object {
+            "name": "Grande Arche la Defense",
+            "slug": "grande+arche+la+defense",
+          },
+          Object {
+            "name": "Charles de Gaulle-Etoile",
+            "slug": "charles+de+gaulle+etoile",
+          },
+          Object {
+            "name": "Auber",
+            "slug": "auber",
+          },
+          Object {
+            "name": "Chatelet-Les-Halles",
+            "slug": "chatelet+les+halles",
+          },
+          Object {
+            "name": "Gare de Lyon",
+            "slug": "gare+de+lyon",
+          },
+          Object {
+            "name": "Nation",
+            "slug": "nation",
+          },
+          Object {
+            "name": "Vincennes",
+            "slug": "vincennes",
+          },
+          Object {
+            "name": "Fontenay Sous Bois",
+            "slug": "fontenay+sous+bois",
+          },
+          Object {
+            "name": "Nogent Sur Marne",
+            "slug": "nogent+sur+marne",
+          },
+          Object {
+            "name": "Joinville le Pont",
+            "slug": "joinville+le+pont",
+          },
+          Object {
+            "name": "Saint Maur-Creteil",
+            "slug": "saint+maur+creteil",
+          },
+          Object {
+            "name": "Le Parc de Saint Maur",
+            "slug": "le+parc+de+saint+maur",
+          },
+          Object {
+            "name": "Champigny",
+            "slug": "champigny",
+          },
+          Object {
+            "name": "La Varenne-Chennevieres",
+            "slug": "la+varenne+chennevieres",
+          },
+          Object {
+            "name": "Sucy-Bonneuil",
+            "slug": "sucy+bonneuil",
+          },
+          Object {
+            "name": "Boissy Saint Leger",
+            "slug": "boissy+saint+leger",
+          },
+        ],
+      },
     },
   },
   Object {
-    "_metadata": Object {
-      "call": "GET /missions/rers/A/NOTE",
-      "date": "2020-04-03T18:42:30+02:00",
-      "version": 4,
-    },
     "mission": "NOTE",
     "result": Object {
-      "stations": Array [
-        Object {
-          "name": "Poissy",
-          "slug": "poissy",
-        },
-        Object {
-          "name": "Acheres-Grand-Cormier",
-          "slug": "acheres+grand+cormier",
-        },
-        Object {
-          "name": "Maisons-Laffitte",
-          "slug": "maisons+laffitte",
-        },
-        Object {
-          "name": "Sartrouville",
-          "slug": "sartrouville",
-        },
-        Object {
-          "name": "Houilles",
-          "slug": "houilles",
-        },
-        Object {
-          "name": "Nanterre Prefecture",
-          "slug": "nanterre+prefecture",
-        },
-        Object {
-          "name": "Grande Arche la Defense",
-          "slug": "grande+arche+la+defense",
-        },
-        Object {
-          "name": "Charles de Gaulle-Etoile",
-          "slug": "charles+de+gaulle+etoile",
-        },
-        Object {
-          "name": "Auber",
-          "slug": "auber",
-        },
-        Object {
-          "name": "Chatelet-Les-Halles",
-          "slug": "chatelet+les+halles",
-        },
-        Object {
-          "name": "Gare de Lyon",
-          "slug": "gare+de+lyon",
-        },
-        Object {
-          "name": "Nation",
-          "slug": "nation",
-        },
-        Object {
-          "name": "Vincennes",
-          "slug": "vincennes",
-        },
-        Object {
-          "name": "Fontenay Sous Bois",
-          "slug": "fontenay+sous+bois",
-        },
-        Object {
-          "name": "Nogent Sur Marne",
-          "slug": "nogent+sur+marne",
-        },
-        Object {
-          "name": "Joinville le Pont",
-          "slug": "joinville+le+pont",
-        },
-        Object {
-          "name": "Saint Maur-Creteil",
-          "slug": "saint+maur+creteil",
-        },
-        Object {
-          "name": "Le Parc de Saint Maur",
-          "slug": "le+parc+de+saint+maur",
-        },
-        Object {
-          "name": "Champigny",
-          "slug": "champigny",
-        },
-        Object {
-          "name": "La Varenne-Chennevieres",
-          "slug": "la+varenne+chennevieres",
-        },
-        Object {
-          "name": "Sucy-Bonneuil",
-          "slug": "sucy+bonneuil",
-        },
-        Object {
-          "name": "Boissy Saint Leger",
-          "slug": "boissy+saint+leger",
-        },
-      ],
+      "_metadata": Object {
+        "call": "GET /missions/rers/A/NOTE",
+        "date": "2020-04-03T18:42:30+02:00",
+        "version": 4,
+      },
+      "result": Object {
+        "stations": Array [
+          Object {
+            "name": "Poissy",
+            "slug": "poissy",
+          },
+          Object {
+            "name": "Acheres-Grand-Cormier",
+            "slug": "acheres+grand+cormier",
+          },
+          Object {
+            "name": "Maisons-Laffitte",
+            "slug": "maisons+laffitte",
+          },
+          Object {
+            "name": "Sartrouville",
+            "slug": "sartrouville",
+          },
+          Object {
+            "name": "Houilles",
+            "slug": "houilles",
+          },
+          Object {
+            "name": "Nanterre Prefecture",
+            "slug": "nanterre+prefecture",
+          },
+          Object {
+            "name": "Grande Arche la Defense",
+            "slug": "grande+arche+la+defense",
+          },
+          Object {
+            "name": "Charles de Gaulle-Etoile",
+            "slug": "charles+de+gaulle+etoile",
+          },
+          Object {
+            "name": "Auber",
+            "slug": "auber",
+          },
+          Object {
+            "name": "Chatelet-Les-Halles",
+            "slug": "chatelet+les+halles",
+          },
+          Object {
+            "name": "Gare de Lyon",
+            "slug": "gare+de+lyon",
+          },
+          Object {
+            "name": "Nation",
+            "slug": "nation",
+          },
+          Object {
+            "name": "Vincennes",
+            "slug": "vincennes",
+          },
+          Object {
+            "name": "Fontenay Sous Bois",
+            "slug": "fontenay+sous+bois",
+          },
+          Object {
+            "name": "Nogent Sur Marne",
+            "slug": "nogent+sur+marne",
+          },
+          Object {
+            "name": "Joinville le Pont",
+            "slug": "joinville+le+pont",
+          },
+          Object {
+            "name": "Saint Maur-Creteil",
+            "slug": "saint+maur+creteil",
+          },
+          Object {
+            "name": "Le Parc de Saint Maur",
+            "slug": "le+parc+de+saint+maur",
+          },
+          Object {
+            "name": "Champigny",
+            "slug": "champigny",
+          },
+          Object {
+            "name": "La Varenne-Chennevieres",
+            "slug": "la+varenne+chennevieres",
+          },
+          Object {
+            "name": "Sucy-Bonneuil",
+            "slug": "sucy+bonneuil",
+          },
+          Object {
+            "name": "Boissy Saint Leger",
+            "slug": "boissy+saint+leger",
+          },
+        ],
+      },
     },
   },
 ]

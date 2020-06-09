@@ -7,21 +7,39 @@ const {
   calculateMissionsForJourney,
 } = require("./missionSchedule");
 
-const getMissionsSchedules = function getMissionsSchedules() {
-  const missionsCodes = importMissionsCodes();
-  const missionsSchedules = importMissionsSchedules(missionsCodes);
+function onlyUnique(mission, index, sourceArray) {
+  return sourceArray.findIndex((m) => m === mission) === index;
+}
+
+const getMissionsSchedules = async function getMissionsSchedules(
+  getMissionDetailMethod,
+  missionsCodes
+) {
+  const uniqueMissionsCodes = missionsCodes.filter(onlyUnique);
+
+  const missionsSchedules = await importMissionsSchedules(
+    getMissionDetailMethod,
+    uniqueMissionsCodes
+  );
+
+  // console.log("missionsSchedules :>> ", missionsSchedules);
   return formatMissionsSchedules(missionsSchedules);
 };
 
-const getMissionForJourney = (
+const getMissionForJourney = async (
+  getMissionDetailMethod,
   network,
   line,
   fromStationSlug,
-  toStationSlug
+  toStationSlug,
+  prospectMissions
 ) => {
   if (!network || !line || !fromStationSlug || !toStationSlug) return null;
 
-  const missionsSchedules = getMissionsSchedules();
+  const missionsSchedules = await getMissionsSchedules(
+    getMissionDetailMethod,
+    prospectMissions
+  );
   const missions = calculateMissionsForJourney(
     missionsSchedules,
     fromStationSlug,

@@ -4,8 +4,8 @@ const getAllSchedulesRATPMock = require("./getAllSchedulesRATP.mock");
 const getMissionDetail = require("./getMissionDetail");
 const getMissionDetailMock = require("./getMissionDetail.mock");
 
-exports.getRatpApiAdapter = ({ RATP_API_MOCK_DATA }) => {
-  return RATP_API_MOCK_DATA
+exports.getRatpApiAdapter = (mocked) => {
+  return mocked
     ? {
         getAllSchedulesRATP: getAllSchedulesRATPMock,
         getMissionDetail: getMissionDetailMock,
@@ -15,3 +15,5 @@ exports.getRatpApiAdapter = ({ RATP_API_MOCK_DATA }) => {
         getMissionDetail: getMissionDetail,
       };
 };
+
+exports.getMissionDetailMocked = getMissionDetailMock;

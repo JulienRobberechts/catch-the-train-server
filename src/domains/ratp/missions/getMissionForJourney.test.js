@@ -3,6 +3,10 @@ const each = require("jest-each").default;
 
 const CergyToMaisonsLaffitte = ["NANI", "NATO", "QYAN", "QYLT"];
 
+const {
+  getMissionDetailMocked,
+} = require("../../../adapters/ratp-api/factory");
+
 describe("getMissionForJourney", () => {
   each`
     network     | line    | fromStation                 | toStation              | expectedResult
@@ -11,12 +15,14 @@ describe("getMissionForJourney", () => {
     ${"rers"}   | ${"A"}  | ${null}                     | ${null}                | ${null}
   `.it(
     "should return null in case of invalid input",
-    ({ network, line, fromStation, toStation, expectedResult }) => {
-      const actualResult = getMissionForJourney(
+    async ({ network, line, fromStation, toStation, expectedResult }) => {
+      const actualResult = await getMissionForJourney(
+        getMissionDetailMocked,
         network,
         line,
         fromStation,
-        toStation
+        toStation,
+        ["NANI", "NATO", "QYAN", "QYLT"]
       );
       expect(actualResult).toEqual(expectedResult);
     }
@@ -27,14 +33,31 @@ describe("getMissionForJourney", () => {
     ${"cergy+st+christophe"}    | ${"maisons+laffitte"}  | ${CergyToMaisonsLaffitte}
   `.it(
     "should get mission for  '$fromStation'-> '$toStation' = '$expectedResult'",
-    ({ network, line, fromStation, toStation, expectedResult }) => {
-      const actualResult = getMissionForJourney(
+    async ({ network, line, fromStation, toStation, expectedResult }) => {
+      const actualResult = await getMissionForJourney(
+        getMissionDetailMocked,
         "rers",
         "A",
         fromStation,
-        toStation
+        toStation,
+        ["NANI", "NATO", "QYAN", "QYLT"]
       );
       expect(actualResult).toEqual(expectedResult);
     }
   );
+
+  it("should get mission for cergy+st+christophe / maisons+laffitte", async () => {
+    const fromStation = "cergy+st+christophe";
+    const toStation = "maisons+laffitte";
+    const expectedResult = CergyToMaisonsLaffitte;
+    const actualResult = await getMissionForJourney(
+      getMissionDetailMocked,
+      "rers",
+      "A",
+      fromStation,
+      toStation,
+      ["NANI", "NATO", "QYAN", "QYLT"]
+    );
+    expect(actualResult).toEqual(expectedResult);
+  });
 });

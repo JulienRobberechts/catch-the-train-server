@@ -41,12 +41,22 @@ class SchedulesController {
     });
 
     const at = allSchedules._metadata.date;
-    const missions = getMissionForJourney(
+
+    // TODO: Refactor
+    const prospectMissions = allSchedules.result.schedules.map((departure) =>
+      departure.code.toUpperCase()
+    );
+
+    const missions = await getMissionForJourney(
+      this.apiAdapter.getMissionDetail,
       network,
       line,
       fromStationSlug,
-      toStationSlug
+      toStationSlug,
+      prospectMissions
     );
+    //----
+
     const departures = allSchedules.result.schedules
       .filter(routesByRatpMissions(missions))
       .map((departure) => ({
