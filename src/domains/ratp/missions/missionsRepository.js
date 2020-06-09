@@ -1,11 +1,5 @@
 const { RATP_API_ROOT_URL } = require("../../../config");
 
-async function getSchedulesForMissions(getMissionDetailMethod, missionCodes) {
-  return Promise.all(
-    missionCodes.map(getSchedulesForAMission(getMissionDetailMethod))
-  );
-}
-
 const getSchedulesForAMission = (getMissionDetailMethod) => async (mission) => {
   const rawSchedule = await getMissionDetailMethod({
     RATP_API_ROOT_URL,
@@ -20,5 +14,5 @@ const formatSchedule = (mission, rawSchedule) => ({
 });
 
 module.exports = {
-  getSchedulesForMissions,
+  getSchedulesForAMission,
 };

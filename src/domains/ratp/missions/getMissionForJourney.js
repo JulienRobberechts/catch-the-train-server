@@ -1,4 +1,4 @@
-const { getSchedulesForMissions } = require("./missionsRepositoryCache");
+const { getSchedulesForAMission } = require("./missionsRepositoryCache");
 const { calculateMissionsForJourney } = require("./missionSchedule");
 
 function onlyUnique(mission, index, sourceArray) {
@@ -29,5 +29,11 @@ const getMissionForJourney = async (
   );
   return missions;
 };
+
+async function getSchedulesForMissions(getMissionDetailMethod, missionCodes) {
+  return Promise.all(
+    missionCodes.map(getSchedulesForAMission(getMissionDetailMethod))
+  );
+}
 
 module.exports = getMissionForJourney;
