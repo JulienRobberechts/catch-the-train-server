@@ -1,7 +1,4 @@
-const {
-  getMissionForJourney,
-  displayUnknownMissionsCodes,
-} = require("../domains/ratp/missions");
+const { getMissionForJourney } = require("../domains/ratp/missions");
 const debug = require("debug")("ctt:api:schedule");
 const { routesByRatpMissions } = require("../domains/timeTable/filters");
 const {
@@ -70,8 +67,6 @@ class SchedulesController {
         trainCode: createTrainCode(departure.departureTime),
         ...departure,
       }));
-
-    displayUnknownMissionsCodes(network, line, departures);
 
     const provider = "ratp";
     const station = {

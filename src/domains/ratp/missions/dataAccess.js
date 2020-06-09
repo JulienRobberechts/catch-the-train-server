@@ -1,4 +1,3 @@
-const missionsCodes = require("../../../data/ratp/rers/A/missions.json");
 const stations = require("../../../data/ratp/rers/A/stations");
 const { RATP_API_ROOT_URL } = require("../../../config");
 
