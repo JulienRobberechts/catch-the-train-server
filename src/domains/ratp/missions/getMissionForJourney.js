@@ -1,7 +1,4 @@
-const {
-  importMissionsCodes,
-  importMissionsSchedules,
-} = require("./dataAccess");
+const { importMissionsSchedules } = require("./dataAccess");
 const { calculateMissionsForJourney } = require("./missionSchedule");
 
 function onlyUnique(mission, index, sourceArray) {

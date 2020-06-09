@@ -2,10 +2,6 @@ const missionsCodes = require("../../../data/ratp/rers/A/missions.json");
 const stations = require("../../../data/ratp/rers/A/stations");
 const { RATP_API_ROOT_URL } = require("../../../config");
 
-function importMissionsCodes() {
-  return missionsCodes;
-}
-
 async function importMissionsSchedules(getMissionDetailMethod, missionCodes) {
   const schedules = Promise.all(
     missionCodes.map((missionCode) => {
@@ -31,7 +27,6 @@ function importStations() {
 }
 
 module.exports = {
-  importMissionsCodes,
   importMissionsSchedules,
   importStations,
 };

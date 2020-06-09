@@ -1,52 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`dataAccess importMissionsCodes should import Missions codes 1`] = `
-Array [
-  "BBTO",
-  "BICH",
-  "TAPI",
-  "NANI",
-  "NATO",
-  "NEGE",
-  "NELY",
-  "NEMO",
-  "NOTE",
-  "OKLA",
-  "OPEN",
-  "QHAR",
-  "QIKI",
-  "QIWI",
-  "QUDO",
-  "QURE",
-  "QURI",
-  "QYAN",
-  "QYLT",
-  "QYRO",
-  "TAXE",
-  "TEDI",
-  "TERI",
-  "TETE",
-  "TROC",
-  "UPAC",
-  "UPUS",
-  "UZAR",
-  "UZEL",
-  "YRZZ",
-  "ZEBU",
-  "ZEMA",
-  "ZEUS",
-  "ZULI",
-  "ZUPE",
-  "ZITA",
-  "ZBRA",
-  "ZCAR",
-  "ONIX",
-  "QCOQ",
-  "QNOR",
-  "QBIK",
-]
-`;
-
 exports[`dataAccess importMissionsSchedules should import Missions Schedules 1`] = `
 Array [
   Object {
