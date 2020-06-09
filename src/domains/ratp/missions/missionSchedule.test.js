@@ -1,6 +1,7 @@
 const {
   calculateMissionsForJourney,
   addStationIndexToSchedule,
+  formatMissionsSchedules,
 } = require("./missionSchedule");
 const each = require("jest-each").default;
 
@@ -20,6 +21,46 @@ const schedule3 = {
 const schedules = [schedule1, schedule2, schedule3];
 
 describe("Missions", () => {
+  describe("formatMissionsSchedules", () => {
+    test("should format schedules", () => {
+      const missionsSchedules = [
+        {
+          mission: "AAAA",
+          result: {
+            result: {
+              stations: [
+                { name: "name1", slug: "slug1" },
+                { name: "name2", slug: "slug2" },
+              ],
+            },
+          },
+        },
+        {
+          mission: "BBBB",
+          result: {
+            result: {
+              stations: [
+                { name: "name1", slug: "slug1" },
+                { name: "name3", slug: "slug3" },
+              ],
+            },
+          },
+        },
+      ];
+      const actualResult = formatMissionsSchedules(missionsSchedules);
+      const expectedFormattedSchedules = [
+        {
+          mission: "AAAA",
+          stations: ["slug1", "slug2"],
+        },
+        {
+          mission: "BBBB",
+          stations: ["slug1", "slug3"],
+        },
+      ];
+      expect(actualResult).toEqual(expectedFormattedSchedules);
+    });
+  });
   describe("addStationIndexToSchedule", () => {
     each([
       ["a", schedule1, 0],
@@ -50,7 +91,6 @@ describe("Missions", () => {
       ["c", "c", ["m1", "m2"]],
       ["c", "d", []],
       ["d", "d", ["m3"]],
-
       ["b", "a", ["m2"]],
       ["c", "a", ["m2"]],
       ["d", "a", []],

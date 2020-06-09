@@ -1,8 +1,10 @@
 function formatMissionsSchedules(missionsSchedules) {
-  const formattedSchedules = missionsSchedules.map(({ mission, result }) => ({
-    mission,
-    stations: result.stations.map((station) => station.slug),
-  }));
+  const formattedSchedules = missionsSchedules.map(({ mission, result }) => {
+    return {
+      mission,
+      stations: result.result.stations.map((station) => station.slug),
+    };
+  });
   return formattedSchedules;
 }
 
