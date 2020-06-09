@@ -1,0 +1,111 @@
+{
+  "result": {
+    "stations": [
+      {
+        "name": "Marne la Vallee-Chessy",
+        "slug": "marne+la+vallee+chessy"
+      },
+      {
+        "name": "Val d'Europe-Serris",
+        "slug": "val+d'europe+serris"
+      },
+      {
+        "name": "Bussy St-Georges",
+        "slug": "bussy+st+georges"
+      },
+      {
+        "name": "Torcy",
+        "slug": "torcy"
+      },
+      {
+        "name": "Lognes",
+        "slug": "lognes"
+      },
+      {
+        "name": "Noisiel",
+        "slug": "noisiel"
+      },
+      {
+        "name": "Noisy-Champs",
+        "slug": "noisy+champs"
+      },
+      {
+        "name": "Noisy le Grand-Mont d'Est",
+        "slug": "noisy+le+grand+mont+d'est"
+      },
+      {
+        "name": "Neuilly-Plaisance",
+        "slug": "neuilly+plaisance"
+      },
+      {
+        "name": "Val de Fontenay",
+        "slug": "val+de+fontenay"
+      },
+      {
+        "name": "Vincennes",
+        "slug": "vincennes"
+      },
+      {
+        "name": "Nation",
+        "slug": "nation"
+      },
+      {
+        "name": "Gare de Lyon",
+        "slug": "gare+de+lyon"
+      },
+      {
+        "name": "Chatelet-Les-Halles",
+        "slug": "chatelet+les+halles"
+      },
+      {
+        "name": "Auber",
+        "slug": "auber"
+      },
+      {
+        "name": "Charles de Gaulle-Etoile",
+        "slug": "charles+de+gaulle+etoile"
+      },
+      {
+        "name": "Grande Arche la Defense",
+        "slug": "grande+arche+la+defense"
+      },
+      {
+        "name": "Nanterre Prefecture",
+        "slug": "nanterre+prefecture"
+      },
+      {
+        "name": "Nanterre Universite",
+        "slug": "nanterre+universite"
+      },
+      {
+        "name": "Nanterre Ville",
+        "slug": "nanterre+ville"
+      },
+      {
+        "name": "Rueil Malmaison",
+        "slug": "rueil+malmaison"
+      },
+      {
+        "name": "Chatou-Croissy",
+        "slug": "chatou+croissy"
+      },
+      {
+        "name": "Le Vesinet Centre",
+        "slug": "le+vesinet+centre"
+      },
+      {
+        "name": "Le Vesinet le Pecq",
+        "slug": "le+vesinet+le+pecq"
+      },
+      {
+        "name": "St Germain en Laye",
+        "slug": "st+germain+en+laye"
+      }
+    ]
+  },
+  "_metadata": {
+    "call": "GET /missions/rers/A/ZCAR",
+    "date": "2020-06-04T18:55:16+02:00",
+    "version": 4
+  }
+}

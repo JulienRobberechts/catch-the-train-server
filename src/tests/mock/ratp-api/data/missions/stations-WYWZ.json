@@ -1,0 +1,10 @@
+{
+  "result": {
+    "stations": []
+  },
+  "_metadata": {
+    "call": "GET /missions/rers/A/WYWZ",
+    "date": "2020-05-01T08:35:44+02:00",
+    "version": 4
+  }
+}
