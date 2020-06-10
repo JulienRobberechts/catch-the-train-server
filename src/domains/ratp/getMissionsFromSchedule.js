@@ -1,5 +1,7 @@
 const getMissionsFromSchedule = (departures) => {
   const missions = departures
+    .filter((departure) => !departure.noPassenger)
+    .filter((departure) => !departure.isTerminus)
     .map((departure) => departure.mission)
     .filter((mission) => !!mission)
     .filter(uniqueMission);
