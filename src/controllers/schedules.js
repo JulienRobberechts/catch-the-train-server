@@ -58,13 +58,13 @@ class SchedulesController {
     );
 
     const departures = allSchedules.result.schedules
-      .filter(routesByRatpMissions(missions))
       .map((departure) => ({
         ...formatSchedule(at, departure.message),
         mission: departure.code,
         displayAttributes: departure.message,
         displayDestination: departure.destination,
       }))
+      .filter(routesByRatpMissions(missions))
       .filter((departure) => departure.departureTime)
       .map((departure) => ({
         trainCode: createTrainCode(departure.departureTime),

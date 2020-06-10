@@ -1,5 +1,5 @@
 const routesByRatpMissions = (missions) => (departure) =>
-  !missions || missions.includes(departure.code.toUpperCase());
+  !missions || missions.includes(departure.mission.toUpperCase());
 
 module.exports = {
   routesByRatpMissions,
