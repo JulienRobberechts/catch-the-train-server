@@ -12,11 +12,15 @@ const { createTrainCode } = require("../domains/ratp/create-train-code");
 const { getStationName } = require("../domains/ratp/getStationName");
 
 class SchedulesController {
-  constructor({ apiAdapter }) {
-    if (!apiAdapter) {
-      throw Error("apiAdapter is null");
+  constructor({ schedulesRepository, missionsRepository }) {
+    if (!schedulesRepository) {
+      throw Error("schedulesRepository is null");
     }
-    this.apiAdapter = apiAdapter;
+    if (!missionsRepository) {
+      throw Error("missionsRepository is null");
+    }
+    this.schedulesRepository = schedulesRepository;
+    this.missionsRepository = missionsRepository;
   }
 
   async getSchedulesForJourneyByDestination(
@@ -30,7 +34,7 @@ class SchedulesController {
     checkParameterStation(network, line, fromStationSlug);
     checkParameterStation(network, line, toStationSlug);
 
-    const allSchedules = await this.apiAdapter.getAllSchedulesRATP({
+    const allSchedules = await this.schedulesRepository.getAllSchedulesRATP({
       network,
       line,
       station: fromStationSlug,
@@ -45,7 +49,7 @@ class SchedulesController {
     );
 
     const missions = await getMissionForJourney(
-      this.apiAdapter.getMissionDetail,
+      this.missionsRepository.getMissionDetail,
       network,
       line,
       fromStationSlug,

@@ -1,25 +1,40 @@
 const SchedulesController = require("./schedules");
 const apiAdapterFactory = require("../adapters/ratp-api/factory");
-
+const {
+  schedulesRepositoryMocked,
+  missionsRepositoryMocked,
+} = require("../adapters/ratp-api");
 describe("schedules controller", () => {
   let controller;
   beforeAll(() => {
     controller = new SchedulesController({
-      apiAdapter: apiAdapterFactory.getRatpApiAdapter(true),
+      schedulesRepository: schedulesRepositoryMocked,
+      missionsRepository: missionsRepositoryMocked,
     });
   });
 
-  it("should not accept null api adapter part 1", async () => {
+  it("should not accept null parameter", async () => {
     const invalidControllerInit = () => new SchedulesController();
     expect(invalidControllerInit).toThrow();
   });
-  it("should not accept null api adapter part 2", async () => {
+  it("should not accept empty parameter", async () => {
     const invalidControllerInit = () => new SchedulesController({});
     expect(invalidControllerInit).toThrow();
   });
-  it("should not accept null api adapter part 3", async () => {
+  it("should not accept null api schedulesRepository", async () => {
     const invalidControllerInit = () =>
-      new SchedulesController({ apiAdapter: null });
+      new SchedulesController({
+        schedulesRepository: null,
+        missionsRepository: {},
+      });
+    expect(invalidControllerInit).toThrow();
+  });
+  it("should not accept null api missionsRepository", async () => {
+    const invalidControllerInit = () =>
+      new SchedulesController({
+        schedulesRepository: {},
+        missionsRepository: null,
+      });
     expect(invalidControllerInit).toThrow();
   });
   it("should return schedules", async () => {
