@@ -1,21 +1,15 @@
-const getAllSchedulesRATP = require("./schedulesRepository/getAllSchedulesRATP");
-const getAllSchedulesRATPMock = require("./schedulesRepository/getAllSchedulesRATP.mock");
+const {
+  missionsRepository,
+  missionsRepositoryMocked,
+} = require("./missionsRepository");
+const {
+  schedulesRepository,
+  schedulesRepositoryMocked,
+} = require("./schedulesRepository");
 
-const getMissionDetail = require("./missionsRepository/getMissionDetail");
-const getMissionDetailMock = require("./missionsRepository/getMissionDetail.mock");
-
-exports.schedulesRepository = {
-  getAllSchedulesRATP,
-};
-
-exports.schedulesRepositoryMocked = {
-  getAllSchedulesRATP: getAllSchedulesRATPMock,
-};
-
-exports.missionsRepository = {
-  getMissionDetail,
-};
-
-exports.missionsRepositoryMocked = {
-  getMissionDetail: getMissionDetailMock,
+module.exports = {
+  missionsRepository,
+  missionsRepositoryMocked,
+  schedulesRepository,
+  schedulesRepositoryMocked,
 };
