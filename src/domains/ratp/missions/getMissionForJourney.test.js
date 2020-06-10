@@ -15,27 +15,9 @@ describe("getMissionForJourney", () => {
     "should return null in case of invalid input",
     async ({ network, line, fromStation, toStation, expectedResult }) => {
       const actualResult = await getMissionForJourney(
-        missionsRepositoryMocked.getMissionDetail,
+        missionsRepositoryMocked,
         network,
         line,
-        fromStation,
-        toStation,
-        ["NANI", "NATO", "QYAN", "QYLT"]
-      );
-      expect(actualResult).toEqual(expectedResult);
-    }
-  );
-
-  each`
-    fromStation                 | toStation              | expectedResult
-    ${"cergy+st+christophe"}    | ${"maisons+laffitte"}  | ${CergyToMaisonsLaffitte}
-  `.it(
-    "should get mission for  '$fromStation'-> '$toStation' = '$expectedResult'",
-    async ({ network, line, fromStation, toStation, expectedResult }) => {
-      const actualResult = await getMissionForJourney(
-        missionsRepositoryMocked.getMissionDetail,
-        "rers",
-        "A",
         fromStation,
         toStation,
         ["NANI", "NATO", "QYAN", "QYLT"]
@@ -49,7 +31,7 @@ describe("getMissionForJourney", () => {
     const toStation = "maisons+laffitte";
     const expectedResult = CergyToMaisonsLaffitte;
     const actualResult = await getMissionForJourney(
-      missionsRepositoryMocked.getMissionDetail,
+      missionsRepositoryMocked,
       "rers",
       "A",
       fromStation,

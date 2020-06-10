@@ -1,7 +1,7 @@
 const { RATP_API_ROOT_URL } = require("../../../config");
 
-const getSchedulesForAMission = (getMissionDetailMethod) => async (mission) => {
-  const rawSchedule = await getMissionDetailMethod({
+const getSchedulesForAMission = (missionsRepository) => async (mission) => {
+  const rawSchedule = await missionsRepository.getMissionDetail({
     RATP_API_ROOT_URL,
     missionCode: mission,
   });

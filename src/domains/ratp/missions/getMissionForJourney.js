@@ -1,4 +1,4 @@
-const { getSchedulesForAMission } = require("./missionsRepositoryCache");
+const { getSchedulesForAMission } = require("./missionsCache");
 const { calculateMissionsForJourney } = require("./missionSchedule");
 
 function onlyUnique(mission, index, sourceArray) {
@@ -6,7 +6,7 @@ function onlyUnique(mission, index, sourceArray) {
 }
 
 const getMissionForJourney = async (
-  getMissionDetailMethod,
+  missionsRepository,
   network,
   line,
   fromStationSlug,
@@ -18,7 +18,7 @@ const getMissionForJourney = async (
   const uniqueMissionsCodes = prospectMissions.filter(onlyUnique);
 
   const missionsSchedules = await getSchedulesForMissions(
-    getMissionDetailMethod,
+    missionsRepository,
     uniqueMissionsCodes
   );
 
@@ -30,9 +30,9 @@ const getMissionForJourney = async (
   return missions;
 };
 
-async function getSchedulesForMissions(getMissionDetailMethod, missionCodes) {
+async function getSchedulesForMissions(missionsRepository, missionCodes) {
   return Promise.all(
-    missionCodes.map(getSchedulesForAMission(getMissionDetailMethod))
+    missionCodes.map(getSchedulesForAMission(missionsRepository))
   );
 }
 

@@ -7,16 +7,16 @@ const missionsCache = new NodeCache({
 
 const {
   getSchedulesForAMission: getSchedulesForAMissionFromRepository,
-} = require("./missionsRepository");
+} = require("./missionsServices");
 
-const getSchedulesForAMission = (getMissionDetailMethod) => async (mission) => {
+const getSchedulesForAMission = (missionsRepository) => async (mission) => {
   const valueFromCache = missionsCache.get(mission);
   if (valueFromCache) {
     return valueFromCache;
   }
 
   const valueFromApi = await getSchedulesForAMissionFromRepository(
-    getMissionDetailMethod
+    missionsRepository
   )(mission);
   missionsCache.set(mission, valueFromApi);
   return valueFromApi;

@@ -49,7 +49,7 @@ class SchedulesController {
     );
 
     const missions = await getMissionForJourney(
-      this.missionsRepository.getMissionDetail,
+      this.missionsRepository,
       network,
       line,
       fromStationSlug,
