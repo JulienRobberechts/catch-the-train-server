@@ -3,7 +3,7 @@ const {
   schedulesRepositoryMocked,
   missionsRepository,
   missionsRepositoryMocked,
-} = require("../adapters/ratp-api");
+} = require("../repositories/ratp-api");
 const SchedulesController = require("../controllers/schedules");
 var { RATP_API_MOCK_DATA } = require("../config");
 

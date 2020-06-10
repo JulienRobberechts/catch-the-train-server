@@ -2,7 +2,7 @@ const SchedulesController = require("./schedules");
 const {
   schedulesRepositoryMocked,
   missionsRepositoryMocked,
-} = require("../adapters/ratp-api");
+} = require("../repositories/ratp-api");
 describe("schedules controller", () => {
   let controller;
   beforeAll(() => {

@@ -3,7 +3,7 @@ const each = require("jest-each").default;
 
 const CergyToMaisonsLaffitte = ["NANI", "NATO", "QYAN", "QYLT"];
 
-const { missionsRepositoryMocked } = require("../../../adapters/ratp-api");
+const { missionsRepositoryMocked } = require("../../../repositories/ratp-api");
 
 describe("getMissionForJourney", () => {
   each`
