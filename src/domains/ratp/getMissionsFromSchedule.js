@@ -1,6 +1,6 @@
-const getMissionsFromSchedule = (schedule) => {
-  const missions = schedule.result.schedules
-    .map((departure) => (departure.code ? departure.code.toUpperCase() : null))
+const getMissionsFromSchedule = (departures) => {
+  const missions = departures
+    .map((departure) => departure.mission)
     .filter((mission) => !!mission)
     .filter(uniqueMission);
 

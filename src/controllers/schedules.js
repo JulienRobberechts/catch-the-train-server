@@ -46,9 +46,16 @@ class SchedulesController {
 
     const at = allSchedules._metadata.date;
 
-    const prospectMissions = getMissionsFromSchedule(allSchedules);
+    const departures1 = allSchedules.result.schedules.map((departure) => ({
+      ...formatSchedule(at, departure.message),
+      mission: departure ? departure.code.toUpperCase() : null,
+      displayAttributes: departure.message,
+      displayDestination: departure.destination,
+    }));
 
-    const missions = await getMissionForJourney(
+    const prospectMissions = getMissionsFromSchedule(departures1);
+
+    const targetMissions = await getMissionForJourney(
       this.missionsRepository,
       network,
       line,
@@ -57,14 +64,8 @@ class SchedulesController {
       prospectMissions
     );
 
-    const departures = allSchedules.result.schedules
-      .map((departure) => ({
-        ...formatSchedule(at, departure.message),
-        mission: departure.code,
-        displayAttributes: departure.message,
-        displayDestination: departure.destination,
-      }))
-      .filter(routesByRatpMissions(missions))
+    const departures2 = departures1
+      .filter(routesByRatpMissions(targetMissions))
       .filter((departure) => departure.departureTime)
       .map((departure) => ({
         trainCode: createTrainCode(departure.departureTime),
@@ -83,9 +84,9 @@ class SchedulesController {
         network,
         line,
         station,
-        missions,
+        missions: targetMissions,
       },
-      departures,
+      departures: departures2,
     };
   }
 }

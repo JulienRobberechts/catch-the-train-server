@@ -3,83 +3,55 @@ const each = require("jest-each").default;
 
 describe("getMissionsFromSchedule", () => {
   const testCase1 = {
-    schedule: {
-      result: {
-        schedules: [
-          {
-            code: "A",
-          },
-          {
-            code: "B",
-          },
-        ],
+    departures: [
+      {
+        mission: "A",
       },
-    },
-    expectedMissions: ["A", "B"],
-  };
-  const testCase2 = {
-    schedule: {
-      result: {
-        schedules: [
-          {
-            code: "a",
-          },
-          {
-            code: "b",
-          },
-        ],
+      {
+        mission: "B",
       },
-    },
+    ],
     expectedMissions: ["A", "B"],
   };
   const testCase3 = {
-    schedule: {
-      result: {
-        schedules: [
-          {
-            code: "A",
-          },
-          {
-            code: "B",
-          },
-          {
-            code: "A",
-          },
-        ],
+    departures: [
+      {
+        mission: "A",
       },
-    },
+      {
+        mission: "B",
+      },
+      {
+        mission: "A",
+      },
+    ],
     expectedMissions: ["A", "B"],
   };
   const testCase4 = {
-    schedule: {
-      result: {
-        schedules: [
-          {
-            code: "",
-          },
-          {
-            code: "A",
-          },
-          {
-            code: null,
-          },
-          {
-            code: undefined,
-          },
-        ],
+    departures: [
+      {
+        mission: "",
       },
-    },
+      {
+        mission: "A",
+      },
+      {
+        mission: null,
+      },
+      {
+        mission: undefined,
+      },
+    ],
     expectedMissions: ["A"],
   };
   each([
     ["happy path", testCase1],
-    ["lower case", testCase2],
     ["repetition", testCase3],
     ["empty values", testCase4],
   ]).it(
     "%# - should extract missions from RATP schedule - %s",
-    (_testTitle, { schedule, expectedMissions }) => {
-      const actualResult = getMissionsFromSchedule(schedule);
+    (_testTitle, { departures, expectedMissions }) => {
+      const actualResult = getMissionsFromSchedule(departures);
       expect(actualResult).toEqual(expectedMissions);
     }
   );
