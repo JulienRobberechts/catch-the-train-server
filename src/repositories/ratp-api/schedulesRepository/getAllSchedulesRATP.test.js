@@ -3,7 +3,7 @@ const { ServerError } = require("../../../utils/errors");
 
 describe("getAllSchedulesRATP", () => {
   it("should throw an error if RATP_API_ROOT_URL is not provided", (done) => {
-    getAllSchedulesRATP({}).catch((e) => {
+    getAllSchedulesRATP(null, {}).catch((e) => {
       expect(e instanceof Error).toBeTruthy();
       done();
     });
@@ -21,9 +21,7 @@ describe("getAllSchedulesRATP error management", () => {
   });
 
   it("should fail with server error immediately with invalid http address", (done) => {
-    getAllSchedulesRATP({
-      RATP_API_ROOT_URL: "https://invalid-api.ratp.fr",
-    }).catch((e) => {
+    getAllSchedulesRATP("https://invalid-api.ratp.fr", {}).catch((e) => {
       expect(e instanceof ServerError).toBeTruthy();
       expect(e.name).toEqual("ServerError");
       expect(e.message).toEqual("Server Error");
@@ -31,9 +29,7 @@ describe("getAllSchedulesRATP error management", () => {
     });
   }, 2000);
   it("should fail with server error after the timeout (500ms) with invalid address (non http)", (done) => {
-    getAllSchedulesRATP({
-      RATP_API_ROOT_URL: "invalid-api.ratp.fr",
-    }).catch((e) => {
+    getAllSchedulesRATP("invalid-api.ratp.fr", {}).catch((e) => {
       expect(e instanceof ServerError).toBeTruthy();
       expect(e.name).toEqual("ServerError");
       expect(e.message).toEqual("Server Error");

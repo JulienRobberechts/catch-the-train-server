@@ -8,18 +8,12 @@ const { ServerError } = require("../../../utils/errors");
 axios.defaults.timeout = 500;
 const apiName = "ratp";
 
-async function getAllSchedulesRATP({
-  RATP_API_ROOT_URL,
-  network,
-  line,
-  station,
-}) {
-  if (!RATP_API_ROOT_URL) {
+async function getAllSchedulesRATP(ratpApiBaseUrl, { network, line, station }) {
+  if (!ratpApiBaseUrl) {
     throw new Error("RATP_API_ROOT_URL parameter is not valid");
   }
   try {
-    const url =
-      RATP_API_ROOT_URL + `/schedules/${network}/${line}/${station}/A+R`;
+    const url = ratpApiBaseUrl + `/schedules/${network}/${line}/${station}/A+R`;
     const response = await axios.get(url);
 
     if (
