@@ -10,6 +10,7 @@ const { RATP_API_ROOT_URL } = require("../config");
 const { formatSchedule } = require("../domains/ratp/format-schedule");
 const { createTrainCode } = require("../domains/ratp/create-train-code");
 const { getStationName } = require("../domains/ratp/getStationName");
+const getMissionsFromSchedule = require("../domains/ratp/getMissionsFromSchedule");
 
 class SchedulesController {
   constructor({ schedulesRepository, missionsRepository }) {
@@ -45,10 +46,7 @@ class SchedulesController {
 
     const at = allSchedules._metadata.date;
 
-    // TODO: Refactor
-    const prospectMissions = allSchedules.result.schedules.map((departure) =>
-      departure.code.toUpperCase()
-    );
+    const prospectMissions = getMissionsFromSchedule(allSchedules);
 
     const missions = await getMissionForJourney(
       this.missionsRepository,
@@ -58,7 +56,6 @@ class SchedulesController {
       toStationSlug,
       prospectMissions
     );
-    //----
 
     const departures = allSchedules.result.schedules
       .filter(routesByRatpMissions(missions))
