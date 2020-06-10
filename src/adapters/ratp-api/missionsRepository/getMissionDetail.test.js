@@ -1,5 +1,6 @@
+const { ServerError } = require("../../../utils/errors");
+
 const getMissionDetail = require("./getMissionDetail");
-const { ServerError } = require("../../utils/errors");
 
 describe("getMissionDetail", () => {
   it("should throw an error if RATP_API_ROOT_URL is not provided", (done) => {

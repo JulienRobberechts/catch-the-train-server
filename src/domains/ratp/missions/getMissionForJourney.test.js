@@ -3,9 +3,7 @@ const each = require("jest-each").default;
 
 const CergyToMaisonsLaffitte = ["NANI", "NATO", "QYAN", "QYLT"];
 
-const {
-  getMissionDetailMocked,
-} = require("../../../adapters/ratp-api/factory");
+const { missionsRepositoryMocked } = require("../../../adapters/ratp-api");
 
 describe("getMissionForJourney", () => {
   each`
@@ -17,7 +15,7 @@ describe("getMissionForJourney", () => {
     "should return null in case of invalid input",
     async ({ network, line, fromStation, toStation, expectedResult }) => {
       const actualResult = await getMissionForJourney(
-        getMissionDetailMocked,
+        missionsRepositoryMocked.getMissionDetail,
         network,
         line,
         fromStation,
@@ -35,7 +33,7 @@ describe("getMissionForJourney", () => {
     "should get mission for  '$fromStation'-> '$toStation' = '$expectedResult'",
     async ({ network, line, fromStation, toStation, expectedResult }) => {
       const actualResult = await getMissionForJourney(
-        getMissionDetailMocked,
+        missionsRepositoryMocked.getMissionDetail,
         "rers",
         "A",
         fromStation,
@@ -51,7 +49,7 @@ describe("getMissionForJourney", () => {
     const toStation = "maisons+laffitte";
     const expectedResult = CergyToMaisonsLaffitte;
     const actualResult = await getMissionForJourney(
-      getMissionDetailMocked,
+      missionsRepositoryMocked.getMissionDetail,
       "rers",
       "A",
       fromStation,

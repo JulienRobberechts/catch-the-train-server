@@ -1,5 +1,7 @@
 const axios = require("axios");
-const { ServerError } = require("../../utils/errors");
+
+const { ServerError } = require("../../../utils/errors");
+
 axios.defaults.timeout = 500;
 
 async function getMissionDetail({ RATP_API_ROOT_URL, missionCode }) {

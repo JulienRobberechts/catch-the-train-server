@@ -1,5 +1,4 @@
 const SchedulesController = require("./schedules");
-const apiAdapterFactory = require("../adapters/ratp-api/factory");
 const {
   schedulesRepositoryMocked,
   missionsRepositoryMocked,

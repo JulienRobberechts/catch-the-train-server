@@ -1,5 +1,5 @@
 const getAllSchedulesRATP = require("./getAllSchedulesRATP");
-const { ServerError } = require("../../utils/errors");
+const { ServerError } = require("../../../utils/errors");
 
 describe("getAllSchedulesRATP", () => {
   it("should throw an error if RATP_API_ROOT_URL is not provided", (done) => {

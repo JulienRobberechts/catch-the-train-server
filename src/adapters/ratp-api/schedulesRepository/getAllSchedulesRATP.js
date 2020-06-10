@@ -1,8 +1,10 @@
 const axios = require("axios");
-const ErrorCodes = require("../../utils/errors/errorCodes");
-const { ApplicationError } = require("../../utils/errors/applicationError");
+
+const ErrorCodes = require("../../../utils/errors/errorCodes");
+const { ApplicationError } = require("../../../utils/errors/applicationError");
 var debug = require("debug")("ctt:api:schedule");
-const { ServerError } = require("../../utils/errors");
+const { ServerError } = require("../../../utils/errors");
+
 axios.defaults.timeout = 500;
 const apiName = "ratp";
 
