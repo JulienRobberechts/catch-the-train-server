@@ -12,12 +12,11 @@ const config = require("../config");
 
 describe("GET schedule by destination", () => {
   const fromStation = "chatelet+les+halles";
-  beforeEach(async (done) => {
+  beforeEach(async () => {
     if (config.RATP_API_MOCK_DATA)
       throw Error("RATP_API_MOCK_DATA should be set to 'false' for this test");
     mockApiCalls(fromStation);
     await nockRatpMissionsApiCalls();
-    done();
   });
   it("should return 5 departures from chatelet+les+halles to maisons+laffitte", async () => {
     const toStation = "maisons+laffitte";

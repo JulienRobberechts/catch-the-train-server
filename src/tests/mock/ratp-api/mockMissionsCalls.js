@@ -32,9 +32,7 @@ const getMissionFromFileName = (filename) =>
 const nockRatpMissionsApiCalls = async () => {
   try {
     const files = await readdir(missionsDirPath);
-    console.log("missionsDirPath :>> ", missionsDirPath);
     files.forEach(function (filename) {
-      console.log("filename :>> ", filename);
       const missionCode = getMissionFromFileName(filename);
       const missionSchedule = getMissionDetailsMock(missionCode);
       nockMission(missionCode, missionSchedule);
@@ -45,10 +43,10 @@ const nockRatpMissionsApiCalls = async () => {
 };
 
 const nockMission = (missionCode, missionSchedule) => {
-  console.log(
-    "set nock: ",
-    config.RATP_API_ROOT_URL + `/missions/rers/A/${missionCode}`
-  );
+  // console.log(
+  //   "set nock: ",
+  //   config.RATP_API_ROOT_URL + `/missions/rers/A/${missionCode}`
+  // );
   nock(config.RATP_API_ROOT_URL)
     .defaultReplyHeaders({ "access-control-allow-origin": "*" })
     .get(`/missions/rers/A/${missionCode}`)
