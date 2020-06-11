@@ -3,28 +3,10 @@ var config = require("../../../config");
 const path = require("path");
 const util = require("util");
 const fs = require("fs");
+const { getMissionDetailsMock } = require("./getMissionDetailsMock");
+
 const readdir = util.promisify(fs.readdir);
 const missionsDirPath = path.join(__dirname, "data/missions");
-
-const getMissionDetailsMock = (missionCode) => {
-  try {
-    const missionDetailMock = require(`./data/missions/stations-${missionCode}.json`);
-    return missionDetailMock;
-  } catch (err) {
-    console.log(`Mission '${missionCode}' will be mocked with empty schedule`);
-    return {
-      result: {
-        stations: [],
-      },
-      _metadata: {
-        fake: true,
-        call: `GET /missions/rers/A/${missionCode}`,
-        date: "2020-01-01T00:00:00+00:00",
-        version: 4,
-      },
-    };
-  }
-};
 
 const getMissionFromFileName = (filename) =>
   filename.replace("stations-", "").replace(".json", "");
