@@ -37,5 +37,4 @@ const nockMission = (missionCode, missionSchedule) => {
 
 module.exports = {
   nockRatpMissionsApiCalls,
-  getMissionDetailsMock,
 };
