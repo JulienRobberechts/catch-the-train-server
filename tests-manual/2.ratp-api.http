@@ -18,3 +18,6 @@
 
 ### Mission UZEL
 https://api-ratp.pierre-grimaud.fr/v4/missions/rers/A/UZEL
+
+### Mission TOZZ (invalid but served in schedule)
+https://api-ratp.pierre-grimaud.fr/v4/missions/rers/A/TOZZ
