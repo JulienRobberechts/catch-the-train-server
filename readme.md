@@ -1,4 +1,6 @@
-# Catch the train Server
+# Catch the train (Back End)
+
+[![application 'Attraper le train'](doc/images/attraper%20le%20train-1.png)](https://catch-the-train.dev-app.space)
 
 This project is the backend of the 'Catch the train' web application. The react frontend project is is also on github: [https://github.com/JulienRobberechts/catch-the-train-client](https://github.com/JulienRobberechts/catch-the-train-client).
 
