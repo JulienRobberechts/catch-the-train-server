@@ -4,7 +4,7 @@ const path = require("path");
 const util = require("util");
 const fs = require("fs");
 const readdir = util.promisify(fs.readdir);
-const missionsDirPath = path.join(__dirname, "data\\missions");
+const missionsDirPath = path.join(__dirname, "data/missions");
 
 const getMissionDetailsMock = (missionCode) => {
   try {
