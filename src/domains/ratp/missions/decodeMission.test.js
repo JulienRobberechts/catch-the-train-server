@@ -33,7 +33,7 @@ describe("decodeMission", () => {
   `.it(
     "should return mission type '$expectedMissionType' for mission '$missionCode'",
     async ({ line, missionCode, dest, expectedMissionType }) => {
-      const actualResult = await decodeMission(line, missionCode);
+      const actualResult = await decodeMission(line)(missionCode);
       expect(actualResult.type).toEqual(expectedMissionType);
       if (actualResult.destination) {
         expect(actualResult.destination.letter).toEqual(dest);

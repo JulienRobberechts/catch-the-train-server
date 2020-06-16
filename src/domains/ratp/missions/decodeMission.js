@@ -15,7 +15,11 @@ const getInvalidMission = (error) => ({
   type: MissionTypeInvalid,
 });
 
-const decodeMission = (line, missionCode) => {
+const decodeMission = (line) => (missionCode) => {
+  return { missionCode, ...decodeMission2(line, missionCode) };
+};
+
+const decodeMission2 = (line, missionCode) => {
   if (!line || line !== "A") return getInvalidMission("invalid line");
 
   if (!missionCode || missionCode.length !== 4)

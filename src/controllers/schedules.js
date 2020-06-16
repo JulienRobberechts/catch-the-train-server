@@ -60,12 +60,8 @@ class SchedulesController {
       displayDestination: departure.destination,
     }));
 
-    const prospectMissions = getMissionsFromSchedule(departures1);
-    const prospectMissionsData = prospectMissions
-      .map((missionCode) => ({
-        missionCode,
-        ...decodeMission(line, missionCode),
-      }))
+    const prospectMissionsData = getMissionsFromSchedule(departures1)
+      .map(decodeMission(line))
       // .map((m) => console.log("m :>> ", m) || m)
       // .map((m) => console.log("m2 :>> ", m) || m)
       .filter((m) => m.type !== MissionTypeInvalid)
