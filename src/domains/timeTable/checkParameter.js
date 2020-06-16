@@ -1,5 +1,5 @@
 const { ValidationError } = require("../../utils/errors");
-const stations = require("../../data/ratp/rers/A/stations");
+const { getStation } = require("../../domains/ratp/getStation");
 
 function checkParameterNetwork(network) {
   if (!network || network.toLowerCase() !== "rers")
@@ -14,12 +14,7 @@ function checkParameterLine(network, line) {
 }
 
 function checkParameterStation(network, line, station) {
-  if (
-    !network ||
-    !line ||
-    !station ||
-    !stations.find((s) => s.slug === station.toLowerCase())
-  )
+  if (!network || !line || !station || !getStation(network, line, station))
     throw new ValidationError(
       `the station '${network}/${line}/${station}' is not recognized.`
     );
