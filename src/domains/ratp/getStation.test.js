@@ -1,4 +1,4 @@
-const { getStationName } = require("./getStation");
+const { getStationName, getStation } = require("./getStation");
 const each = require("jest-each").default;
 
 describe("getStationName", () => {
@@ -11,10 +11,37 @@ describe("getStationName", () => {
     ${"rers"}   | ${"A"}  | ${"st+germain+en+laye"}     | ${"St Germain en Laye"}
     ${"rers"}   | ${"A"}  | ${"CHATELET+LES+HALLES"}    | ${"Chatelet-Les-Halles"}
   `.it(
-    "should convert '$station' into '$expectedResult'",
+    "should get stationName with name '$station'",
     ({ network, line, station, expectedResult }) => {
       const actualResult = getStationName(network, line, station);
       expect(actualResult).toEqual(expectedResult);
+    }
+  );
+});
+
+describe("getStation", () => {
+  each([
+    [
+      "rers",
+      "A",
+      "maisons+laffitte",
+      { slug: "maisons+laffitte", name: "Maisons-Laffitte" },
+    ],
+    [
+      "rers",
+      "A",
+      "grande+arche+la+defense",
+      {
+        slug: "grande+arche+la+defense",
+        name: "Grande Arche la Defense",
+        shortCodeMission: "B",
+      },
+    ],
+  ]).it(
+    "should get station with name '/%s/%s/%s'",
+    (network, line, stationSlug, expectedStation) => {
+      const actualResult = getStation(network, line, stationSlug);
+      expect(actualResult).toEqual(expectedStation);
     }
   );
 });
