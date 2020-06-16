@@ -1,4 +1,11 @@
-const { getMissionForJourney } = require("../domains/ratp/missions");
+const {
+  getMissionForJourney,
+  decodeMission,
+  MissionTypeInvalid,
+  MissionTypeStandard,
+  MissionTypeSpecialAllStations,
+  MissionTypeNonCommercial,
+} = require("../domains/ratp/missions");
 const debug = require("debug")("ctt:api:schedule");
 const { routesByRatpMissions } = require("../domains/timeTable/filters");
 const {
@@ -54,6 +61,19 @@ class SchedulesController {
     }));
 
     const prospectMissions = getMissionsFromSchedule(departures1);
+    const prospectMissionsData = prospectMissions
+      .map((missionCode) => ({
+        missionCode,
+        ...decodeMission(line, missionCode),
+      }))
+      // .map((m) => console.log("m :>> ", m) || m)
+      // .map((m) => console.log("m2 :>> ", m) || m)
+      .filter((m) => m.type !== MissionTypeInvalid)
+      .filter((m) => m.type !== MissionTypeNonCommercial)
+      .map((m) => m.missionCode);
+
+    console.log("prospectMissionsData :>> ", prospectMissionsData);
+    // TODO: use prospectMissionsData.
 
     const targetMissions = await getMissionForJourney(
       this.missionsRepository,
