@@ -24,9 +24,11 @@ const getMissionForJourney = async (
   return missions;
 };
 
-async function getSchedulesForMissions(missionsRepository, missionCodes) {
+async function getSchedulesForMissions(missionsRepository, missions) {
   return Promise.all(
-    missionCodes.map(getSchedulesForAMission(missionsRepository))
+    missions.map((mission) => {
+      return getSchedulesForAMission(missionsRepository)(mission.missionCode);
+    })
   );
 }
 

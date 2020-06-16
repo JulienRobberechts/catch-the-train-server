@@ -63,8 +63,7 @@ class SchedulesController {
     const prospectMissions = getMissionsFromSchedule(departures1)
       .map(decodeMission(line))
       .filter((m) => m.type !== MissionTypeInvalid)
-      .filter((m) => m.type !== MissionTypeNonCommercial)
-      .map((m) => m.missionCode);
+      .filter((m) => m.type !== MissionTypeNonCommercial);
 
     const targetMissions = await getMissionForJourney(
       this.missionsRepository,

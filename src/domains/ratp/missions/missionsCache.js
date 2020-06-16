@@ -9,16 +9,16 @@ const {
   getSchedulesForAMission: getSchedulesForAMissionFromRepository,
 } = require("./missionsServices");
 
-const getSchedulesForAMission = (missionsRepository) => async (mission) => {
-  const valueFromCache = missionsCache.get(mission);
+const getSchedulesForAMission = (missionsRepository) => async (missionCode) => {
+  const valueFromCache = missionsCache.get(missionCode);
   if (valueFromCache) {
     return valueFromCache;
   }
 
   const valueFromApi = await getSchedulesForAMissionFromRepository(
     missionsRepository
-  )(mission);
-  missionsCache.set(mission, valueFromApi);
+  )(missionCode);
+  missionsCache.set(missionCode, valueFromApi);
   return valueFromApi;
 };
 

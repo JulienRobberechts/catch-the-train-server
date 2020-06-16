@@ -20,7 +20,12 @@ describe("getMissionForJourney", () => {
         line,
         fromStation,
         toStation,
-        ["NANI", "NATO", "QYAN", "QYLT"]
+        [
+          { missionCode: "NANI" },
+          { missionCode: "NATO" },
+          { missionCode: "QYAN" },
+          { missionCode: "QYLT" },
+        ]
       );
       expect(actualResult).toEqual(expectedResult);
     }
@@ -36,7 +41,12 @@ describe("getMissionForJourney", () => {
       "A",
       fromStation,
       toStation,
-      ["NANI", "NATO", "QYAN", "QYLT"]
+      [
+        { missionCode: "NANI" },
+        { missionCode: "NATO" },
+        { missionCode: "QYAN" },
+        { missionCode: "QYLT" },
+      ]
     );
     expect(actualResult).toEqual(expectedResult);
   });
