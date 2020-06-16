@@ -60,16 +60,11 @@ class SchedulesController {
       displayDestination: departure.destination,
     }));
 
-    const prospectMissionsData = getMissionsFromSchedule(departures1)
+    const prospectMissions = getMissionsFromSchedule(departures1)
       .map(decodeMission(line))
-      // .map((m) => console.log("m :>> ", m) || m)
-      // .map((m) => console.log("m2 :>> ", m) || m)
       .filter((m) => m.type !== MissionTypeInvalid)
       .filter((m) => m.type !== MissionTypeNonCommercial)
       .map((m) => m.missionCode);
-
-    console.log("prospectMissionsData :>> ", prospectMissionsData);
-    // TODO: use prospectMissionsData.
 
     const targetMissions = await getMissionForJourney(
       this.missionsRepository,
