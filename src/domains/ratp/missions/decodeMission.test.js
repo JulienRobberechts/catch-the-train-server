@@ -1,13 +1,13 @@
 const {
-  getMissionType,
+  decodeMission,
   MissionTypeInvalid,
   MissionTypeStandard,
   MissionTypeSpecialAllStations,
   MissionTypeNonCommercial,
-} = require("./getMissionType");
+} = require("./decodeMission");
 const each = require("jest-each").default;
 
-describe("getMissionType", () => {
+describe("decodeMission", () => {
   each`
     line    | missionCode            | expectedMissionType
     ${null} | ${null}                | ${MissionTypeInvalid}
@@ -33,7 +33,7 @@ describe("getMissionType", () => {
   `.it(
     "should return mission type '$expectedMissionType' for mission '$missionCode'",
     async ({ line, missionCode, expectedMissionType }) => {
-      const actualResult = await getMissionType(line, missionCode);
+      const actualResult = await decodeMission(line, missionCode);
       expect(actualResult).toEqual(expectedMissionType);
     }
   );

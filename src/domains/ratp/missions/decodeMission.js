@@ -8,7 +8,7 @@ const patternNonCommercial = /^W(?<dest>[A-Z])[WQ](?<origin>[A-Z])$/;
 
 const patternStandard = /^(?<dest>[A-Z])(?<mission>[A-Z])[A-Z]{2}$/;
 
-const getMissionType = (line, missionCode) => {
+const decodeMission = (line, missionCode) => {
   if (!line || line !== "A") return MissionTypeInvalid;
 
   if (!missionCode || missionCode.length !== 4) return MissionTypeInvalid;
@@ -74,7 +74,7 @@ const isStationLetter = (letter) => {
 };
 
 module.exports = {
-  getMissionType,
+  decodeMission,
   isStationLetter,
   MissionTypeInvalid,
   MissionTypeStandard,
