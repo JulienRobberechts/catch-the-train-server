@@ -34,7 +34,7 @@ describe("getStation", () => {
       {
         slug: "grande+arche+la+defense",
         name: "Grande Arche la Defense",
-        shortCodeMission: "B",
+        letter: "B",
       },
     ],
   ]).it(

@@ -9,32 +9,37 @@ const each = require("jest-each").default;
 
 describe("decodeMission", () => {
   each`
-    line    | missionCode            | expectedMissionType
-    ${null} | ${null}                | ${MissionTypeInvalid}
-    ${"F"}  | ${"BBTO"}              | ${MissionTypeInvalid}
-    ${"A"}  | ${"BBto"}              | ${MissionTypeInvalid}
-    ${"A"}  | ${"BBT"}               | ${MissionTypeInvalid}
-    ${"A"}  | ${"BBTO"}              | ${MissionTypeStandard}
-    ${"A"}  | ${"BICH"}              | ${MissionTypeStandard}
-    ${"A"}  | ${"NANI"}              | ${MissionTypeStandard}
-    ${"A"}  | ${"NATO"}              | ${MissionTypeStandard}
-    ${"A"}  | ${"QURI"}              | ${MissionTypeStandard}
-    ${"A"}  | ${"null"}              | ${MissionTypeInvalid}
-    ${"A"}  | ${"NANI"}              | ${MissionTypeStandard}
-    ${"A"}  | ${"YOZZ"}              | ${MissionTypeSpecialAllStations}
-    ${"A"}  | ${"TOZZ"}              | ${MissionTypeSpecialAllStations}
-    ${"A"}  | ${"BNZZ"}              | ${MissionTypeSpecialAllStations}
-    ${"A"}  | ${"SSZZ"}              | ${MissionTypeInvalid}
-    ${"A"}  | ${"WYWZ"}              | ${MissionTypeNonCommercial}
-    ${"A"}  | ${"WNWB"}              | ${MissionTypeNonCommercial}
-    ${"A"}  | ${"WNQB"}              | ${MissionTypeNonCommercial}
-    ${"A"}  | ${"WBWN"}              | ${MissionTypeNonCommercial}
-    ${"A"}  | ${"WWWN"}              | ${MissionTypeInvalid}
+    line    | missionCode            | dest           | expectedMissionType
+    ${null} | ${null}                | ${undefined}   | ${MissionTypeInvalid}
+    ${"F"}  | ${"BBTO"}              | ${undefined}   | ${MissionTypeInvalid}
+    ${"A"}  | ${"BBto"}              | ${undefined}   | ${MissionTypeInvalid}
+    ${"A"}  | ${"BBT"}               | ${undefined}   | ${MissionTypeInvalid}
+    ${"A"}  | ${"BBTO"}              | ${"B"}         | ${MissionTypeStandard}
+    ${"A"}  | ${"BICH"}              | ${"B"}         | ${MissionTypeStandard}
+    ${"A"}  | ${"NANI"}              | ${"N"}         | ${MissionTypeStandard}
+    ${"A"}  | ${"NATO"}              | ${"N"}         | ${MissionTypeStandard}
+    ${"A"}  | ${"QURI"}              | ${"Q"}         | ${MissionTypeStandard}
+    ${"A"}  | ${"null"}              | ${undefined}   | ${MissionTypeInvalid}
+    ${"A"}  | ${"NANI"}              | ${"N"}         | ${MissionTypeStandard}
+    ${"A"}  | ${"YOZZ"}              | ${"Y"}         | ${MissionTypeSpecialAllStations}
+    ${"A"}  | ${"TOZZ"}              | ${"T"}         | ${MissionTypeSpecialAllStations}
+    ${"A"}  | ${"BNZZ"}              | ${"B"}         | ${MissionTypeSpecialAllStations}
+    ${"A"}  | ${"SSZZ"}              | ${undefined}   | ${MissionTypeInvalid}
+    ${"A"}  | ${"WYWZ"}              | ${"Y"}         | ${MissionTypeNonCommercial}
+    ${"A"}  | ${"WNWB"}              | ${"N"}         | ${MissionTypeNonCommercial}
+    ${"A"}  | ${"WNQB"}              | ${"N"}         | ${MissionTypeNonCommercial}
+    ${"A"}  | ${"WBWN"}              | ${"B"}         | ${MissionTypeNonCommercial}
+    ${"A"}  | ${"WWWN"}              | ${undefined}   | ${MissionTypeInvalid}
   `.it(
     "should return mission type '$expectedMissionType' for mission '$missionCode'",
-    async ({ line, missionCode, expectedMissionType }) => {
+    async ({ line, missionCode, dest, expectedMissionType }) => {
       const actualResult = await decodeMission(line, missionCode);
       expect(actualResult.type).toEqual(expectedMissionType);
+      if (actualResult.destination) {
+        expect(actualResult.destination.letter).toEqual(dest);
+      } else {
+        expect(actualResult.destination).toEqual(undefined);
+      }
     }
   );
 });

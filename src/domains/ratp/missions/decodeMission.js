@@ -1,3 +1,5 @@
+const { getStationByLetterCode } = require("../getStation");
+
 const MissionTypeInvalid = 0;
 const MissionTypeStandard = 1;
 const MissionTypeSpecialAllStations = 2;
@@ -46,31 +48,35 @@ const decodeMission = (line, missionCode) => {
   return getInvalidMission("code pattern not recognized");
 };
 
-const checkMissionTypeSpecial = (destination, origin) => {
+const checkMissionTypeSpecial = (destLetter, originLetter) => {
   //   console.log("checkMissionTypeSpecial :>> ", { destination, origin });
   const type = MissionTypeSpecialAllStations;
-  if (origin === destination)
+  if (originLetter === destLetter)
     return getInvalidMission("origin and destination are the same");
-  if (isStationLetter(destination) && isStationLetter(origin)) return { type };
+  const origin = getStationByLetterCode("rers", "A", originLetter);
+  const destination = getStationByLetterCode("rers", "A", destLetter);
+  if (origin && destination) return { type, origin, destination };
 
   return getInvalidMission("code pattern not recognized");
 };
 
-const checkMissionTypeNonCommercial = (destination, origin) => {
+const checkMissionTypeNonCommercial = (destLetter, originLetter) => {
   //   console.log("checkMissionTypeNonCommercial :>> ", { destination, origin });
   const type = MissionTypeNonCommercial;
-  if (origin === destination)
+  if (originLetter === destLetter)
     return getInvalidMission("origin and destination are the same");
-  if (isStationLetter(destination) && isStationLetter(origin))
-    return { type: type };
+  const origin = getStationByLetterCode("rers", "A", originLetter);
+  const destination = getStationByLetterCode("rers", "A", destLetter);
+  if (origin && destination) return { type, origin, destination };
 
   return getInvalidMission("code pattern not recognized");
 };
 
-const checkMissionTypeStandard = (destination, mission) => {
+const checkMissionTypeStandard = (destLetter, missionLetter) => {
   //   console.log("checkMissionTypeStandard :>> ", { destination, mission });
   const type = MissionTypeStandard;
-  if (isStationLetter(destination)) return { type };
+  const destination = getStationByLetterCode("rers", "A", destLetter);
+  if (destination) return { type, destination };
 
   return getInvalidMission("code pattern not recognized");
 };

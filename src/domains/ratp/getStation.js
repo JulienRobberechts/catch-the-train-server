@@ -10,6 +10,16 @@ const getStation = (network, line, stationSlug) => {
   return stationData;
 };
 
+const getStationByLetterCode = (network, line, letterCode) => {
+  if (network !== "rers") return null;
+  if (line !== "A" && line !== "a") return null;
+  if (!letterCode) return null;
+  const stationData = stationsList.find(
+    (s) => s.letter === letterCode.toUpperCase()
+  );
+  return stationData;
+};
+
 const getStationName = (network, line, stationSlug) => {
   const stationData = getStation(network, line, stationSlug);
   return stationData ? stationData.name : null;
@@ -18,4 +28,5 @@ const getStationName = (network, line, stationSlug) => {
 module.exports = {
   getStation,
   getStationName,
+  getStationByLetterCode,
 };
