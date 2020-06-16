@@ -1,4 +1,4 @@
-const { getStationName } = require("./getStationName");
+const { getStationName } = require("./getStation");
 const each = require("jest-each").default;
 
 describe("getStationName", () => {
