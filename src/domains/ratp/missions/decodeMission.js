@@ -8,10 +8,16 @@ const patternNonCommercial = /^W(?<dest>[A-Z])[WQ](?<origin>[A-Z])$/;
 
 const patternStandard = /^(?<dest>[A-Z])(?<mission>[A-Z])[A-Z]{2}$/;
 
-const decodeMission = (line, missionCode) => {
-  if (!line || line !== "A") return MissionTypeInvalid;
+const getInvalidMission = (error) => ({
+  error,
+  type: MissionTypeInvalid,
+});
 
-  if (!missionCode || missionCode.length !== 4) return MissionTypeInvalid;
+const decodeMission = (line, missionCode) => {
+  if (!line || line !== "A") return getInvalidMission("invalid line");
+
+  if (!missionCode || missionCode.length !== 4)
+    return getInvalidMission("invalid code");
 
   const resultSpecial = patternSpecial.exec(missionCode);
   if (resultSpecial) {
@@ -37,34 +43,36 @@ const decodeMission = (line, missionCode) => {
     );
   }
 
-  return MissionTypeInvalid;
+  return getInvalidMission("code pattern not recognized");
 };
 
 const checkMissionTypeSpecial = (destination, origin) => {
   //   console.log("checkMissionTypeSpecial :>> ", { destination, origin });
-  if (origin === destination) return MissionTypeInvalid;
-  if (isStationLetter(destination) && isStationLetter(origin))
-    return MissionTypeSpecialAllStations;
+  const type = MissionTypeSpecialAllStations;
+  if (origin === destination)
+    return getInvalidMission("origin and destination are the same");
+  if (isStationLetter(destination) && isStationLetter(origin)) return { type };
 
-  return MissionTypeInvalid;
+  return getInvalidMission("code pattern not recognized");
 };
 
 const checkMissionTypeNonCommercial = (destination, origin) => {
   //   console.log("checkMissionTypeNonCommercial :>> ", { destination, origin });
-
-  if (origin === destination) return MissionTypeInvalid;
+  const type = MissionTypeNonCommercial;
+  if (origin === destination)
+    return getInvalidMission("origin and destination are the same");
   if (isStationLetter(destination) && isStationLetter(origin))
-    return MissionTypeNonCommercial;
+    return { type: type };
 
-  return MissionTypeInvalid;
+  return getInvalidMission("code pattern not recognized");
 };
 
 const checkMissionTypeStandard = (destination, mission) => {
   //   console.log("checkMissionTypeStandard :>> ", { destination, mission });
+  const type = MissionTypeStandard;
+  if (isStationLetter(destination)) return { type };
 
-  if (isStationLetter(destination)) return MissionTypeStandard;
-
-  return MissionTypeInvalid;
+  return getInvalidMission("code pattern not recognized");
 };
 
 const missionLetter = /^[UITAZXYBGCMHSDOQSERN]$/;
