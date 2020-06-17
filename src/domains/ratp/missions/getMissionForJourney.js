@@ -5,6 +5,7 @@ const {
   MissionTypeSpecialAllStations,
   MissionTypeNonCommercial,
 } = require("./decodeMission");
+const { getSchedulesForASpecialMission } = require("./missionScheduleSpecial");
 
 const missionsOfType = (missions) => (typeForFilter) => {
   return missions.filter((m) => m.type === typeForFilter);
@@ -53,9 +54,5 @@ function getSchedulesForMissionsSpecial(missionsSpecial) {
     return getSchedulesForASpecialMission(m.missionCode);
   });
 }
-
-const getSchedulesForASpecialMission = (missionCode) => {
-  return { mission: missionCode, stations: [] };
-};
 
 module.exports = { getSchedulesForMissions };
