@@ -1,4 +1,5 @@
 const { getStationByLetterCode } = require("../getStation");
+const { getMissionWay } = require("./getMissionWay");
 
 const MissionTypeInvalid = 0;
 const MissionTypeStandard = 1;
@@ -16,7 +17,9 @@ const getInvalidMission = (error) => ({
 });
 
 const decodeMission = (line) => (missionCode) => {
-  return { missionCode, ...decodeMission2(line, missionCode) };
+  const missionDetails = decodeMission2(line, missionCode);
+  const way = getMissionWay(missionDetails);
+  return { missionCode, ...missionDetails, way };
 };
 
 const decodeMission2 = (line, missionCode) => {

@@ -1,17 +1,13 @@
-const { getStationByLetterCode } = require("../getStation");
+function getMissionWay(missionDetails) {
+  if (!missionDetails) return null;
+  if (!missionDetails.origin || !missionDetails.destination) return null;
 
-function getMissionWay(network, line, originLetter, destinationLetter) {
-  if (!originLetter || !destinationLetter) return null;
-  if (originLetter === destinationLetter) return null;
+  const originOrder = missionDetails.origin.order;
+  const destinationOrder = missionDetails.destination.order;
 
-  const origin = getStationByLetterCode(network, line, originLetter);
-  const destination = getStationByLetterCode(network, line, destinationLetter);
-
-  if (!origin || !destination) return null;
-
-  if (origin.order === destination.order) return null;
-
-  return origin.order < destination.order ? "forward" : "backward";
+  if (!originOrder || !destinationOrder) return null;
+  if (originOrder === destinationOrder) return null;
+  return originOrder < destinationOrder ? "forward" : "backward";
 }
 
 module.exports = {

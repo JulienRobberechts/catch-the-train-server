@@ -4,23 +4,18 @@ const each = require("jest-each").default;
 describe("MissionWay", () => {
   describe("getMissionWay", () => {
     each([
-      ["X", "X", null],
-      ["W", "X", null],
-      ["X", "E", "forward"],
-      ["E", "X", "backward"],
-      ["U", "N", "forward"],
-      ["U", "I", "forward"],
-      ["D", "M", "backward"],
-      ["S", "Y", "backward"],
+      [null, null],
+      [{}, null],
+      [{ origin: null }, null],
+      [{ destination: null }, null],
+      [{ origin: null, destination: null }, null],
+      [{ origin: {}, destination: {} }, null],
+      [{ origin: { order: 1 }, destination: { order: 2 } }, "forward"],
+      [{ origin: { order: 2 }, destination: { order: 1 } }, "backward"],
     ]).test(
       "should return for missions '%s-%s' way=%s",
-      (originLetter, destinationLetter, expectedWay) => {
-        const actualWay = getMissionWay(
-          "rers",
-          "A",
-          originLetter,
-          destinationLetter
-        );
+      (missionDetails, expectedWay) => {
+        const actualWay = getMissionWay(missionDetails);
         expect(actualWay).toEqual(expectedWay);
       }
     );
