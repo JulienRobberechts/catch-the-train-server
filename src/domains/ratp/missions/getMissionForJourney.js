@@ -1,5 +1,4 @@
-const { getSchedulesForAMission } = require("./missionsCache");
-const { calculateMissionsForJourney } = require("./missionSchedule");
+const { getSchedulesForAStandardMission } = require("./missionsCache");
 const {
   MissionTypeInvalid,
   MissionTypeStandard,
@@ -44,13 +43,19 @@ async function getSchedulesForMissionsStandard(
 ) {
   return Promise.all(
     missionsStandard.map((m) => {
-      return getSchedulesForAMission(missionsRepository)(m.missionCode);
+      return getSchedulesForAStandardMission(missionsRepository)(m.missionCode);
     })
   );
 }
 
 function getSchedulesForMissionsSpecial(missionsSpecial) {
-  return [];
+  return missionsSpecial.map((m) => {
+    return getSchedulesForASpecialMission(m.missionCode);
+  });
 }
+
+const getSchedulesForASpecialMission = (missionCode) => {
+  return { mission: missionCode, stations: [] };
+};
 
 module.exports = { getSchedulesForMissions };
