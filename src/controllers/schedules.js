@@ -70,7 +70,7 @@ class SchedulesController {
       this.missionsRepository,
       prospectMissions
     );
-    console.log("missionsSchedules :>> ", missionsSchedules);
+    // console.log("missionsSchedules :>> ", missionsSchedules);
 
     const targetMissions = calculateMissionsForJourney(
       missionsSchedules,
