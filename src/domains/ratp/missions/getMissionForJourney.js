@@ -51,7 +51,7 @@ async function getSchedulesForMissionsStandard(
 
 function getSchedulesForMissionsSpecial(missionsSpecial) {
   return missionsSpecial.map((m) => {
-    return getSchedulesForASpecialMission(m.missionCode);
+    return getSchedulesForASpecialMission(m);
   });
 }
 
