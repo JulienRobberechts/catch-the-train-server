@@ -1,5 +1,6 @@
 const {
-  getMissionForJourney,
+  getSchedulesForMissions,
+  calculateMissionsForJourney,
   decodeMission,
   MissionTypeInvalid,
   MissionTypeStandard,
@@ -65,13 +66,16 @@ class SchedulesController {
       .filter((m) => m.type !== MissionTypeInvalid)
       .filter((m) => m.type !== MissionTypeNonCommercial);
 
-    const targetMissions = await getMissionForJourney(
+    const missionsSchedules = await getSchedulesForMissions(
       this.missionsRepository,
-      network,
-      line,
-      fromStationSlug,
-      toStationSlug,
       prospectMissions
+    );
+    console.log("missionsSchedules :>> ", missionsSchedules);
+
+    const targetMissions = calculateMissionsForJourney(
+      missionsSchedules,
+      fromStationSlug,
+      toStationSlug
     );
 
     const departures2 = departures1

@@ -1,4 +1,5 @@
-const getMissionForJourney = require("./getMissionForJourney");
+const { getSchedulesForMissions } = require("./getMissionForJourney");
+const { calculateMissionsForJourney } = require("./missionSchedule");
 const {
   decodeMission,
   MissionTypeInvalid,
@@ -8,7 +9,8 @@ const {
 } = require("./decodeMission");
 
 module.exports = {
-  getMissionForJourney,
+  getSchedulesForMissions,
+  calculateMissionsForJourney,
   decodeMission,
   MissionTypeInvalid,
   MissionTypeStandard,
