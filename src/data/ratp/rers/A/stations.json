@@ -1,104 +1,134 @@
 [
-  { "name": "Cergy-Le-Haut", "slug": "cergy+le+haut", "letter": "U" },
-  { "name": "Cergy-St-Christophe", "slug": "cergy+st+christophe" },
-  { "name": "Cergy-Prefecture", "slug": "cergy+prefecture" },
-  { "name": "Neuville Universite", "slug": "neuville+universite" },
-  { "name": "Conflans-Fin d'Oise", "slug": "conflans+fin+d'oise" },
-  { "name": "Acheres Ville", "slug": "acheres+ville", "letter": "I" },
-  { "name": "Maisons-Laffitte", "slug": "maisons+laffitte" },
-  { "name": "Sartrouville", "slug": "sartrouville" },
-  { "name": "Houilles", "slug": "houilles" },
-  { "name": "Nanterre Prefecture", "slug": "nanterre+prefecture" },
   {
-    "name": "Grande Arche la Defense",
-    "slug": "grande+arche+la+defense",
-    "letter": "B"
+    "name": "Cergy-Le-Haut",
+    "slug": "cergy+le+haut",
+    "letter": "U",
+    "order": 1
   },
+  { "name": "Cergy-St-Christophe", "slug": "cergy+st+christophe", "order": 2 },
+  { "name": "Cergy-Prefecture", "slug": "cergy+prefecture", "order": 3 },
+  { "name": "Neuville Universite", "slug": "neuville+universite", "order": 4 },
+  { "name": "Conflans-Fin d'Oise", "slug": "conflans+fin+d'oise", "order": 5 },
   {
-    "name": "Charles de Gaulle-Etoile",
-    "slug": "charles+de+gaulle+etoile",
-    "letter": "G"
+    "name": "Acheres Ville",
+    "slug": "acheres+ville",
+    "letter": "I",
+    "order": 6
   },
-  { "name": "Auber", "slug": "auber", "letter": "C" },
-  {
-    "name": "Chatelet-Les-Halles",
-    "slug": "chatelet+les+halles",
-    "letter": "M"
-  },
-  { "name": "Gare de Lyon", "slug": "gare+de+lyon" },
-  { "name": "Nation", "slug": "nation", "letter": "H" },
-  { "name": "Vincennes", "slug": "vincennes" },
-  {
-    "name": "Fontenay Sous Bois",
-    "slug": "fontenay+sous+bois",
-    "letter": "S"
-  },
-  { "name": "Nogent Sur Marne", "slug": "nogent+sur+marne" },
-  {
-    "name": "Joinville le Pont",
-    "slug": "joinville+le+pont",
-    "letter": "E"
-  },
-  { "name": "Saint Maur-Creteil", "slug": "saint+maur+creteil" },
-  { "name": "Le Parc de Saint Maur", "slug": "le+parc+de+saint+maur" },
-  { "name": "Champigny", "slug": "champigny" },
-  {
-    "name": "La Varenne-Chennevieres",
-    "slug": "la+varenne+chennevieres",
-    "letter": "R"
-  },
-  { "name": "Sucy-Bonneuil", "slug": "sucy+bonneuil" },
-  {
-    "name": "Boissy Saint Leger",
-    "slug": "boissy+saint+leger",
-    "letter": "N"
-  },
-  { "name": "Poissy", "slug": "poissy", "letter": "T" },
+  { "name": "Poissy", "slug": "poissy", "letter": "T", "order": 5 },
   {
     "name": "Acheres-Grand-Cormier",
     "slug": "acheres+grand+cormier",
-    "letter": "A"
+    "letter": "A",
+    "order": 6
   },
+  { "name": "Maisons-Laffitte", "slug": "maisons+laffitte", "order": 7 },
+  { "name": "Sartrouville", "slug": "sartrouville", "order": 8 },
+  { "name": "Houilles", "slug": "houilles", "order": 9 },
   {
     "name": "St Germain en Laye",
     "slug": "st+germain+en+laye",
-    "letter": "Z"
+    "letter": "Z",
+    "order": 3
   },
   {
     "name": "Le Vesinet le Pecq",
     "slug": "le+vesinet+le+pecq",
-    "letter": "X"
+    "letter": "X",
+    "order": 4
   },
-  { "name": "Le Vesinet Centre", "slug": "le+vesinet+centre" },
-  { "name": "Chatou-Croissy", "slug": "chatou+croissy" },
+  { "name": "Le Vesinet Centre", "slug": "le+vesinet+centre", "order": 5 },
+  { "name": "Chatou-Croissy", "slug": "chatou+croissy", "order": 6 },
   {
     "name": "Rueil Malmaison",
     "slug": "rueil+malmaison",
-    "letter": "Y"
+    "letter": "Y",
+    "order": 7
   },
-  { "name": "Nanterre Ville", "slug": "nanterre+ville" },
-  { "name": "Nanterre Universite", "slug": "nanterre+universite" },
+  { "name": "Nanterre Ville", "slug": "nanterre+ville", "order": 8 },
+  { "name": "Nanterre Universite", "slug": "nanterre+universite", "order": 9 },
+
+  { "name": "Nanterre Prefecture", "slug": "nanterre+prefecture", "order": 10 },
+  {
+    "name": "Grande Arche la Defense",
+    "slug": "grande+arche+la+defense",
+    "letter": "B",
+    "order": 11
+  },
+  {
+    "name": "Charles de Gaulle-Etoile",
+    "slug": "charles+de+gaulle+etoile",
+    "letter": "G",
+    "order": 12
+  },
+  { "name": "Auber", "slug": "auber", "letter": "C", "order": 13 },
+  {
+    "name": "Chatelet-Les-Halles",
+    "slug": "chatelet+les+halles",
+    "letter": "M",
+    "order": 14
+  },
+  { "name": "Gare de Lyon", "slug": "gare+de+lyon", "order": 15 },
+  { "name": "Nation", "slug": "nation", "letter": "H", "order": 16 },
+  { "name": "Vincennes", "slug": "vincennes", "order": 17 },
+  {
+    "name": "Fontenay Sous Bois",
+    "slug": "fontenay+sous+bois",
+    "letter": "S",
+    "order": 18
+  },
+  { "name": "Nogent Sur Marne", "slug": "nogent+sur+marne", "order": 19 },
+  {
+    "name": "Joinville le Pont",
+    "slug": "joinville+le+pont",
+    "letter": "E",
+    "order": 20
+  },
+  { "name": "Saint Maur-Creteil", "slug": "saint+maur+creteil", "order": 21 },
+  {
+    "name": "Le Parc de Saint Maur",
+    "slug": "le+parc+de+saint+maur",
+    "order": 22
+  },
+  { "name": "Champigny", "slug": "champigny", "order": 23 },
+  {
+    "name": "La Varenne-Chennevieres",
+    "slug": "la+varenne+chennevieres",
+    "letter": "R",
+    "order": 24
+  },
+  { "name": "Sucy-Bonneuil", "slug": "sucy+bonneuil", "order": 25 },
+  {
+    "name": "Boissy Saint Leger",
+    "slug": "boissy+saint+leger",
+    "letter": "N",
+    "order": 26
+  },
+
   {
     "name": "Val de Fontenay",
     "slug": "val+de+fontenay",
-    "letter": "S"
+    "letter": "S",
+    "order": 18
   },
-  { "name": "Neuilly-Plaisance", "slug": "neuilly+plaisance" },
-  { "name": "Bry Sur Marne", "slug": "bry+sur+marne" },
+  { "name": "Neuilly-Plaisance", "slug": "neuilly+plaisance", "order": 19 },
+  { "name": "Bry Sur Marne", "slug": "bry+sur+marne", "order": 20 },
   {
     "name": "Noisy le Grand-Mont d'Est",
     "slug": "noisy+le+grand+mont+d'est",
-    "letter": "D"
+    "letter": "D",
+    "order": 21
   },
-  { "name": "Noisy-Champs", "slug": "noisy+champs" },
-  { "name": "Noisiel", "slug": "noisiel" },
-  { "name": "Lognes", "slug": "lognes" },
-  { "name": "Torcy", "slug": "torcy", "letter": "O" },
-  { "name": "Bussy St-Georges", "slug": "bussy+st+georges" },
-  { "name": "Val d'Europe-Serris", "slug": "val+d'europe+serris" },
+  { "name": "Noisy-Champs", "slug": "noisy+champs", "order": 22 },
+  { "name": "Noisiel", "slug": "noisiel", "order": 23 },
+  { "name": "Lognes", "slug": "lognes", "order": 24 },
+  { "name": "Torcy", "slug": "torcy", "letter": "O", "order": 25 },
+  { "name": "Bussy St-Georges", "slug": "bussy+st+georges", "order": 26 },
+  { "name": "Val d'Europe-Serris", "slug": "val+d'europe+serris", "order": 27 },
   {
     "name": "Marne la Vallee-Chessy",
     "slug": "marne+la+vallee+chessy",
-    "letter": "Q"
+    "letter": "Q",
+    "order": 28
   }
 ]
