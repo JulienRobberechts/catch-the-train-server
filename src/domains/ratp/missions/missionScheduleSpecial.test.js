@@ -63,9 +63,22 @@ const sectionA4 = [
 
 const HBZZ = {
   mission: {
+    type: 2,
     missionCode: "HBZZ",
-    origin: "grande+arche+la+defense",
-    destination: "nation",
+    origin: {
+      name: "Grande Arche la Defense",
+      slug: "grande+arche+la+defense",
+      letter: "B",
+      order: 11,
+      section: "A0",
+    },
+    destination: {
+      name: "Nation",
+      slug: "nation",
+      letter: "H",
+      order: 16,
+      section: "A0",
+    },
     way: "forward",
   },
   expectedSchedule: [
@@ -80,8 +93,20 @@ const HBZZ = {
 const YOZZ = {
   mission: {
     missionCode: "YOZZ",
-    origin: "torcy",
-    destination: "rueil+malmaison",
+    origin: {
+      name: "Torcy",
+      slug: "torcy",
+      letter: "O",
+      order: 25,
+      section: "A4",
+    },
+    destination: {
+      name: "Rueil Malmaison",
+      slug: "rueil+malmaison",
+      letter: "Y",
+      order: 7,
+      section: "A1",
+    },
     way: "backward",
   },
   expectedSchedule: [
@@ -109,8 +134,20 @@ const YOZZ = {
 const TOZZ = {
   mission: {
     missionCode: "TOZZ",
-    origin: "torcy",
-    destination: "poissy",
+    origin: {
+      name: "Torcy",
+      slug: "torcy",
+      letter: "O",
+      order: 25,
+      section: "A4",
+    },
+    destination: {
+      name: "Poissy",
+      slug: "poissy",
+      letter: "T",
+      order: 5,
+      section: "A5",
+    },
     way: "backward",
   },
   expectedSchedule: [
@@ -140,8 +177,20 @@ const TOZZ = {
 const BNZZ = {
   mission: {
     missionCode: "BNZZ",
-    origin: "boissy+saint+leger",
-    destination: "grande+arche+la+defense",
+    origin: {
+      name: "Boissy Saint Leger",
+      slug: "boissy+saint+leger",
+      letter: "N",
+      order: 26,
+      section: "A2",
+    },
+    destination: {
+      name: "Grande Arche la Defense",
+      slug: "grande+arche+la+defense",
+      letter: "B",
+      order: 11,
+      section: "A0",
+    },
     way: "backward",
   },
   expectedSchedule: [
