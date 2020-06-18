@@ -45,15 +45,5 @@ describe("errorManagement", () => {
         expect(actualAppError.errorHttpCode).toBeTruthy();
       }
     );
-
-    test.skip("should reproduce test", () => {
-      const actualAppError = handleError(
-        errorCases.application_Error.incomingError
-      );
-      expect(actualAppError).toBeTruthy();
-      expect(actualAppError.errorCode).toEqual(
-        errorCases.application_Error.expectedErrorCode
-      );
-    });
   });
 });
