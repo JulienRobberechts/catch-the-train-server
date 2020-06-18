@@ -46,6 +46,20 @@ const timeTable = {
         message: "Sans voyageurs V.1",
         destination: "Saint-Germain-en-Laye",
       },
+      {
+        code: "WBWU",
+        destination: "Cergy-le-haut",
+      },
+      {
+        code: "UHZZ",
+        message: "09:55",
+        destination: "Cergy-le-haut",
+      },
+      {
+        code: "HUZZ",
+        message: "09:56",
+        destination: "Nation",
+      },
     ],
   },
   _metadata: {
