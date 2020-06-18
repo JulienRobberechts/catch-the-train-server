@@ -215,9 +215,41 @@ const BNZZ = {
 
 const missions = [
   ["HBZZ", HBZZ],
-  ["YOZZ", YOZZ],
-  ["TOZZ", TOZZ],
-  ["BNZZ", BNZZ],
+  // ["YOZZ", YOZZ],
+  // ["TOZZ", TOZZ],
+  // ["BNZZ", BNZZ],
+];
+
+const invalidMissions = [
+  ["1", {}],
+  ["2", { mission: {} }],
+  ["3", { mission: { type: 1 } }],
+  ["4", { mission: { type: 2 } }],
+  ["5", { mission: { type: 2, origin: {}, destination: {} } }],
+  [
+    "6",
+    { mission: { type: 2, origin: { order: 1 }, destination: { order: 2 } } },
+  ],
+  [
+    "7",
+    {
+      mission: {
+        type: 2,
+        origin: { section: "A1" },
+        destination: { section: "A1" },
+      },
+    },
+  ],
+  [
+    "8",
+    {
+      mission: {
+        type: 2,
+        origin: { order: 1, section: "A1" },
+        destination: { order: 1, section: "A1" },
+      },
+    },
+  ],
 ];
 
 describe("Missions schedule Special", () => {
@@ -228,6 +260,14 @@ describe("Missions schedule Special", () => {
         const actualResult = getSchedulesForASpecialMission(mission);
         expect(actualResult.mission).toBe(missionCode);
         expect(actualResult.stations).toEqual(expectedSchedule);
+      }
+    );
+
+    each(invalidMissions).test(
+      "should return error for invalid mission %s",
+      (testCase, { mission }) => {
+        const invalidCall = () => getSchedulesForASpecialMission(mission);
+        expect(invalidCall).toThrow();
       }
     );
   });
