@@ -3,132 +3,273 @@
     "name": "Cergy-Le-Haut",
     "slug": "cergy+le+haut",
     "letter": "U",
-    "order": 1
+    "order": 1,
+    "section": "A3"
   },
-  { "name": "Cergy-St-Christophe", "slug": "cergy+st+christophe", "order": 2 },
-  { "name": "Cergy-Prefecture", "slug": "cergy+prefecture", "order": 3 },
-  { "name": "Neuville Universite", "slug": "neuville+universite", "order": 4 },
-  { "name": "Conflans-Fin d'Oise", "slug": "conflans+fin+d'oise", "order": 5 },
+  {
+    "name": "Cergy-St-Christophe",
+    "slug": "cergy+st+christophe",
+    "order": 2,
+    "section": "A3"
+  },
+  {
+    "name": "Cergy-Prefecture",
+    "slug": "cergy+prefecture",
+    "order": 3,
+    "section": "A3"
+  },
+  {
+    "name": "Neuville Universite",
+    "slug": "neuville+universite",
+    "order": 4,
+    "section": "A3"
+  },
+  {
+    "name": "Conflans-Fin d'Oise",
+    "slug": "conflans+fin+d'oise",
+    "order": 5,
+    "section": "A3"
+  },
   {
     "name": "Acheres Ville",
     "slug": "acheres+ville",
     "letter": "I",
-    "order": 6
+    "order": 6,
+    "section": "A3"
   },
-  { "name": "Poissy", "slug": "poissy", "letter": "T", "order": 5 },
+  {
+    "name": "Poissy",
+    "slug": "poissy",
+    "letter": "T",
+    "order": 5,
+    "section": "A5"
+  },
   {
     "name": "Acheres-Grand-Cormier",
     "slug": "acheres+grand+cormier",
     "letter": "A",
-    "order": 6
+    "order": 6,
+    "section": "A5"
   },
-  { "name": "Maisons-Laffitte", "slug": "maisons+laffitte", "order": 7 },
-  { "name": "Sartrouville", "slug": "sartrouville", "order": 8 },
-  { "name": "Houilles", "slug": "houilles", "order": 9 },
+  {
+    "name": "Maisons-Laffitte",
+    "slug": "maisons+laffitte",
+    "order": 7,
+    "section": "A35"
+  },
+  {
+    "name": "Sartrouville",
+    "slug": "sartrouville",
+    "order": 8,
+    "section": "A35"
+  },
+  { "name": "Houilles", "slug": "houilles", "order": 9, "section": "A35" },
   {
     "name": "St Germain en Laye",
     "slug": "st+germain+en+laye",
     "letter": "Z",
-    "order": 3
+    "order": 3,
+    "section": "A1"
   },
   {
     "name": "Le Vesinet le Pecq",
     "slug": "le+vesinet+le+pecq",
     "letter": "X",
-    "order": 4
+    "order": 4,
+    "section": "A1"
   },
-  { "name": "Le Vesinet Centre", "slug": "le+vesinet+centre", "order": 5 },
-  { "name": "Chatou-Croissy", "slug": "chatou+croissy", "order": 6 },
+  {
+    "name": "Le Vesinet Centre",
+    "slug": "le+vesinet+centre",
+    "order": 5,
+    "section": "A1"
+  },
+  {
+    "name": "Chatou-Croissy",
+    "slug": "chatou+croissy",
+    "order": 6,
+    "section": "A1"
+  },
   {
     "name": "Rueil Malmaison",
     "slug": "rueil+malmaison",
     "letter": "Y",
-    "order": 7
+    "order": 7,
+    "section": "A1"
   },
-  { "name": "Nanterre Ville", "slug": "nanterre+ville", "order": 8 },
-  { "name": "Nanterre Universite", "slug": "nanterre+universite", "order": 9 },
+  {
+    "name": "Nanterre Ville",
+    "slug": "nanterre+ville",
+    "order": 8,
+    "section": "A1"
+  },
+  {
+    "name": "Nanterre Universite",
+    "slug": "nanterre+universite",
+    "order": 9,
+    "section": "A1"
+  },
 
-  { "name": "Nanterre Prefecture", "slug": "nanterre+prefecture", "order": 10 },
+  {
+    "name": "Nanterre Prefecture",
+    "slug": "nanterre+prefecture",
+    "order": 10,
+    "section": "A0"
+  },
   {
     "name": "Grande Arche la Defense",
     "slug": "grande+arche+la+defense",
     "letter": "B",
-    "order": 11
+    "order": 11,
+    "section": "A0"
   },
   {
     "name": "Charles de Gaulle-Etoile",
     "slug": "charles+de+gaulle+etoile",
     "letter": "G",
-    "order": 12
+    "order": 12,
+    "section": "A0"
   },
-  { "name": "Auber", "slug": "auber", "letter": "C", "order": 13 },
+  {
+    "name": "Auber",
+    "slug": "auber",
+    "letter": "C",
+    "order": 13,
+    "section": "A0"
+  },
   {
     "name": "Chatelet-Les-Halles",
     "slug": "chatelet+les+halles",
     "letter": "M",
-    "order": 14
+    "order": 14,
+    "section": "A0"
   },
-  { "name": "Gare de Lyon", "slug": "gare+de+lyon", "order": 15 },
-  { "name": "Nation", "slug": "nation", "letter": "H", "order": 16 },
-  { "name": "Vincennes", "slug": "vincennes", "order": 17 },
+  {
+    "name": "Gare de Lyon",
+    "slug": "gare+de+lyon",
+    "order": 15,
+    "section": "A0"
+  },
+  {
+    "name": "Nation",
+    "slug": "nation",
+    "letter": "H",
+    "order": 16,
+    "section": "A0"
+  },
+  { "name": "Vincennes", "slug": "vincennes", "order": 17, "section": "A0" },
   {
     "name": "Fontenay Sous Bois",
     "slug": "fontenay+sous+bois",
     "letter": "S",
-    "order": 18
+    "order": 18,
+    "section": "A2"
   },
-  { "name": "Nogent Sur Marne", "slug": "nogent+sur+marne", "order": 19 },
+  {
+    "name": "Nogent Sur Marne",
+    "slug": "nogent+sur+marne",
+    "order": 19,
+    "section": "A2"
+  },
   {
     "name": "Joinville le Pont",
     "slug": "joinville+le+pont",
     "letter": "E",
-    "order": 20
+    "order": 20,
+    "section": "A2"
   },
-  { "name": "Saint Maur-Creteil", "slug": "saint+maur+creteil", "order": 21 },
+  {
+    "name": "Saint Maur-Creteil",
+    "slug": "saint+maur+creteil",
+    "order": 21,
+    "section": "A2"
+  },
   {
     "name": "Le Parc de Saint Maur",
     "slug": "le+parc+de+saint+maur",
-    "order": 22
+    "order": 22,
+    "section": "A2"
   },
-  { "name": "Champigny", "slug": "champigny", "order": 23 },
+  { "name": "Champigny", "slug": "champigny", "order": 23, "section": "A2" },
   {
     "name": "La Varenne-Chennevieres",
     "slug": "la+varenne+chennevieres",
     "letter": "R",
-    "order": 24
+    "order": 24,
+    "section": "A2"
   },
-  { "name": "Sucy-Bonneuil", "slug": "sucy+bonneuil", "order": 25 },
+  {
+    "name": "Sucy-Bonneuil",
+    "slug": "sucy+bonneuil",
+    "order": 25,
+    "section": "A2"
+  },
   {
     "name": "Boissy Saint Leger",
     "slug": "boissy+saint+leger",
     "letter": "N",
-    "order": 26
+    "order": 26,
+    "section": "A2"
   },
 
   {
     "name": "Val de Fontenay",
     "slug": "val+de+fontenay",
     "letter": "S",
-    "order": 18
+    "order": 18,
+    "section": "A4"
   },
-  { "name": "Neuilly-Plaisance", "slug": "neuilly+plaisance", "order": 19 },
-  { "name": "Bry Sur Marne", "slug": "bry+sur+marne", "order": 20 },
+  {
+    "name": "Neuilly-Plaisance",
+    "slug": "neuilly+plaisance",
+    "order": 19,
+    "section": "A4"
+  },
+  {
+    "name": "Bry Sur Marne",
+    "slug": "bry+sur+marne",
+    "order": 20,
+    "section": "A4"
+  },
   {
     "name": "Noisy le Grand-Mont d'Est",
     "slug": "noisy+le+grand+mont+d'est",
     "letter": "D",
-    "order": 21
+    "order": 21,
+    "section": "A4"
   },
-  { "name": "Noisy-Champs", "slug": "noisy+champs", "order": 22 },
-  { "name": "Noisiel", "slug": "noisiel", "order": 23 },
-  { "name": "Lognes", "slug": "lognes", "order": 24 },
-  { "name": "Torcy", "slug": "torcy", "letter": "O", "order": 25 },
-  { "name": "Bussy St-Georges", "slug": "bussy+st+georges", "order": 26 },
-  { "name": "Val d'Europe-Serris", "slug": "val+d'europe+serris", "order": 27 },
+  {
+    "name": "Noisy-Champs",
+    "slug": "noisy+champs",
+    "order": 22,
+    "section": "A4"
+  },
+  { "name": "Noisiel", "slug": "noisiel", "order": 23, "section": "A4" },
+  { "name": "Lognes", "slug": "lognes", "order": 24, "section": "A4" },
+  {
+    "name": "Torcy",
+    "slug": "torcy",
+    "letter": "O",
+    "order": 25,
+    "section": "A4"
+  },
+  {
+    "name": "Bussy St-Georges",
+    "slug": "bussy+st+georges",
+    "order": 26,
+    "section": "A4"
+  },
+  {
+    "name": "Val d'Europe-Serris",
+    "slug": "val+d'europe+serris",
+    "order": 27,
+    "section": "A4"
+  },
   {
     "name": "Marne la Vallee-Chessy",
     "slug": "marne+la+vallee+chessy",
     "letter": "Q",
-    "order": 28
+    "order": 28,
+    "section": "A4"
   }
 ]

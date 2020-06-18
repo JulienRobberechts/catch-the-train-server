@@ -25,7 +25,12 @@ describe("getStation", () => {
       "rers",
       "A",
       "maisons+laffitte",
-      { slug: "maisons+laffitte", name: "Maisons-Laffitte" },
+      {
+        slug: "maisons+laffitte",
+        name: "Maisons-Laffitte",
+        order: 7,
+        section: "A35",
+      },
     ],
     [
       "rers",
@@ -35,6 +40,8 @@ describe("getStation", () => {
         slug: "grande+arche+la+defense",
         name: "Grande Arche la Defense",
         letter: "B",
+        order: 11,
+        section: "A0",
       },
     ],
   ]).it(
