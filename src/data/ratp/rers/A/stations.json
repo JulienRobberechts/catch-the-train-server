@@ -35,7 +35,8 @@
     "slug": "acheres+ville",
     "letter": "I",
     "order": 6,
-    "section": "A3"
+    "section": "A3",
+    "nextSection": ["A35"]
   },
   {
     "name": "Poissy",
@@ -49,7 +50,8 @@
     "slug": "acheres+grand+cormier",
     "letter": "A",
     "order": 6,
-    "section": "A5"
+    "section": "A5",
+    "nextSection": ["A35"]
   },
   {
     "name": "Maisons-Laffitte",
@@ -63,7 +65,13 @@
     "order": 8,
     "section": "A35"
   },
-  { "name": "Houilles", "slug": "houilles", "order": 9, "section": "A35" },
+  {
+    "name": "Houilles",
+    "slug": "houilles",
+    "order": 9,
+    "section": "A35",
+    "nextSection": ["A0"]
+  },
   {
     "name": "St Germain en Laye",
     "slug": "st+germain+en+laye",
@@ -107,7 +115,8 @@
     "name": "Nanterre Universite",
     "slug": "nanterre+universite",
     "order": 9,
-    "section": "A1"
+    "section": "A1",
+    "nextSection": ["A0"]
   },
 
   {
@@ -157,7 +166,13 @@
     "order": 16,
     "section": "A0"
   },
-  { "name": "Vincennes", "slug": "vincennes", "order": 17, "section": "A0" },
+  {
+    "name": "Vincennes",
+    "slug": "vincennes",
+    "order": 17,
+    "section": "A0",
+    "next": ["A2", "A4"]
+  },
   {
     "name": "Fontenay Sous Bois",
     "slug": "fontenay+sous+bois",
