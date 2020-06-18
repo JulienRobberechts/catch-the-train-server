@@ -171,7 +171,7 @@
     "slug": "vincennes",
     "order": 17,
     "section": "A0",
-    "next": ["A2", "A4"]
+    "nextSections": ["A2", "A4"]
   },
   {
     "name": "Fontenay Sous Bois",
