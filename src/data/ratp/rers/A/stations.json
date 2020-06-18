@@ -36,7 +36,7 @@
     "letter": "I",
     "order": 6,
     "section": "A3",
-    "nextSection": ["A35"]
+    "nextSections": ["A35"]
   },
   {
     "name": "Poissy",
@@ -51,7 +51,7 @@
     "letter": "A",
     "order": 6,
     "section": "A5",
-    "nextSection": ["A35"]
+    "nextSections": ["A35"]
   },
   {
     "name": "Maisons-Laffitte",
@@ -70,7 +70,7 @@
     "slug": "houilles",
     "order": 9,
     "section": "A35",
-    "nextSection": ["A0"]
+    "nextSections": ["A0"]
   },
   {
     "name": "St Germain en Laye",
@@ -116,7 +116,7 @@
     "slug": "nanterre+universite",
     "order": 9,
     "section": "A1",
-    "nextSection": ["A0"]
+    "nextSections": ["A0"]
   },
 
   {
