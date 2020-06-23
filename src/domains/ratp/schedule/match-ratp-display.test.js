@@ -123,6 +123,7 @@ describe("matchPlatformLabel", () => {
       ["sans", undefined],
       ["Supprimé", true],
       ["supprimé", true],
+      ["Stationne", true],
     ]).it(
       "should convert '%s' into NoPassenger='%s'",
       (msg, expectedResult) => {
