@@ -16,6 +16,13 @@ Array [
     "mission": "UPAC",
     "trainCode": "0929",
   },
+  Object {
+    "departureTime": "2020-03-10T09:55:00+01:00",
+    "displayAttributes": "09:55",
+    "displayDestination": "Cergy-le-haut",
+    "mission": "UHZZ",
+    "trainCode": "0955",
+  },
 ]
 `;
 
@@ -55,6 +62,13 @@ Array [
     "displayDestination": "Poissy",
     "mission": "TEDI",
     "trainCode": "2415",
+  },
+  Object {
+    "departureTime": "2020-03-10T09:55:00+01:00",
+    "displayAttributes": "09:55",
+    "displayDestination": "Cergy-le-haut",
+    "mission": "UHZZ",
+    "trainCode": "0955",
   },
 ]
 `;

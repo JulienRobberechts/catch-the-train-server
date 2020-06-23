@@ -11,23 +11,22 @@ const getSchedulesForASpecialMission = (mission) => {
     !mission.destination.section ||
     !mission.origin.order ||
     !mission.destination.order
-  )
+  ) {
     throw Error(
       "invalid mission - should contains type, way, origin and destination with section and order"
     );
+  }
 
-  if (mission.type !== 2)
+  if (mission.type !== 2) {
     throw Error("invalid mission - should contains type = Special");
+  }
 
   if (
     mission.origin.section === mission.destination.section &&
     mission.origin.order === mission.destination.order
-  )
+  ) {
     throw Error("invalid mission with same ");
-
-  // console.log("mission :>> ", mission);
-  // console.log("mission :>> ", mission);
-  // console.log("mission :>> ", mission);
+  }
 
   const sections = getSectionsForMission(
     [],
@@ -35,16 +34,23 @@ const getSchedulesForASpecialMission = (mission) => {
     mission.way,
     mission.destination.section
   );
+
+  const stationsOfSections = sections
+    .map((section) => getSectionStations(section, mission.way))
+    .flat();
+
+  const originIndex = stationsOfSections.findIndex(
+    (s) => s === mission.origin.slug
+  );
+  const destinationIndex = stationsOfSections.findIndex(
+    (s) => s === mission.destination.slug
+  );
+
+  const stations = stationsOfSections.slice(originIndex, destinationIndex + 1);
+
   return {
     mission: mission.missionCode,
-    stations: [
-      "grande+arche+la+defense",
-      "charles+de+gaulle+etoile",
-      "auber",
-      "chatelet+les+halles",
-      "gare+de+lyon",
-      "nation",
-    ],
+    stations,
   };
 };
 

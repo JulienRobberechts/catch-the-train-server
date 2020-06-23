@@ -23,13 +23,13 @@ describe("GET schedule by destination", () => {
     const url = `/next-trains/rers/A/${fromStation}/${toStation}`;
     const response = await api.get(url).expect(200);
     expect(response.body.departures).toMatchSnapshot();
-    expect(response.body.departures.length).toBe(5);
+    expect(response.body.departures.length).toBe(6);
   });
   it("should return 2 departures from chatelet+les+halles to cergy+le+haut", async () => {
     const toStation = "cergy+le+haut";
     const url = `/next-trains/rers/A/${fromStation}/${toStation}`;
     const response = await api.get(url).expect(200);
     expect(response.body.departures).toMatchSnapshot();
-    expect(response.body.departures.length).toBe(2);
+    expect(response.body.departures.length).toBe(3);
   });
 });

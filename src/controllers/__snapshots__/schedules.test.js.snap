@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`schedules controller should return schedules 1`] = `
+exports[`schedules controller should return schedules - chatelet+les+halles to maisons+laffitte 1`] = `
 Object {
   "context": Object {
     "at": "2020-03-10T09:22:30+01:00",
@@ -8,6 +8,7 @@ Object {
     "missions": Array [
       "UPAC",
       "TEDI",
+      "UHZZ",
     ],
     "network": "rers",
     "provider": "ratp",
@@ -81,6 +82,19 @@ Object {
       "noPassenger": undefined,
       "platform": undefined,
       "trainCode": "2415",
+    },
+    Object {
+      "departureTime": "2020-03-10T09:55:00+01:00",
+      "displayAttributes": "09:55",
+      "displayDestination": "Cergy-le-haut",
+      "isApproaching": undefined,
+      "isDeparture": undefined,
+      "isOnPlatform": undefined,
+      "isTerminus": undefined,
+      "mission": "UHZZ",
+      "noPassenger": undefined,
+      "platform": undefined,
+      "trainCode": "0955",
     },
   ],
 }

@@ -48,6 +48,7 @@ const HBZZ = {
 };
 const YOZZ = {
   mission: {
+    type: 2,
     missionCode: "YOZZ",
     origin: {
       name: "Torcy",
@@ -90,6 +91,7 @@ const YOZZ = {
 };
 const TOZZ = {
   mission: {
+    type: 2,
     missionCode: "TOZZ",
     origin: {
       name: "Torcy",
@@ -134,6 +136,7 @@ const TOZZ = {
 };
 const BNZZ = {
   mission: {
+    type: 2,
     missionCode: "BNZZ",
     origin: {
       name: "Boissy Saint Leger",
@@ -244,7 +247,7 @@ const invalidMissions = [
 
 describe("Missions schedule Special", () => {
   describe("getSchedulesForASpecialMission", () => {
-    each(missions).test.skip(
+    each(missions).test(
       "should return schedule for mission %s",
       (missionCode, { mission, expectedSchedule }) => {
         const actualResult = getSchedulesForASpecialMission(mission);

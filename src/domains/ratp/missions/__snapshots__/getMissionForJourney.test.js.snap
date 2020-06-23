@@ -1,0 +1,214 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SchedulesForMissions getSchedulesForMissions should get schedule for missions EXZZ 1`] = `
+Object {
+  "mission": Object {
+    "_testCase": "Mission type Special forward from Vesinet to Joinville le Pont",
+    "destination": Object {
+      "letter": "E",
+      "name": "Joinville le Pont",
+      "order": 20,
+      "section": "A2",
+      "slug": "joinville+le+pont",
+    },
+    "missionCode": "EXZZ",
+    "origin": Object {
+      "letter": "X",
+      "name": "Le Vesinet le Pecq",
+      "order": 4,
+      "section": "A1",
+      "slug": "le+vesinet+le+pecq",
+    },
+    "type": 2,
+    "way": "forward",
+  },
+  "result": Array [
+    Object {
+      "mission": "EXZZ",
+      "stations": Array [
+        "le+vesinet+le+pecq",
+        "le+vesinet+centre",
+        "chatou+croissy",
+        "rueil+malmaison",
+        "nanterre+ville",
+        "nanterre+universite",
+        "nanterre+prefecture",
+        "grande+arche+la+defense",
+        "charles+de+gaulle+etoile",
+        "auber",
+        "chatelet+les+halles",
+        "gare+de+lyon",
+        "nation",
+        "vincennes",
+        "fontenay+sous+bois",
+        "nogent+sur+marne",
+        "joinville+le+pont",
+      ],
+    },
+  ],
+}
+`;
+
+exports[`SchedulesForMissions getSchedulesForMissions should get schedule for missions TOZZ 1`] = `
+Object {
+  "mission": Object {
+    "_testCase": "Mission type Special backward from Torcy to Poissy",
+    "destination": Object {
+      "letter": "T",
+      "name": "Poissy",
+      "order": 5,
+      "section": "A5",
+      "slug": "poissy",
+    },
+    "missionCode": "TOZZ",
+    "origin": Object {
+      "letter": "O",
+      "name": "Torcy",
+      "order": 25,
+      "section": "A4",
+      "slug": "torcy",
+    },
+    "type": 2,
+    "way": "backward",
+  },
+  "result": Array [
+    Object {
+      "mission": "TOZZ",
+      "stations": Array [
+        "torcy",
+        "lognes",
+        "noisiel",
+        "noisy+champs",
+        "noisy+le+grand+mont+d'est",
+        "bry+sur+marne",
+        "neuilly+plaisance",
+        "val+de+fontenay",
+        "vincennes",
+        "nation",
+        "gare+de+lyon",
+        "chatelet+les+halles",
+        "auber",
+        "charles+de+gaulle+etoile",
+        "grande+arche+la+defense",
+        "nanterre+prefecture",
+        "houilles",
+        "sartrouville",
+        "maisons+laffitte",
+        "acheres+grand+cormier",
+        "poissy",
+      ],
+    },
+  ],
+}
+`;
+
+exports[`SchedulesForMissions getSchedulesForMissions should get schedule for missions UPAC 1`] = `
+Object {
+  "mission": Object {
+    "_testCase": "Mission type Standard backward from Marne la Vallee-Chessy to Cergy-Le-Haut",
+    "destination": Object {
+      "letter": "U",
+      "name": "Cergy-Le-Haut",
+      "order": 1,
+      "section": "A3",
+      "slug": "cergy+le+haut",
+    },
+    "missionCode": "UPAC",
+    "origin": Object {
+      "letter": "Q",
+      "name": "Marne la Vallee-Chessy",
+      "order": 28,
+      "section": "A4",
+      "slug": "marne+la+vallee+chessy",
+    },
+    "type": 1,
+    "way": "backward",
+  },
+  "result": Array [
+    Object {
+      "mission": "UPAC",
+      "stations": Array [
+        "marne+la+vallee+chessy",
+        "val+d'europe+serris",
+        "bussy+st+georges",
+        "torcy",
+        "lognes",
+        "noisiel",
+        "noisy+champs",
+        "noisy+le+grand+mont+d'est",
+        "bry+sur+marne",
+        "neuilly+plaisance",
+        "val+de+fontenay",
+        "vincennes",
+        "nation",
+        "gare+de+lyon",
+        "chatelet+les+halles",
+        "auber",
+        "charles+de+gaulle+etoile",
+        "grande+arche+la+defense",
+        "nanterre+prefecture",
+        "houilles",
+        "sartrouville",
+        "maisons+laffitte",
+        "acheres+ville",
+        "conflans+fin+d'oise",
+        "neuville+universite",
+        "cergy+prefecture",
+        "cergy+st+christophe",
+        "cergy+le+haut",
+      ],
+    },
+  ],
+}
+`;
+
+exports[`SchedulesForMissions getSchedulesForMissions should get schedule for missions YOZZ 1`] = `
+Object {
+  "mission": Object {
+    "_testCase": "Mission type Special backward from Torcy to Rueil Malmaison",
+    "destination": Object {
+      "letter": "Y",
+      "name": "Rueil Malmaison",
+      "order": 7,
+      "section": "A1",
+      "slug": "rueil+malmaison",
+    },
+    "missionCode": "YOZZ",
+    "origin": Object {
+      "letter": "O",
+      "name": "Torcy",
+      "order": 25,
+      "section": "A4",
+      "slug": "torcy",
+    },
+    "type": 2,
+    "way": "backward",
+  },
+  "result": Array [
+    Object {
+      "mission": "YOZZ",
+      "stations": Array [
+        "torcy",
+        "lognes",
+        "noisiel",
+        "noisy+champs",
+        "noisy+le+grand+mont+d'est",
+        "bry+sur+marne",
+        "neuilly+plaisance",
+        "val+de+fontenay",
+        "vincennes",
+        "nation",
+        "gare+de+lyon",
+        "chatelet+les+halles",
+        "auber",
+        "charles+de+gaulle+etoile",
+        "grande+arche+la+defense",
+        "nanterre+prefecture",
+        "nanterre+universite",
+        "nanterre+ville",
+        "rueil+malmaison",
+      ],
+    },
+  ],
+}
+`;

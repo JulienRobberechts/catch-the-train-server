@@ -36,7 +36,7 @@ describe("schedules controller", () => {
       });
     expect(invalidControllerInit).toThrow();
   });
-  it("should return schedules", async () => {
+  it("should return schedules - chatelet+les+halles to maisons+laffitte", async () => {
     const network = "rers";
     const line = "A";
     const fromStationSlug = "chatelet+les+halles";
