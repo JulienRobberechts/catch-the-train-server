@@ -66,7 +66,7 @@ exports.matchPlatformLabel = (msg) => {
 };
 
 exports.matchNoPassenger = (msg) => {
-  const patternNoPassenger = /Sans voyageurs|sans arrêt/i;
+  const patternNoPassenger = /Sans voyageurs|sans arrêt|Supprimé/i;
   const noPassenger = patternNoPassenger.test(msg) ? true : undefined;
   return noPassenger;
 };
