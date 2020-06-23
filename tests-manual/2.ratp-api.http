@@ -16,6 +16,9 @@
 ### Current departure at le+vesinet+le+pecq
 {{rootApiUrl}}/schedules/rers/a/le+vesinet+le+pecq/A+R
 
+### Current departure at nanterre+ville
+{{rootApiUrl}}/schedules/rers/a/nanterre+ville/A+R
+
 ### Mission ZUMO
 {{rootApiUrl}}/missions/rers/A/ZUMO
 

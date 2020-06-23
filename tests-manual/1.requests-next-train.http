@@ -8,8 +8,14 @@ GET {{rootUrl}}/next-trains/rers/A/chatelet+les+halles/auber
 ### st+germain+en+laye
 GET {{rootUrl}}/next-trains/rers/A/st+germain+en+laye/auber
 
-### st+germain+en+laye
-GET {{rootUrl}}/next-trains/rers/A/st+germain+en+laye/auber
+### chatou+croissy
+GET {{rootUrl}}/next-trains/rers/A/chatou+croissy/auber
+
+### rueil+malmaison
+GET {{rootUrl}}/next-trains/rers/A/rueil+malmaison/auber
+
+### nanterre+ville
+GET {{rootUrl}}/next-trains/rers/A/nanterre+ville/auber
 
 ### le+vesinet+le+pecq
 GET {{rootUrl}}/next-trains/rers/A/le+vesinet+le+pecq/auber
