@@ -30,6 +30,7 @@ describe("getStation", () => {
         name: "Maisons-Laffitte",
         order: 7,
         section: "A35",
+        owner: "sncf",
       },
     ],
     [
@@ -42,6 +43,7 @@ describe("getStation", () => {
         letter: "B",
         order: 11,
         section: "A0",
+        owner: "ratp",
       },
     ],
   ]).it(
