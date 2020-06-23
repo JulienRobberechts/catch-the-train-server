@@ -22,7 +22,7 @@ To start the application locally with mocked data:
 
 To start the application locally or in prod with real ratp data:
 
-> npm run start-prod
+> npm run start:prod
 
 ## Test
 

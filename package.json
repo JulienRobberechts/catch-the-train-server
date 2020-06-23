@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "cross-env RATP_API_MOCK_DATA=true nodemon ./src/bin/www",
-    "start-prod": "node ./src/bin/www",
+    "start:prod": "node ./src/bin/www",
     "test": "jest --watch",
     "test-update": "jest -u",
     "ci:test": "jest --collectCoverage"
