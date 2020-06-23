@@ -3,9 +3,19 @@ const {
   getSectionsForMission,
   getNextSections,
   getPreviousSections,
+  getSectionStations,
 } = require("./missionScheduleSpecial");
 const each = require("jest-each").default;
 
+const {
+  sectionA0Stations,
+  sectionA1Stations,
+  sectionA2Stations,
+  sectionA3Stations,
+  sectionA4Stations,
+  sectionA5Stations,
+  sectionA35Stations,
+} = require("./sections-stations-test");
 const HBZZ = {
   mission: {
     type: 2,
@@ -298,6 +308,30 @@ describe("Missions schedule Special", () => {
       (section, expectedSections) => {
         const actualResult = getPreviousSections(section);
         expect(actualResult).toEqual(expectedSections);
+      }
+    );
+  });
+  describe("getSectionStations", () => {
+    each([
+      ["A0", "forward", sectionA0Stations],
+      ["A1", "forward", sectionA1Stations],
+      ["A2", "forward", sectionA2Stations],
+      ["A3", "forward", sectionA3Stations],
+      ["A4", "forward", sectionA4Stations],
+      ["A5", "forward", sectionA5Stations],
+      ["A35", "forward", sectionA35Stations],
+      ["A0", "backward", sectionA0Stations.slice().reverse()],
+      ["A1", "backward", sectionA1Stations.slice().reverse()],
+      ["A2", "backward", sectionA2Stations.slice().reverse()],
+      ["A3", "backward", sectionA3Stations.slice().reverse()],
+      ["A4", "backward", sectionA4Stations.slice().reverse()],
+      ["A5", "backward", sectionA5Stations.slice().reverse()],
+      ["A35", "backward", sectionA35Stations.slice().reverse()],
+    ]).test(
+      "should return stations for sections %s/%s",
+      (section, way, expectedStations) => {
+        const actualResult = getSectionStations(section, way);
+        expect(actualResult).toEqual(expectedStations);
       }
     );
   });

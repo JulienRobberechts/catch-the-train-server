@@ -90,9 +90,20 @@ const getPreviousSections = (section) => {
   return previousSections;
 };
 
+const getSectionStations = (section, way) => {
+  const stations = stationsList
+    .filter((station) => station.section === section)
+    .sort((s1, s2) =>
+      way === "forward" ? s1.order - s2.order : s2.order - s1.order
+    )
+    .map((s) => s.slug);
+  return stations;
+};
+
 module.exports = {
   getSchedulesForASpecialMission,
   getSectionsForMission,
   getNextSections,
   getPreviousSections,
+  getSectionStations,
 };
