@@ -30,7 +30,7 @@ describe("No connectivity", () => {
 });
 
 describe("Schedule Unavailable", () => {
-  const fromStation = "cergy+prefecture";
+  const fromStation = "chatou+croissy";
   const toStation = "auber";
   const url = `/next-trains/rers/A/${fromStation}/${toStation}`;
   beforeEach(() => {
@@ -44,6 +44,24 @@ describe("Schedule Unavailable", () => {
     expect(response.body.errorCode).toBe(50310);
     expect(response.body.errorMessage).toBe(
       "Le service externe est momentanément indisponible"
+    );
+  });
+});
+
+describe("Schedule not available for this station", () => {
+  const fromStation = "maisons+laffitte";
+  const toStation = "auber";
+  const url = `/next-trains/rers/A/${fromStation}/${toStation}`;
+  beforeEach(() => {
+    if (config.RATP_API_MOCK_DATA)
+      throw Error("RATP_API_MOCK_DATA should be set to 'false' for this test");
+    mockApiCallsWithScheduleUnavailable(fromStation);
+  });
+  it("should return an error 40610", async () => {
+    const response = await api.get(url).expect(400);
+    expect(response.body.errorType).toBe("ValidationError");
+    expect(response.body.errorMessage).toBe(
+      "the station 'rers/A/maisons+laffitte' is not supported (yet)."
     );
   });
 });

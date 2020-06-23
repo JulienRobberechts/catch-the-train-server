@@ -13,6 +13,7 @@ const {
   checkParameterNetwork,
   checkParameterLine,
   checkParameterStation,
+  checkParameterStationAsDeparture,
 } = require("../domains/timeTable/checkParameter");
 const { RATP_API_ROOT_URL } = require("../config");
 const { formatSchedule } = require("../domains/ratp/schedule");
@@ -41,6 +42,7 @@ class SchedulesController {
     checkParameterNetwork(network);
     checkParameterLine(network, line);
     checkParameterStation(network, line, fromStationSlug);
+    checkParameterStationAsDeparture(network, line, fromStationSlug);
     checkParameterStation(network, line, toStationSlug);
 
     const allSchedules = await this.schedulesRepository.getAllSchedulesRATP(

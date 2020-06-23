@@ -19,9 +19,18 @@ function checkParameterStation(network, line, station) {
       `the station '${network}/${line}/${station}' is not recognized.`
     );
 }
+function checkParameterStationAsDeparture(network, line, station) {
+  const stationData = getStation(network, line, station);
+
+  if (!stationData || stationData.owner !== "ratp")
+    throw new ValidationError(
+      `the station '${network}/${line}/${station}' is not supported (yet).`
+    );
+}
 
 module.exports = {
   checkParameterNetwork,
   checkParameterLine,
   checkParameterStation,
+  checkParameterStationAsDeparture,
 };

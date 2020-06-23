@@ -14,19 +14,7 @@ GET {{rootUrl}}/next-trains/rers/A/st+germain+en+laye/auber
 ### le+vesinet+le+pecq
 GET {{rootUrl}}/next-trains/rers/A/le+vesinet+le+pecq/auber
 
-### cergy+le+haut
-GET {{rootUrl}}/next-trains/rers/A/cergy+le+haut/auber
-
-### cergy+prefecture
-GET {{rootUrl}}/next-trains/rers/A/cergy+prefecture/auber
-
-### acheres+ville
-GET {{rootUrl}}/next-trains/rers/A/acheres+ville/auber
-
-### sartrouville
-GET {{rootUrl}}/next-trains/rers/A/sartrouville/auber
-
-### houilles
+### houilles - (not supported - SNCF)
 GET {{rootUrl}}/next-trains/rers/A/houilles/auber
 
 ### boissy+saint+leger
