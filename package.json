@@ -7,7 +7,8 @@
     "start:prod": "node ./src/bin/www",
     "test": "jest --watch",
     "test-update": "jest -u",
-    "ci:test": "jest --collectCoverage"
+    "ci:test": "jest --collectCoverage",
+    "ci:test-live": "jest src/tests/live/"
   },
   "dependencies": {
     "axios": "^0.19.2",
