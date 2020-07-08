@@ -6,12 +6,6 @@ const network = "rers";
 const line = "A";
 
 const stationChatelet = "chatelet+les+halles";
-const stationNanterrePrefecture = "nanterre+prefecture";
-const stationNanterreVille = "nanterre+ville";
-const stationChatou = "chatou+croissy";
-const stationStGermain = "st+germain+en+laye";
-const stationNogent = "nogent+sur+marne";
-const stationStMaur = "le+parc+de+saint+maur";
 const stationAuber = "auber";
 
 const stations = require("../../data/ratp/rers/A/stations.json");
