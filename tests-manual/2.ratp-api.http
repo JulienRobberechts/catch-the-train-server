@@ -22,6 +22,9 @@
 ### Current departure at nanterre+prefecture
 {{rootApiUrl}}/schedules/rers/a/nanterre+prefecture/A+R
 
+### Current departure at grande+arche+la+defense
+{{rootApiUrl}}/schedules/rers/a/grande+arche+la+defense/A+R
+
 ### Mission ZUMO
 {{rootApiUrl}}/missions/rers/A/ZUMO
 

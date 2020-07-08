@@ -70,3 +70,9 @@ exports.matchNoPassenger = (msg) => {
   const noPassenger = patternNoPassenger.test(msg) ? true : undefined;
   return noPassenger;
 };
+
+exports.matchDelayed = (msg) => {
+  const patternDelayed = /retardé/i;
+  const isDelayed = patternDelayed.test(msg) ? true : undefined;
+  return isDelayed;
+};

@@ -125,6 +125,30 @@ describe("formatSchedule", () => {
       },
     ],
     [
+      "delayed train",
+      "Train retardé",
+      {
+        isUnknownTime: true,
+        isDelayed: true,
+      },
+    ],
+    [
+      "Unknown Time 1",
+      "Voie 1C",
+      {
+        isUnknownTime: true,
+        platform: "1C",
+      },
+    ],
+    [
+      "Unknown Time 1",
+      "Voie 2",
+      {
+        isUnknownTime: true,
+        platform: "2",
+      },
+    ],
+    [
       "probably on platform",
       "Départ Voie 4",
       {
@@ -145,8 +169,6 @@ describe("formatSchedule", () => {
   each([
     ["no message", null, "first parameter 'message' should not be falsy"],
     ["empty message", "", "first parameter 'message' should not be falsy"],
-    ["invalid message", "X", "No time or terminus"],
-    ["invalid hour format", "15H16", "No time or terminus"],
     ["invalid minutes", "15:89", "Invalid time"],
     ["invalid hour", "29:09", "Invalid time"],
   ]).it("%s - at %s should fail to convert", (desc, msg, error) => {
