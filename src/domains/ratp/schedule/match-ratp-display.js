@@ -56,7 +56,7 @@ exports.matchDeparture = (msg) => {
 };
 
 exports.matchPlatformLabel = (msg) => {
-  const patternPlatformLabel = /(Voie|V\.)\s*(?<platform>\w)/i;
+  const patternPlatformLabel = /(Voie|V\.)\s*(?<platform>\w*)/i;
   const platformResults = msg.match(patternPlatformLabel);
   let platform;
   if (platformResults && platformResults.groups) {

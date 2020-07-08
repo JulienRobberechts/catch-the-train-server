@@ -69,11 +69,28 @@ describe("formatSchedule", () => {
       },
     ],
     [
+      "hour platform 2",
+      "14:07 Voie 1C",
+      {
+        departureTime: "2020-03-10T14:07:00+01:00",
+        platform: "1C",
+      },
+    ],
+    [
       "approaching +10 seconds on time",
       "Train à l'approche",
       {
         departureTime: "2020-03-10T09:22:40+01:00",
         isApproaching: true,
+      },
+    ],
+    [
+      "approaching +10 seconds on time + platform",
+      "A l'approche V.1C",
+      {
+        departureTime: "2020-03-10T09:22:40+01:00",
+        isApproaching: true,
+        platform: "1C",
       },
     ],
     [
