@@ -20,6 +20,11 @@ const { formatSchedule } = require("../domains/ratp/schedule");
 const { createTrainCode } = require("../domains/ratp/create-train-code");
 const { getStationName } = require("../domains/ratp/getStation");
 const getMissionsFromSchedule = require("../domains/ratp/getMissionsFromSchedule");
+const config = require("../config");
+
+// TODO: group error exports together
+const { ApplicationError } = require("../utils/errors/applicationError");
+const ErrorCodes = require("../utils/errors/errorCodes");
 
 class SchedulesController {
   constructor({ schedulesRepository, missionsRepository }) {
@@ -56,12 +61,26 @@ class SchedulesController {
 
     const at = allSchedules._metadata.date;
 
-    const departures1 = allSchedules.result.schedules.map((departure) => ({
+    const departures0 = allSchedules.result.schedules.map((departure) => ({
       ...formatSchedule(at, departure.message),
       mission: departure ? departure.code.toUpperCase() : null,
       displayAttributes: departure.message,
       displayDestination: departure.destination,
     }));
+
+    if (config.RAISE_INVALID_DEPARTURES) {
+      const invalidDepartures = departures0.filter(
+        (departure) => !!departure.error
+      );
+      // console.log("invalidDepartures :>> ", invalidDepartures);
+      if (invalidDepartures.length > 0)
+        throw new ApplicationError(
+          ErrorCodes.ERROR_50110_IMPLEMENTATION_NOT_SUPPORTED_SCHEDULE_FORMAT_ERROR,
+          { invalidDepartures }
+        );
+    }
+
+    const departures1 = departures0.filter((departure) => !departure.error);
 
     const prospectMissions = getMissionsFromSchedule(departures1)
       .map(decodeMission(line))

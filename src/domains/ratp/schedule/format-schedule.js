@@ -66,7 +66,8 @@ exports.formatSchedule = (now, msg) => {
     // log
     debug(`parsing error on message '${msg}': ${error.message}`);
     return {
-      isInvalid: true,
+      originalMsg: msg,
+      error: error.message,
     };
   }
 };

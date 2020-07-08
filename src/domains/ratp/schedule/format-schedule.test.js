@@ -118,23 +118,25 @@ describe("formatSchedule", () => {
   );
 
   each([
-    ["no message", null],
-    ["empty message", ""],
-    ["invalid message", "X"],
-    ["invalid hour format", "15H16"],
-    ["invalid minutes", "15:89"],
-    ["invalid hour", "29:09"],
-  ]).it("%s - at %s should fail to convert", (desc, msg) => {
+    ["no message", null, "first parameter 'message' should not be falsy"],
+    ["empty message", "", "first parameter 'message' should not be falsy"],
+    ["invalid message", "X", "No time or terminus"],
+    ["invalid hour format", "15H16", "No time or terminus"],
+    ["invalid minutes", "15:89", "Invalid time"],
+    ["invalid hour", "29:09", "Invalid time"],
+  ]).it("%s - at %s should fail to convert", (desc, msg, error) => {
     const actualResult = formatSchedule(now, msg);
     expect(actualResult).toEqual({
-      isInvalid: true,
+      originalMsg: msg,
+      error,
     });
   });
 
   test("should return invalid with no now date", () => {
     const actualResult = formatSchedule(null, "15:16");
     expect(actualResult).toEqual({
-      isInvalid: true,
+      originalMsg: "15:16",
+      error: "first parameter 'now' should not be falsy",
     });
   });
 });

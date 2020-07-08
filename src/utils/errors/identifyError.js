@@ -2,6 +2,13 @@ const ErrorCodes = require("./errorCodes");
 const { ServerError } = require("./serverError");
 const { ApplicationError } = require("./applicationError");
 
+// TODO: Make a diagram of the error management
+// TODO: Make a doc on how to add an error to the app
+
+/**
+ * Extract an error code from any error
+ * @param {Error} incomingError
+ */
 const identifyError = (incomingError) => {
   if (!incomingError) {
     return ErrorCodes.ERROR_50000_UNKNOWN_SERVER_ERROR;

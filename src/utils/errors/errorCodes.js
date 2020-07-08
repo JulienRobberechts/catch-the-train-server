@@ -11,6 +11,9 @@ module.exports = {
   // Error when an external service return a 400 error
   ERROR_50020_EXTERNAL_SERVICE_USAGE_ERROR: 50020,
 
+  // 501: Not Implemented (or due to a lack of implementation)
+  ERROR_50110_IMPLEMENTATION_NOT_SUPPORTED_SCHEDULE_FORMAT_ERROR: 50110,
+
   // 503: Service Unavailable (error due to an external service)
   // Default error when an external service return a 500 error
   ERROR_50300_EXTERNAL_SERVICE_UNKNOWN_ERROR: 50300,

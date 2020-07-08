@@ -23,6 +23,11 @@ const ErrorMessages = [
     msg: "Erreur du serveur",
   },
   {
+    code:
+      ErrorCodes.ERROR_50110_IMPLEMENTATION_NOT_SUPPORTED_SCHEDULE_FORMAT_ERROR,
+    msg: "Format d'horaire non supporté",
+  },
+  {
     code: ErrorCodes.ERROR_50300_EXTERNAL_SERVICE_UNKNOWN_ERROR,
     msg: "Le service externe a rencontré une erreur inconnue",
   },
