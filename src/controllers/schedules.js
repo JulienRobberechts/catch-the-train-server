@@ -72,11 +72,10 @@ class SchedulesController {
       const invalidDepartures = departures0.filter(
         (departure) => !!departure.error
       );
-      // console.log("invalidDepartures :>> ", invalidDepartures);
       if (invalidDepartures.length > 0)
         throw new ApplicationError(
           ErrorCodes.ERROR_50110_IMPLEMENTATION_NOT_SUPPORTED_SCHEDULE_FORMAT_ERROR,
-          { invalidDepartures }
+          { invalidDepartures, allDepartures: departures0 }
         );
     }
 

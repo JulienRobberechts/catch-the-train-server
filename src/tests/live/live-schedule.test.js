@@ -41,15 +41,12 @@ describe("live schedule", () => {
           dest
         );
       } catch (err) {
-        const publicError = handleError(err);
+        const formattedError = handleError(err);
         console.log(
-          `live schedule Error :>> ${src}-${dest}`,
-          JSON.stringify(publicError, null, 2)
+          `live schedule Error :>> ${src}`,
+          JSON.stringify(formattedError, null, 2)
         );
-        fail(
-          `live schedule Error :>> ${src}-${dest}` +
-            JSON.stringify(publicError, null, 2)
-        );
+        fail("live schedule Error");
       }
     }
   );
