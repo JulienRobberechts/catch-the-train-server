@@ -27,7 +27,7 @@ describe("getAllSchedulesRATP error management", () => {
       expect(e.message).toEqual("Server Error");
       done();
     });
-  }, 2000);
+  }, 8000);
   it("should fail with server error after the timeout (500ms) with invalid address (non http)", (done) => {
     getAllSchedulesRATP("invalid-api.ratp.fr", {}).catch((e) => {
       expect(e instanceof ServerError).toBeTruthy();
@@ -35,5 +35,5 @@ describe("getAllSchedulesRATP error management", () => {
       expect(e.message).toEqual("Server Error");
       done();
     });
-  }, 2000);
+  }, 8000);
 });

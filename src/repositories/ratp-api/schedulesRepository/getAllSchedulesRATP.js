@@ -5,7 +5,7 @@ const { ApplicationError } = require("../../../utils/errors/applicationError");
 var debug = require("debug")("ctt:api:schedule");
 const { ServerError } = require("../../../utils/errors");
 
-axios.defaults.timeout = 500;
+axios.defaults.timeout = 6000;
 const apiName = "ratp";
 
 async function getAllSchedulesRATP(ratpApiBaseUrl, { network, line, station }) {

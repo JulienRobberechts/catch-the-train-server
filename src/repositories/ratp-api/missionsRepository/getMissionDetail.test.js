@@ -39,7 +39,7 @@ describe("getMissionDetail error management", () => {
       expect(e.message).toEqual("Server Error");
       done();
     });
-  }, 2000);
+  }, 8000);
   it("should fail with server error after the timeout with invalid address (non http)", (done) => {
     getMissionDetail({
       RATP_API_ROOT_URL: "invalid-api.ratp.fr",
@@ -50,5 +50,5 @@ describe("getMissionDetail error management", () => {
       expect(e.message).toEqual("Server Error");
       done();
     });
-  }, 2000);
+  }, 8000);
 });
