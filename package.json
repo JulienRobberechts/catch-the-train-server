@@ -5,9 +5,9 @@
   "scripts": {
     "start": "cross-env RATP_API_MOCK_DATA=true nodemon ./src/bin/www",
     "start:prod": "node ./src/bin/www",
-    "test": "jest --watch",
+    "test": "jest --watch --testPathIgnorePatterns='src/tests'",
     "test-update": "jest -u",
-    "ci:test": "jest --collectCoverage",
+    "ci:test": "jest --collectCoverage --testPathIgnorePatterns='src/tests'",
     "ci:test-live": "jest src/tests/live/"
   },
   "dependencies": {
