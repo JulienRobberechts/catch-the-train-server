@@ -70,7 +70,8 @@ class SchedulesController {
 
     if (config.RAISE_INVALID_DEPARTURES) {
       const invalidDepartures = departures0.filter(
-        (departure) => !!departure.error || !!departure.isUnknownTime
+        (departure) =>
+          !!departure.error || (departure.isUnknownTime && !departure.isDelayed)
       );
       if (invalidDepartures.length > 0)
         throw new ApplicationError(
