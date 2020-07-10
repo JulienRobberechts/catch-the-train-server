@@ -97,8 +97,8 @@ describe("formatSchedule", () => {
       "Train à quai",
       "Train à quai",
       {
+        isImminent: true,
         isOnPlatform: true,
-        isUnknownTime: true,
       },
     ],
     [
@@ -152,7 +152,7 @@ describe("formatSchedule", () => {
       "probably on platform",
       "Départ Voie 4",
       {
-        isUnknownTime: true,
+        isImminent: true,
         isDeparture: true,
         isOnPlatform: true,
         platform: "4",

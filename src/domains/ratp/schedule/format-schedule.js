@@ -45,8 +45,9 @@ exports.formatSchedule = (now, msg) => {
     const isOnPlatform =
       matchOnPlatform(msg) || isProbablyOnPlatform ? true : undefined;
 
-    const isUnknownTime =
-      !time && !isTerminus && !noPassenger ? true : undefined;
+    const noTime = !time && !isTerminus && !noPassenger;
+    const isUnknownTime = !isOnPlatform && noTime ? true : undefined;
+    const isImminent = isOnPlatform && noTime;
 
     return {
       noPassenger,
@@ -56,8 +57,9 @@ exports.formatSchedule = (now, msg) => {
       isApproaching,
       isDeparture,
       isTerminus,
-      isUnknownTime,
       isDelayed,
+      isUnknownTime,
+      isImminent,
     };
   } catch (error) {
     // log
