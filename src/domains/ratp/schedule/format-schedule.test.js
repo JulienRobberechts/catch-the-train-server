@@ -94,11 +94,11 @@ describe("formatSchedule", () => {
       },
     ],
     [
-      "desc",
+      "Train à quai",
       "Train à quai",
       {
-        departureTime: "2020-03-10T09:22:30+01:00",
         isOnPlatform: true,
+        isUnknownTime: true,
       },
     ],
     [
@@ -152,26 +152,23 @@ describe("formatSchedule", () => {
       "probably on platform",
       "Départ Voie 4",
       {
-        departureTime: "2020-03-10T09:22:30+01:00",
+        isUnknownTime: true,
         isDeparture: true,
         isOnPlatform: true,
         platform: "4",
       },
     ],
-  ]).it(
-    "%s - at %s should convert '%s' (test %#)",
-    (desc, msg, expectedResult) => {
-      const actualResult = formatSchedule(now, msg);
-      expect(actualResult).toEqual(expectedResult);
-    }
-  );
+  ]).it("%s - should convert '%s' (test %#)", (desc, msg, expectedResult) => {
+    const actualResult = formatSchedule(now, msg);
+    expect(actualResult).toEqual(expectedResult);
+  });
 
   each([
     ["no message", null, "first parameter 'message' should not be falsy"],
     ["empty message", "", "first parameter 'message' should not be falsy"],
     ["invalid minutes", "15:89", "Invalid time"],
     ["invalid hour", "29:09", "Invalid time"],
-  ]).it("%s - at %s should fail to convert", (desc, msg, error) => {
+  ]).it("%s - should fail to convert '%s'", (desc, msg, error) => {
     const actualResult = formatSchedule(now, msg);
     expect(actualResult).toEqual({
       originalMsg: msg,

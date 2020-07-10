@@ -45,11 +45,6 @@ exports.formatSchedule = (now, msg) => {
     const isOnPlatform =
       matchOnPlatform(msg) || isProbablyOnPlatform ? true : undefined;
 
-    if (isOnPlatform) {
-      const nowMoment = moment.parseZone(now);
-      time = nowMoment.format();
-    }
-
     const isUnknownTime =
       !time && !isTerminus && !noPassenger ? true : undefined;
 
